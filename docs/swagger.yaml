@@ -65,6 +65,33 @@ definitions:
           type: integer
         type: array
     type: object
+  model.CmdbGroup:
+    properties:
+      children:
+        description: 子分组（虚拟字段，用于树形展示）
+        items:
+          $ref: '#/definitions/model.CmdbGroup'
+        type: array
+      createTime:
+        allOf:
+        - $ref: '#/definitions/util.HTime'
+        description: 创建时间
+      id:
+        description: 主键ID
+        type: integer
+      name:
+        description: 分组名称
+        type: string
+      parentId:
+        description: 父级分组ID（0 表示根分组）
+        type: integer
+    type: object
+  model.CmdbGroupIdDto:
+    properties:
+      id:
+        description: ID
+        type: integer
+    type: object
   model.DelSysLoginInfoDto:
     properties:
       ids:
@@ -613,6 +640,79 @@ paths:
           schema:
             $ref: '#/definitions/result.Result'
       summary: 验证码接口
+  /api/cmdb/groupadd:
+    post:
+      description: 新增资产分组接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 新增资产分组接口
+  /api/cmdb/groupdelete:
+    delete:
+      description: 删除资产分组接口
+      parameters:
+      - description: 分组ID
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroupIdDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除资产分组接口
+  /api/cmdb/grouplist:
+    get:
+      description: 查询所有资产分组，并以树形结构返回
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 查询所有资产分组（树形结构）
+  /api/cmdb/groupupdate:
+    put:
+      description: 更新资产分组接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新资产分组接口
   /api/dept/add:
     post:
       description: 新增部门接口

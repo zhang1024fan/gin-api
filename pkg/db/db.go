@@ -1,6 +1,4 @@
-// mysql连接
-// author xiaoRui
-
+// pkg/db/db.go
 package db
 
 import (
@@ -34,6 +32,12 @@ func SetupDBLink() error {
 	if Db.Error != nil {
 		panic(Db.Error)
 	}
+
+	// 自动建表
+	if err := AutoMigrate(Db); err != nil {
+		panic(err)
+	}
+
 	sqlDB, err := Db.DB()
 	sqlDB.SetMaxIdleConns(dbConfig.MaxIdle)
 	sqlDB.SetMaxOpenConns(dbConfig.MaxOpen)

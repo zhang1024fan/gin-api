@@ -346,6 +346,127 @@
                 }
             }
         },
+        "/api/cmdb/groupadd": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "新增资产分组接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "新增资产分组接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CmdbGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/cmdb/groupdelete": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "删除资产分组接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除资产分组接口",
+                "parameters": [
+                    {
+                        "description": "分组ID",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CmdbGroupIdDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/cmdb/grouplist": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "查询所有资产分组，并以树形结构返回",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "查询所有资产分组（树形结构）",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/cmdb/groupupdate": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "更新资产分组接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "更新资产分组接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CmdbGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
         "/api/dept/add": {
             "post": {
                 "security": [
@@ -1780,6 +1901,47 @@
                     "items": {
                         "type": "integer"
                     }
+                }
+            }
+        },
+        "model.CmdbGroup": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "description": "子分组（虚拟字段，用于树形展示）",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.CmdbGroup"
+                    }
+                },
+                "createTime": {
+                    "description": "创建时间",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/util.HTime"
+                        }
+                    ]
+                },
+                "id": {
+                    "description": "主键ID",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "分组名称",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "父级分组ID（0 表示根分组）",
+                    "type": "integer"
+                }
+            }
+        },
+        "model.CmdbGroupIdDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
                 }
             }
         },

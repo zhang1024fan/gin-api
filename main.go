@@ -5,17 +5,19 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"gin-api/common/config"
 	_ "gin-api/docs"
 	"gin-api/pkg/db"
 	"gin-api/pkg/log"
 	"gin-api/pkg/redis"
 	"gin-api/router"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 // @title 通用后台管理系统
@@ -34,10 +36,19 @@ func main() {
 	}
 	// 启动服务
 	go func() {
+		log.Info("Conflicting values for 'process.env.NODE_ENV'")
+		log.Info("")
+		log.Info(fmt.Sprintf("  App running at:"))
+		log.Info(fmt.Sprintf("  - Local:   http://%s", config.Config.Server.Address))
+		log.Info(fmt.Sprintf("  - Network: http://%s", config.Config.Server.Address))
+		log.Info("")
+		log.Info("  Note that the development build is not optimized.")
+		log.Info("  To create a production build, run npm run build.")
+		log.Info("")
+		log.Info(fmt.Sprintf("API文档地址: http://%s/swagger/index.html", config.Config.Server.Address))
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Info("listen: %s \n", err)
 		}
-		log.Info("listen: %s \n", config.Config.Server.Address)
 	}()
 	quit := make(chan os.Signal)
 	//监听消息

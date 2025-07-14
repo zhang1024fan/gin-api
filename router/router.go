@@ -10,9 +10,8 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	// 导入模块路由注册器
-	"gin-api/router/system"
-	//"gin-api/utils/k8s"
+	"gin-api/router/cmdb"   // cmdb模块路由
+	"gin-api/router/system" // 系统模块路由
 )
 
 // 初始化路由
@@ -48,6 +47,7 @@ func register(router *gin.Engine) {
 		jwtGroup.Use(middleware.AuthMiddleware(), middleware.LogMiddleware())
 		{
 			system.RegisterSystemRoutes(jwtGroup)
+			cmdb.RegisterCmdbRoutes(jwtGroup) // 新增这一行
 		}
 	}
 }

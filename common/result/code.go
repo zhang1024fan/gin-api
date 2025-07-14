@@ -1,9 +1,6 @@
-// 状态码
-// author xiaoRui
-
 package result
 
-// Codes 定义状态
+// Codes 定义状态码和消息
 type Codes struct {
 	SUCCESS                                 uint
 	FAILED                                  uint
