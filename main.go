@@ -6,6 +6,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"gin-api/common"
 	"gin-api/common/config"
 	_ "gin-api/docs"
 	"gin-api/pkg/db"
@@ -65,8 +66,11 @@ func main() {
 
 // 初始化连接
 func init() {
-	// mysql
-	db.SetupDBLink()
+	// 执行数据库迁移
+	if err := db.AutoMigrate(common.GetDB()); err != nil {
+		log.Log().Error("Failed to migrate database: %v", err)
+		panic(err)
+	}
 	// redis
 	redis.SetupRedisDb()
 }

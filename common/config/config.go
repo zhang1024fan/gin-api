@@ -4,8 +4,9 @@
 package config
 
 import (
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
+
+	"gopkg.in/yaml.v2"
 )
 
 // 总配文件
@@ -69,4 +70,12 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+}
+
+// GetConfig 获取数据库配置
+func GetConfig() *db {
+	if Config == nil {
+		panic("Config is not initialized")
+	}
+	return &Config.Db
 }

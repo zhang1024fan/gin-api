@@ -365,6 +365,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
                 "summary": "新增资产分组接口",
                 "parameters": [
                     {
@@ -397,6 +400,9 @@ const docTemplate = `{
                 "description": "删除资产分组接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
                 ],
                 "summary": "删除资产分组接口",
                 "parameters": [
@@ -431,6 +437,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
                 "summary": "查询所有资产分组（树形结构）",
                 "responses": {
                     "200": {
@@ -453,6 +462,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
                 "summary": "更新资产分组接口",
                 "parameters": [
                     {
@@ -462,6 +474,180 @@ const docTemplate = `{
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/model.CmdbGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/config/ecsauthadd": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ECS认证凭据"
+                ],
+                "summary": "创建凭据",
+                "parameters": [
+                    {
+                        "description": "凭据信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CreateEcsPasswordAuthDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/config/ecsauthdelete": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ECS认证凭据"
+                ],
+                "summary": "删除凭据",
+                "parameters": [
+                    {
+                        "description": "凭据ID",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.EcsAuthIdDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/config/ecsauthinfo": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ECS认证凭据"
+                ],
+                "summary": "根据名称获取凭据",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "凭据名称",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/result.Result"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/model.EcsAuthVo"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/config/ecsauthlist": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ECS认证凭据"
+                ],
+                "summary": "获取所有凭据",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/result.Result"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/model.EcsAuthVo"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/config/ecsauthupdate": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ECS认证凭据"
+                ],
+                "summary": "更新凭据",
+                "parameters": [
+                    {
+                        "description": "凭据信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdateEcsAuthDto"
                         }
                     }
                 ],
@@ -1953,6 +2139,37 @@ const docTemplate = `{
                 }
             }
         },
+        "model.CreateEcsPasswordAuthDto": {
+            "type": "object",
+            "required": [
+                "name",
+                "password",
+                "type",
+                "username"
+            ],
+            "properties": {
+                "name": {
+                    "description": "凭证名称",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "密码",
+                    "type": "string"
+                },
+                "remark": {
+                    "description": "备注",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "认证类型:1-\u003e密码",
+                    "type": "integer"
+                },
+                "username": {
+                    "description": "用户名",
+                    "type": "string"
+                }
+            }
+        },
         "model.DelSysLoginInfoDto": {
             "type": "object",
             "properties": {
@@ -1974,6 +2191,44 @@ const docTemplate = `{
                     "items": {
                         "type": "integer"
                     }
+                }
+            }
+        },
+        "model.EcsAuthIdDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                }
+            }
+        },
+        "model.EcsAuthVo": {
+            "type": "object",
+            "properties": {
+                "createTime": {
+                    "$ref": "#/definitions/util.HTime"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "publicKey": {
+                    "type": "string"
+                },
+                "remark": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
                 }
             }
         },
@@ -2228,6 +2483,41 @@ const docTemplate = `{
                 "id": {
                     "description": "ID",
                     "type": "integer"
+                }
+            }
+        },
+        "model.UpdateEcsAuthDto": {
+            "type": "object",
+            "required": [
+                "name",
+                "password",
+                "type",
+                "username"
+            ],
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "凭证名称",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "密码",
+                    "type": "string"
+                },
+                "remark": {
+                    "description": "备注",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "认证类型:1-\u003e密码",
+                    "type": "integer"
+                },
+                "username": {
+                    "description": "用户名",
+                    "type": "string"
                 }
             }
         },

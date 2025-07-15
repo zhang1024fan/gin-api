@@ -13,6 +13,7 @@ var sysDept model.CmdbGroup
 
 // @Summary 新增资产分组接口
 // @Produce json
+// @Tags CMDB资产管理
 // @Description 新增资产分组接口
 // @Param data body model.CmdbGroup true "data"
 // @Success 200 {object} result.Result
@@ -22,9 +23,9 @@ func CreateCmdbGroup(c *gin.Context) {
 	_ = c.BindJSON(&sysDept)
 	service.GetCmdbGroupService().CreateCmdbGroup(c, sysDept)
 }
-
 // @Summary 查询所有资产分组（树形结构）
 // @Produce json
+// @Tags CMDB资产管理
 // @Description 查询所有资产分组，并以树形结构返回
 // @Success 200 {object} result.Result
 // @router /api/cmdb/grouplist [get]
@@ -32,9 +33,9 @@ func CreateCmdbGroup(c *gin.Context) {
 func GetAllCmdbGroups(c *gin.Context) {
 	service.GetCmdbGroupService().GetAllCmdbGroups(c)
 }
-
 // @Summary 更新资产分组接口
 // @Produce json
+// @Tags CMDB资产管理
 // @Description 更新资产分组接口
 // @Param data body model.CmdbGroup true "data"
 // @Success 200 {object} result.Result
@@ -45,9 +46,9 @@ func UpdateCmdbGroup(c *gin.Context) {
 	_ = c.BindJSON(&group)
 	service.GetCmdbGroupService().UpdateCmdbGroup(c, group)
 }
-
 // @Summary 删除资产分组接口
 // @Produce json
+// @Tags CMDB资产管理
 // @Description 删除资产分组接口
 // @Param data body model.CmdbGroupIdDto true "分组ID"
 // @Success 200 {object} result.Result

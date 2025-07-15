@@ -2,13 +2,16 @@
 package db
 
 import (
-	"gin-api/api/cmdb/model"
+	cmdbmodel "gin-api/api/cmdb/model"
+	ccmodel "gin-api/api/config_center/model"
+
 	"gorm.io/gorm"
 )
 
 // 注册所有需要自动建表的 model
 var models = []interface{}{
-	&model.CmdbGroup{},
+	&cmdbmodel.CmdbGroup{},
+	&ccmodel.EcsAuth{},
 	// 可以继续添加其他模型...
 }
 

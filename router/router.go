@@ -6,12 +6,15 @@ import (
 	"gin-api/api/system/controller"
 	"gin-api/common/config"
 	"gin-api/middleware"
+	"gin-api/pkg/log"
+
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	"gin-api/router/cmdb"   // cmdb模块路由
-	"gin-api/router/system" // 系统模块路由
+	"gin-api/router/cmdb"         // cmdb模块路由
+	"gin-api/router/configCenter" // 配置中心模块路由
+	"gin-api/router/system"       // 系统模块路由
 )
 
 // 初始化路由
@@ -22,7 +25,7 @@ func InitRouter() *gin.Engine {
 	router.Use(middleware.Cors())
 	// 让 /upload/ 开头的请求映射到 ./upload/ 目录下
 	router.Static("/upload", config.Config.ImageSettings.UploadDir)
-	router.Use(middleware.Logger())
+	router.Use(log.CustomGinLogger())
 
 	// 路由注册
 	register(router)
@@ -44,10 +47,11 @@ func register(router *gin.Engine) {
 		apiGroup.POST("/login", controller.Login)
 		// 需要 JWT鉴权 的接口
 		jwtGroup := apiGroup.Group("")
-		jwtGroup.Use(middleware.AuthMiddleware(), middleware.LogMiddleware())
+		jwtGroup.Use(middleware.AuthMiddleware())
 		{
 			system.RegisterSystemRoutes(jwtGroup)
-			cmdb.RegisterCmdbRoutes(jwtGroup) // 新增这一行
+			cmdb.RegisterCmdbRoutes(jwtGroup)
+			configCenter.RegisterConfigCenterRoutes(jwtGroup) // 新增这一行
 		}
 	}
 }
