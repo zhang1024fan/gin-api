@@ -799,3 +799,183 @@ time="2025/07/15 - 15:10:45" level=info msg="Request started" ip=127.0.0.1 metho
 time="2025/07/15 - 15:10:45" level=info msg="Request completed" ip=127.0.0.1 latency="998.323µs" method=GET path=/api/config/ecsauthinfo status=200
 time="2025/07/15 - 15:10:57" level=info msg="Shutdown Server ..."
 time="2025/07/15 - 15:10:57" level=info msg="Server exiting"
+time="2025/07/15 - 21:08:16" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/15 - 21:08:16" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/15 - 21:08:16" level=info
+time="2025/07/15 - 21:08:16" level=info msg="  App running at:"
+time="2025/07/15 - 21:08:16" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/15 - 21:08:16" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/15 - 21:08:16" level=info
+time="2025/07/15 - 21:08:16" level=info msg="  Note that the development build is not optimized."
+time="2025/07/15 - 21:08:16" level=info msg="  To create a production build, run npm run build."
+time="2025/07/15 - 21:08:16" level=info
+time="2025/07/15 - 21:08:16" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/15 - 21:08:24" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/index.html
+time="2025/07/15 - 21:08:24" level=info msg="Request completed" ip=127.0.0.1 latency="547.405µs" method=GET path=/swagger/index.html status=200
+time="2025/07/15 - 21:08:24" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui.css
+time="2025/07/15 - 21:08:24" level=info msg="Request completed" ip=127.0.0.1 latency="306.034µs" method=GET path=/swagger/swagger-ui.css status=200
+time="2025/07/15 - 21:08:24" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-standalone-preset.js
+time="2025/07/15 - 21:08:24" level=info msg="Request completed" ip=127.0.0.1 latency="392.311µs" method=GET path=/swagger/swagger-ui-standalone-preset.js status=200
+time="2025/07/15 - 21:08:24" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-bundle.js
+time="2025/07/15 - 21:08:24" level=info msg="Request completed" ip=127.0.0.1 latency=4.250388ms method=GET path=/swagger/swagger-ui-bundle.js status=200
+time="2025/07/15 - 21:08:26" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/doc.json
+time="2025/07/15 - 21:08:26" level=info msg="Request completed" ip=127.0.0.1 latency="738.821µs" method=GET path=/swagger/doc.json status=200
+time="2025/07/15 - 21:36:59" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/15 - 21:37:00" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/15 - 21:37:00" level=info
+time="2025/07/15 - 21:37:00" level=info msg="  App running at:"
+time="2025/07/15 - 21:37:00" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/15 - 21:37:00" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/15 - 21:37:00" level=info
+time="2025/07/15 - 21:37:00" level=info msg="  Note that the development build is not optimized."
+time="2025/07/15 - 21:37:00" level=info msg="  To create a production build, run npm run build."
+time="2025/07/15 - 21:37:00" level=info
+time="2025/07/15 - 21:37:00" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/15 - 21:37:08" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/index.html
+time="2025/07/15 - 21:37:08" level=info msg="Request completed" ip=127.0.0.1 latency="586.904µs" method=GET path=/swagger/index.html status=200
+time="2025/07/15 - 21:37:08" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-bundle.js
+time="2025/07/15 - 21:37:08" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-standalone-preset.js
+time="2025/07/15 - 21:37:08" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui.css
+time="2025/07/15 - 21:37:08" level=info msg="Request completed" ip=127.0.0.1 latency="625.583µs" method=GET path=/swagger/swagger-ui.css status=200
+time="2025/07/15 - 21:37:08" level=info msg="Request completed" ip=127.0.0.1 latency=1.19554ms method=GET path=/swagger/swagger-ui-standalone-preset.js status=200
+time="2025/07/15 - 21:37:08" level=info msg="Request completed" ip=127.0.0.1 latency=7.617525ms method=GET path=/swagger/swagger-ui-bundle.js status=200
+time="2025/07/15 - 21:37:09" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/doc.json
+time="2025/07/15 - 21:37:09" level=info msg="Request completed" ip=127.0.0.1 latency="821.475µs" method=GET path=/swagger/doc.json status=200
+time="2025/07/15 - 21:37:10" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/favicon-32x32.png
+time="2025/07/15 - 21:37:10" level=info msg="Request completed" ip=127.0.0.1 latency=1.1058ms method=GET path=/swagger/favicon-32x32.png status=200
+time="2025/07/15 - 21:40:02" level=info msg="Shutdown Server ..."
+time="2025/07/15 - 21:40:02" level=info msg="Server exiting"
+time="2025/07/15 - 21:40:08" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/15 - 21:40:08" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/15 - 21:40:08" level=info
+time="2025/07/15 - 21:40:08" level=info msg="  App running at:"
+time="2025/07/15 - 21:40:08" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/15 - 21:40:08" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/15 - 21:40:08" level=info
+time="2025/07/15 - 21:40:08" level=info msg="  Note that the development build is not optimized."
+time="2025/07/15 - 21:40:08" level=info msg="  To create a production build, run npm run build."
+time="2025/07/15 - 21:40:08" level=info
+time="2025/07/15 - 21:40:08" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/15 - 21:40:16" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/index.html
+time="2025/07/15 - 21:40:16" level=info msg="Request completed" ip=127.0.0.1 latency=2.399513ms method=GET path=/swagger/index.html status=200
+time="2025/07/15 - 21:40:16" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui.css
+time="2025/07/15 - 21:40:16" level=info msg="Request completed" ip=127.0.0.1 latency="221.76µs" method=GET path=/swagger/swagger-ui.css status=200
+time="2025/07/15 - 21:40:16" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-bundle.js
+time="2025/07/15 - 21:40:16" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-standalone-preset.js
+time="2025/07/15 - 21:40:16" level=info msg="Request completed" ip=127.0.0.1 latency=2.426487ms method=GET path=/swagger/swagger-ui-standalone-preset.js status=200
+time="2025/07/15 - 21:40:16" level=info msg="Request completed" ip=127.0.0.1 latency=17.852774ms method=GET path=/swagger/swagger-ui-bundle.js status=200
+time="2025/07/15 - 21:40:17" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/doc.json
+time="2025/07/15 - 21:40:17" level=info msg="Request completed" ip=127.0.0.1 latency="809.857µs" method=GET path=/swagger/doc.json status=200
+time="2025/07/15 - 21:40:17" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/favicon-32x32.png
+time="2025/07/15 - 21:40:17" level=info msg="Request completed" ip=127.0.0.1 latency=106.523566ms method=GET path=/swagger/favicon-32x32.png status=200
+time="2025/07/16 - 10:16:26" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 10:16:26" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 10:16:26" level=info
+time="2025/07/16 - 10:16:26" level=info msg="  App running at:"
+time="2025/07/16 - 10:16:26" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 10:16:26" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 10:16:26" level=info
+time="2025/07/16 - 10:16:26" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 10:16:26" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 10:16:26" level=info
+time="2025/07/16 - 10:16:26" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 10:18:33" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/index.html
+time="2025/07/16 - 10:18:33" level=info msg="Request completed" ip=127.0.0.1 latency=14.202047ms method=GET path=/swagger/index.html status=200
+time="2025/07/16 - 10:18:33" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui.css
+time="2025/07/16 - 10:18:33" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-bundle.js
+time="2025/07/16 - 10:18:33" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-standalone-preset.js
+time="2025/07/16 - 10:18:33" level=info msg="Request completed" ip=127.0.0.1 latency=2.899244ms method=GET path=/swagger/swagger-ui.css status=200
+time="2025/07/16 - 10:18:33" level=info msg="Request completed" ip=127.0.0.1 latency=5.653711ms method=GET path=/swagger/swagger-ui-standalone-preset.js status=200
+time="2025/07/16 - 10:18:33" level=info msg="Request completed" ip=127.0.0.1 latency=17.928489ms method=GET path=/swagger/swagger-ui-bundle.js status=200
+time="2025/07/16 - 10:18:36" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/doc.json
+time="2025/07/16 - 10:18:36" level=info msg="Request completed" ip=127.0.0.1 latency=2.297876ms method=GET path=/swagger/doc.json status=200
+time="2025/07/16 - 10:28:07" level=info msg="Shutdown Server ..."
+time="2025/07/16 - 10:28:07" level=info msg="Server exiting"
+time="2025/07/16 - 10:31:27" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 10:31:28" level=info msg="Swagger docs generated successfully"
+time="2025/07/16 - 10:31:28" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 10:31:28" level=info
+time="2025/07/16 - 10:31:28" level=info msg="  App running at:"
+time="2025/07/16 - 10:31:28" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 10:31:28" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 10:31:28" level=info
+time="2025/07/16 - 10:31:28" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 10:31:28" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 10:31:28" level=info
+time="2025/07/16 - 10:31:28" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 10:31:35" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/index.html
+time="2025/07/16 - 10:31:35" level=info msg="Request completed" ip=127.0.0.1 latency="791.206µs" method=GET path=/swagger/index.html status=200
+time="2025/07/16 - 10:31:35" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui.css
+time="2025/07/16 - 10:31:35" level=info msg="Request completed" ip=127.0.0.1 latency="279.862µs" method=GET path=/swagger/swagger-ui.css status=200
+time="2025/07/16 - 10:31:35" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-bundle.js
+time="2025/07/16 - 10:31:35" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-standalone-preset.js
+time="2025/07/16 - 10:31:35" level=info msg="Request completed" ip=127.0.0.1 latency="421.432µs" method=GET path=/swagger/swagger-ui-standalone-preset.js status=200
+time="2025/07/16 - 10:31:36" level=info msg="Request completed" ip=127.0.0.1 latency=16.580452ms method=GET path=/swagger/swagger-ui-bundle.js status=200
+time="2025/07/16 - 10:31:36" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/doc.json
+time="2025/07/16 - 10:31:36" level=info msg="Request completed" ip=127.0.0.1 latency="462.428µs" method=GET path=/swagger/doc.json status=200
+time="2025/07/16 - 10:31:36" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/favicon-32x32.png
+time="2025/07/16 - 10:31:36" level=info msg="Request completed" ip=127.0.0.1 latency="192.833µs" method=GET path=/swagger/favicon-32x32.png status=200
+time="2025/07/16 - 10:32:12" level=info msg="Shutdown Server ..."
+time="2025/07/16 - 10:32:12" level=info msg="Server exiting"
+time="2025/07/16 - 10:32:41" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 10:32:41" level=info msg="Swagger docs generated successfully"
+time="2025/07/16 - 10:32:41" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 10:32:41" level=info
+time="2025/07/16 - 10:32:41" level=info msg="  App running at:"
+time="2025/07/16 - 10:32:41" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 10:32:41" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 10:32:41" level=info
+time="2025/07/16 - 10:32:41" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 10:32:41" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 10:32:41" level=info
+time="2025/07/16 - 10:32:41" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 10:32:46" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/index.html
+time="2025/07/16 - 10:32:46" level=info msg="Request completed" ip=127.0.0.1 latency=1.026436ms method=GET path=/swagger/index.html status=200
+time="2025/07/16 - 10:32:46" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui.css
+time="2025/07/16 - 10:32:46" level=info msg="Request completed" ip=127.0.0.1 latency="341.324µs" method=GET path=/swagger/swagger-ui.css status=200
+time="2025/07/16 - 10:32:46" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-bundle.js
+time="2025/07/16 - 10:32:46" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-standalone-preset.js
+time="2025/07/16 - 10:32:46" level=info msg="Request completed" ip=127.0.0.1 latency="603.393µs" method=GET path=/swagger/swagger-ui-standalone-preset.js status=200
+time="2025/07/16 - 10:32:46" level=info msg="Request completed" ip=127.0.0.1 latency=3.263748ms method=GET path=/swagger/swagger-ui-bundle.js status=200
+time="2025/07/16 - 10:32:46" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/doc.json
+time="2025/07/16 - 10:32:46" level=info msg="Request completed" ip=127.0.0.1 latency=16.209082ms method=GET path=/swagger/doc.json status=200
+time="2025/07/16 - 10:32:46" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/favicon-32x32.png
+time="2025/07/16 - 10:32:46" level=info msg="Request completed" ip=127.0.0.1 latency="436.436µs" method=GET path=/swagger/favicon-32x32.png status=200
+time="2025/07/16 - 10:38:02" level=info msg="Shutdown Server ..."
+time="2025/07/16 - 10:38:02" level=info msg="Server exiting"
+time="2025/07/16 - 10:38:13" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 10:38:13" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 10:38:13" level=info
+time="2025/07/16 - 10:38:13" level=info msg="  App running at:"
+time="2025/07/16 - 10:38:13" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 10:38:13" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 10:38:13" level=info
+time="2025/07/16 - 10:38:13" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 10:38:13" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 10:38:13" level=info
+time="2025/07/16 - 10:38:13" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 10:39:11" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 10:39:12" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 10:39:12" level=info
+time="2025/07/16 - 10:39:12" level=info msg="  App running at:"
+time="2025/07/16 - 10:39:12" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 10:39:12" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 10:39:12" level=info
+time="2025/07/16 - 10:39:12" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/16 - 10:39:12" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/16 - 10:39:12" level=info
+time="2025/07/16 - 10:39:12" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 10:39:23" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/index.html
+time="2025/07/16 - 10:39:23" level=info msg="Request completed" ip=127.0.0.1 latency="744.755µs" method=GET path=/swagger/index.html status=200
+time="2025/07/16 - 10:39:23" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui.css
+time="2025/07/16 - 10:39:23" level=info msg="Request completed" ip=127.0.0.1 latency="258.099µs" method=GET path=/swagger/swagger-ui.css status=200
+time="2025/07/16 - 10:39:23" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-bundle.js
+time="2025/07/16 - 10:39:23" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/swagger-ui-standalone-preset.js
+time="2025/07/16 - 10:39:23" level=info msg="Request completed" ip=127.0.0.1 latency="444.181µs" method=GET path=/swagger/swagger-ui-standalone-preset.js status=200
+time="2025/07/16 - 10:39:23" level=info msg="Request completed" ip=127.0.0.1 latency=16.061612ms method=GET path=/swagger/swagger-ui-bundle.js status=200
+time="2025/07/16 - 10:39:24" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/doc.json
+time="2025/07/16 - 10:39:24" level=info msg="Request completed" ip=127.0.0.1 latency="475.345µs" method=GET path=/swagger/doc.json status=200
+time="2025/07/16 - 10:39:25" level=info msg="Request started" ip=127.0.0.1 method=GET path=/swagger/favicon-32x32.png
+time="2025/07/16 - 10:39:25" level=info msg="Request completed" ip=127.0.0.1 latency="163.729µs" method=GET path=/swagger/favicon-32x32.png status=200
+time="2025/07/16 - 10:44:33" level=info msg="Shutdown Server ..."
+time="2025/07/16 - 10:44:33" level=info msg="Server exiting"

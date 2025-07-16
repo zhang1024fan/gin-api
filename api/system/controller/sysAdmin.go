@@ -6,10 +6,12 @@ package controller
 import (
 	"gin-api/api/system/model"
 	"gin-api/api/system/service"
-	"github.com/gin-gonic/gin"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
+// @Tags system系统管理
 // @Summary 用户登录接口
 // @Produce json
 // @Description 用户登录接口
@@ -22,6 +24,7 @@ func Login(c *gin.Context) {
 	service.SysAdminService().Login(c, dto)
 }
 
+// @Tags system系统管理
 // 新增用户
 // @Summary 新增用户接口
 // @Produce json
@@ -36,6 +39,7 @@ func CreateSysAdmin(c *gin.Context) {
 	service.SysAdminService().CreateSysAdmin(c, dto)
 }
 
+// @Tags system系统管理
 // 根据id查询用户
 // @Summary 根据id查询用户接口
 // @Produce json
@@ -49,6 +53,7 @@ func GetSysAdminInfo(c *gin.Context) {
 	service.SysAdminService().GetSysAdminInfo(c, Id)
 }
 
+// @Tags system系统管理
 // 修改用户
 // @Summary 修改用户接口
 // @Produce json
@@ -63,6 +68,7 @@ func UpdateSysAdmin(c *gin.Context) {
 	service.SysAdminService().UpdateSysAdmin(c, dto)
 }
 
+// @Tags system系统管理
 // 根据id删除用户
 // @Summary 根据id删除用户接口
 // @Produce json
@@ -77,6 +83,8 @@ func DeleteSysAdminById(c *gin.Context) {
 	service.SysAdminService().DeleteSysAdminById(c, dto)
 }
 
+// @Tags system系统管理
+//
 //	用户状态启用/停用
 //
 // @Summary 用户状态启用/停用接口
@@ -92,6 +100,7 @@ func UpdateSysAdminStatus(c *gin.Context) {
 	service.SysAdminService().UpdateSysAdminStatus(c, dto)
 }
 
+// @Tags system系统管理
 // 重置密码
 // @Summary 重置密码接口
 // @Produce json
@@ -106,6 +115,7 @@ func ResetSysAdminPassword(c *gin.Context) {
 	service.SysAdminService().ResetSysAdminPassword(c, dto)
 }
 
+// @Tags system系统管理
 // 分页获取用户列表
 // @Summary 分页获取用户列表接口
 // @Produce json
@@ -129,6 +139,7 @@ func GetSysAdminList(c *gin.Context) {
 	service.SysAdminService().GetSysAdminList(c, PageSize, PageNum, Username, Status, BeginTime, EndTime)
 }
 
+// @Tags system系统管理
 // 修改个人信息
 // @Summary 修改个人信息接口
 // @Produce json
@@ -143,6 +154,7 @@ func UpdatePersonal(c *gin.Context) {
 	service.SysAdminService().UpdatePersonal(c, dto)
 }
 
+// @Tags system系统管理
 // 修改用户密码
 // @Summary 修改用户密码接口
 // @Produce json

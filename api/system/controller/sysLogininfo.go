@@ -6,10 +6,12 @@ package controller
 import (
 	"gin-api/api/system/model"
 	"gin-api/api/system/service"
-	"github.com/gin-gonic/gin"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
+// @Tags system系统管理
 // 分页获取登录日志列表
 // @Summary 分页获取登录日志列表接口
 // @Produce json
@@ -33,6 +35,7 @@ func GetSysLoginInfoList(c *gin.Context) {
 	service.SysLoginInfoService().GetSysLoginInfoList(c, Username, LoginStatus, BeginTime, EndTime, PageSize, PageNum)
 }
 
+// @Tags system系统管理
 // 批量删除登录日志
 // @Summary 批量删除登录日志接口
 // @Produce json
@@ -47,6 +50,7 @@ func BatchDeleteSysLoginInfo(c *gin.Context) {
 	service.SysLoginInfoService().BatchDeleteSysLoginInfo(c, dto)
 }
 
+// @Tags system系统管理
 // 根据ID删除登录日志
 // @Summary 根据ID删除登录日志接口
 // @Produce json
@@ -61,6 +65,7 @@ func DeleteSysLoginInfoById(c *gin.Context) {
 	service.SysLoginInfoService().DeleteSysLoginInfo(c, dto)
 }
 
+// @Tags system系统管理
 // 清空登录日志
 // @Summary 清空登录日志接口
 // @Produce json

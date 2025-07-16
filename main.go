@@ -21,9 +21,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// @title 通用后台管理系统
+// @title devops运维管理系统
 // @version 1.0
-// @description 后台管理系统API接口文档
+// @description devops运维管理系统API接口文档
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
@@ -43,8 +43,8 @@ func main() {
 		log.Info(fmt.Sprintf("  - Local:   http://%s", config.Config.Server.Address))
 		log.Info(fmt.Sprintf("  - Network: http://%s", config.Config.Server.Address))
 		log.Info("")
-		log.Info("  Note that the development build is not optimized.")
-		log.Info("  To create a production build, run npm run build.")
+		log.Info("  请注意，开发版本尚未优化")
+		log.Info("  要创建生产环境构建，请运行 go run main.go")
 		log.Info("")
 		log.Info(fmt.Sprintf("API文档地址: http://%s/swagger/index.html", config.Config.Server.Address))
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
@@ -68,7 +68,7 @@ func main() {
 func init() {
 	// 执行数据库迁移
 	if err := db.AutoMigrate(common.GetDB()); err != nil {
-		log.Log().Error("Failed to migrate database: %v", err)
+		log.Log().Error("数据库迁移失败: %v", err)
 		panic(err)
 	}
 	// redis

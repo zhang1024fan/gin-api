@@ -6,10 +6,12 @@ package controller
 import (
 	"gin-api/api/system/model"
 	"gin-api/api/system/service"
-	"github.com/gin-gonic/gin"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
+// @Tags system系统管理
 // 新增角色
 // @Summary 新增角色接口
 // @Produce json
@@ -24,6 +26,7 @@ func CreateSysRole(c *gin.Context) {
 	service.SysRoleService().CreateSysRole(c, dto)
 }
 
+// @Tags system系统管理
 // 根据id查询角色
 // @Summary 根据id查询角色接口
 // @Produce json
@@ -37,6 +40,7 @@ func GetSysRoleById(c *gin.Context) {
 	service.SysRoleService().GetSysRoleById(c, Id)
 }
 
+// @Tags system系统管理
 // 修改角色
 // @Summary 修改角色
 // @Produce json
@@ -51,6 +55,7 @@ func UpdateSysRole(c *gin.Context) {
 	service.SysRoleService().UpdateSysRole(c, dto)
 }
 
+// @Tags system系统管理
 // 根据id删除角色
 // @Summary 根据id删除角色接口
 // @Produce json
@@ -65,6 +70,7 @@ func DeleteSysRoleById(c *gin.Context) {
 	service.SysRoleService().DeleteSysRoleById(c, dto)
 }
 
+// @Tags system系统管理
 // 角色状态启用/停用
 // @Summary 角色状态启用/停用接口
 // @Produce json
@@ -79,6 +85,7 @@ func UpdateSysRoleStatus(c *gin.Context) {
 	service.SysRoleService().UpdateSysRoleStatus(c, dto)
 }
 
+// @Tags system系统管理
 // 分页查询角色列表
 // @Summary 分页查询角色列表接口
 // @Produce json
@@ -102,6 +109,7 @@ func GetSysRoleList(c *gin.Context) {
 	service.SysRoleService().GetSysRoleList(c, PageNum, PageSize, RoleName, Status, BeginTime, EndTime)
 }
 
+// @Tags system系统管理
 // 角色下拉列表
 // @Summary 角色下拉列表
 // @Produce json
@@ -113,6 +121,7 @@ func QuerySysRoleVoList(c *gin.Context) {
 	service.SysRoleService().QuerySysRoleVoList(c)
 }
 
+// @Tags system系统管理
 // 根据角色id查询菜单数据
 // @Summary 根据角色id查询菜单数据接口
 // @Produce json
@@ -126,6 +135,7 @@ func QueryRoleMenuIdList(c *gin.Context) {
 	service.SysRoleService().QueryRoleMenuIdList(c, Id)
 }
 
+// @Tags system系统管理
 // AssignPermissions 分配权限
 // @Summary 分配权限接口
 // @Produce json

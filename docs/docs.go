@@ -26,6 +26,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "新增用户接口",
                 "parameters": [
                     {
@@ -58,6 +61,9 @@ const docTemplate = `{
                 "description": "根据id删除接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "根据id删除用户接口",
                 "parameters": [
@@ -92,6 +98,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "根据id查询用户接口",
                 "parameters": [
                     {
@@ -122,6 +131,9 @@ const docTemplate = `{
                 "description": "分页获取用户列表接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "分页获取用户列表接口",
                 "parameters": [
@@ -183,6 +195,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "修改用户接口",
                 "parameters": [
                     {
@@ -215,6 +230,9 @@ const docTemplate = `{
                 "description": "重置密码接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "重置密码接口",
                 "parameters": [
@@ -249,6 +267,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "修改个人信息接口",
                 "parameters": [
                     {
@@ -282,6 +303,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "修改用户密码接口",
                 "parameters": [
                     {
@@ -314,6 +338,9 @@ const docTemplate = `{
                 "description": "用户状态启用/停用接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "用户状态启用/停用接口",
                 "parameters": [
@@ -495,7 +522,7 @@ const docTemplate = `{
                     }
                 ],
                 "tags": [
-                    "ECS认证凭据"
+                    "配置中心"
                 ],
                 "summary": "创建凭据",
                 "parameters": [
@@ -527,7 +554,7 @@ const docTemplate = `{
                     }
                 ],
                 "tags": [
-                    "ECS认证凭据"
+                    "配置中心"
                 ],
                 "summary": "删除凭据",
                 "parameters": [
@@ -559,7 +586,7 @@ const docTemplate = `{
                     }
                 ],
                 "tags": [
-                    "ECS认证凭据"
+                    "配置中心"
                 ],
                 "summary": "根据名称获取凭据",
                 "parameters": [
@@ -601,7 +628,7 @@ const docTemplate = `{
                     }
                 ],
                 "tags": [
-                    "ECS认证凭据"
+                    "配置中心"
                 ],
                 "summary": "获取所有凭据",
                 "responses": {
@@ -637,7 +664,7 @@ const docTemplate = `{
                     }
                 ],
                 "tags": [
-                    "ECS认证凭据"
+                    "配置中心"
                 ],
                 "summary": "更新凭据",
                 "parameters": [
@@ -672,6 +699,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "新增部门接口",
                 "parameters": [
                     {
@@ -704,6 +734,9 @@ const docTemplate = `{
                 "description": "根据id删除部门接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "根据id删除部门接口",
                 "parameters": [
@@ -738,6 +771,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "根据id查询部门接口",
                 "parameters": [
                     {
@@ -768,6 +804,9 @@ const docTemplate = `{
                 "description": "查询部门列表接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "查询部门列表接口",
                 "parameters": [
@@ -805,6 +844,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "修改部门接口",
                 "parameters": [
                     {
@@ -838,6 +880,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "获取某部门下的所有用户接口",
                 "parameters": [
                     {
@@ -869,6 +914,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "部门下拉列表接口",
                 "responses": {
                     "200": {
@@ -885,6 +933,9 @@ const docTemplate = `{
                 "description": "用户登录接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "用户登录接口",
                 "parameters": [
@@ -919,6 +970,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "新增菜单接口",
                 "parameters": [
                     {
@@ -951,6 +1005,9 @@ const docTemplate = `{
                 "description": "根据id删除菜单接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "根据id删除菜单接口",
                 "parameters": [
@@ -985,6 +1042,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "根据id查询菜单",
                 "parameters": [
                     {
@@ -1015,6 +1075,9 @@ const docTemplate = `{
                 "description": "查询菜单列表",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "查询菜单列表",
                 "parameters": [
@@ -1052,6 +1115,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "修改菜单接口",
                 "parameters": [
                     {
@@ -1085,6 +1151,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "查询新增选项列表接口",
                 "responses": {
                     "200": {
@@ -1106,6 +1175,9 @@ const docTemplate = `{
                 "description": "新增岗位接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "新增岗位接口",
                 "parameters": [
@@ -1140,6 +1212,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "批量删除岗位接口",
                 "parameters": [
                     {
@@ -1172,6 +1247,9 @@ const docTemplate = `{
                 "description": "根据id删除岗位接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "根据id删除岗位接口",
                 "parameters": [
@@ -1206,6 +1284,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "根据id查询岗位",
                 "parameters": [
                     {
@@ -1236,6 +1317,9 @@ const docTemplate = `{
                 "description": "分页查询岗位列表",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "分页查询岗位列表",
                 "parameters": [
@@ -1297,6 +1381,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "修改岗位接口",
                 "parameters": [
                     {
@@ -1329,6 +1416,9 @@ const docTemplate = `{
                 "description": "岗位状态修改接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "岗位状态修改接口",
                 "parameters": [
@@ -1363,6 +1453,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "岗位下拉列表",
                 "responses": {
                     "200": {
@@ -1384,6 +1477,9 @@ const docTemplate = `{
                 "description": "新增角色接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "新增角色接口",
                 "parameters": [
@@ -1418,6 +1514,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "分配权限接口",
                 "parameters": [
                     {
@@ -1450,6 +1549,9 @@ const docTemplate = `{
                 "description": "根据id删除角色接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "根据id删除角色接口",
                 "parameters": [
@@ -1484,6 +1586,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "根据id查询角色接口",
                 "parameters": [
                     {
@@ -1514,6 +1619,9 @@ const docTemplate = `{
                 "description": "分页查询角色列表接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "分页查询角色列表接口",
                 "parameters": [
@@ -1575,6 +1683,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "修改角色",
                 "parameters": [
                     {
@@ -1607,6 +1718,9 @@ const docTemplate = `{
                 "description": "角色状态启用/停用接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "角色状态启用/停用接口",
                 "parameters": [
@@ -1641,6 +1755,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "根据角色id查询菜单数据接口",
                 "parameters": [
                     {
@@ -1672,6 +1789,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "角色下拉列表",
                 "responses": {
                     "200": {
@@ -1693,6 +1813,9 @@ const docTemplate = `{
                 "description": "批量删除登录日志接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "批量删除登录日志接口",
                 "parameters": [
@@ -1727,6 +1850,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "清空登录日志接口",
                 "responses": {
                     "200": {
@@ -1748,6 +1874,9 @@ const docTemplate = `{
                 "description": "根据ID删除登录日志接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "根据ID删除登录日志接口",
                 "parameters": [
@@ -1781,6 +1910,9 @@ const docTemplate = `{
                 "description": "分页获取登录日志列表接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "分页获取登录日志列表接口",
                 "parameters": [
@@ -1842,6 +1974,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "批量删除操作日志接口",
                 "parameters": [
                     {
@@ -1875,6 +2010,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "system系统管理"
+                ],
                 "summary": "清空操作日志接口",
                 "responses": {
                     "200": {
@@ -1896,6 +2034,9 @@ const docTemplate = `{
                 "description": "根据id删除操作日志",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "根据id删除操作日志",
                 "parameters": [
@@ -1929,6 +2070,9 @@ const docTemplate = `{
                 "description": "分页获取操作日志列表接口",
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "分页获取操作日志列表接口",
                 "parameters": [
@@ -1986,6 +2130,9 @@ const docTemplate = `{
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
                 ],
                 "summary": "单图片上传接口",
                 "parameters": [
@@ -2736,8 +2883,8 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "",
 	BasePath:         "",
 	Schemes:          []string{},
-	Title:            "通用后台管理系统",
-	Description:      "后台管理系统API接口文档",
+	Title:            "devops运维管理系统",
+	Description:      "devops运维管理系统API接口文档",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

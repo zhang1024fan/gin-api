@@ -502,8 +502,8 @@ definitions:
     type: object
 info:
   contact: {}
-  description: 后台管理系统API接口文档
-  title: 通用后台管理系统
+  description: devops运维管理系统API接口文档
+  title: devops运维管理系统
   version: "1.0"
 paths:
   /api/admin/add:
@@ -526,6 +526,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增用户接口
+      tags:
+      - system系统管理
   /api/admin/delete:
     delete:
       description: 根据id删除接口
@@ -546,6 +548,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除用户接口
+      tags:
+      - system系统管理
   /api/admin/info:
     get:
       description: 根据id查询用户接口
@@ -565,6 +569,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询用户接口
+      tags:
+      - system系统管理
   /api/admin/list:
     get:
       description: 分页获取用户列表接口
@@ -603,6 +609,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取用户列表接口
+      tags:
+      - system系统管理
   /api/admin/update:
     put:
       description: 修改用户接口
@@ -623,6 +631,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改用户接口
+      tags:
+      - system系统管理
   /api/admin/updatePassword:
     put:
       description: 重置密码接口
@@ -643,6 +653,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 重置密码接口
+      tags:
+      - system系统管理
   /api/admin/updatePersonal:
     put:
       description: 修改个人信息接口
@@ -663,6 +675,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改个人信息接口
+      tags:
+      - system系统管理
   /api/admin/updatePersonalPassword:
     put:
       description: 修改用户密码接口
@@ -683,6 +697,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改用户密码接口
+      tags:
+      - system系统管理
   /api/admin/updateStatus:
     put:
       description: 用户状态启用/停用接口
@@ -703,6 +719,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 用户状态启用/停用接口
+      tags:
+      - system系统管理
   /api/captcha:
     get:
       description: 验证码接口
@@ -813,7 +831,7 @@ paths:
       - ApiKeyAuth: []
       summary: 创建凭据
       tags:
-      - ECS认证凭据
+      - 配置中心
   /api/config/ecsauthdelete:
     delete:
       parameters:
@@ -832,7 +850,7 @@ paths:
       - ApiKeyAuth: []
       summary: 删除凭据
       tags:
-      - ECS认证凭据
+      - 配置中心
   /api/config/ecsauthinfo:
     get:
       parameters:
@@ -855,7 +873,7 @@ paths:
       - ApiKeyAuth: []
       summary: 根据名称获取凭据
       tags:
-      - ECS认证凭据
+      - 配置中心
   /api/config/ecsauthlist:
     get:
       responses:
@@ -874,7 +892,7 @@ paths:
       - ApiKeyAuth: []
       summary: 获取所有凭据
       tags:
-      - ECS认证凭据
+      - 配置中心
   /api/config/ecsauthupdate:
     put:
       parameters:
@@ -893,7 +911,7 @@ paths:
       - ApiKeyAuth: []
       summary: 更新凭据
       tags:
-      - ECS认证凭据
+      - 配置中心
   /api/dept/add:
     post:
       description: 新增部门接口
@@ -914,6 +932,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增部门接口
+      tags:
+      - system系统管理
   /api/dept/delete:
     delete:
       description: 根据id删除部门接口
@@ -934,6 +954,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除部门接口
+      tags:
+      - system系统管理
   /api/dept/info:
     get:
       description: 根据id查询部门接口
@@ -953,6 +975,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询部门接口
+      tags:
+      - system系统管理
   /api/dept/list:
     get:
       description: 查询部门列表接口
@@ -975,6 +999,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 查询部门列表接口
+      tags:
+      - system系统管理
   /api/dept/update:
     put:
       description: 修改部门接口
@@ -995,6 +1021,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改部门接口
+      tags:
+      - system系统管理
   /api/dept/users:
     get:
       description: 获取某部门下的所有用户
@@ -1014,6 +1042,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 获取某部门下的所有用户接口
+      tags:
+      - system系统管理
   /api/dept/vo/list:
     get:
       description: 部门下拉列表接口
@@ -1027,6 +1057,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 部门下拉列表接口
+      tags:
+      - system系统管理
   /api/login:
     post:
       description: 用户登录接口
@@ -1045,6 +1077,8 @@ paths:
           schema:
             $ref: '#/definitions/result.Result'
       summary: 用户登录接口
+      tags:
+      - system系统管理
   /api/menu/add:
     post:
       description: 新增菜单接口
@@ -1065,6 +1099,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增菜单接口
+      tags:
+      - system系统管理
   /api/menu/delete:
     delete:
       description: 根据id删除菜单接口
@@ -1085,6 +1121,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除菜单接口
+      tags:
+      - system系统管理
   /api/menu/info:
     get:
       description: 根据id查询菜单
@@ -1104,6 +1142,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询菜单
+      tags:
+      - system系统管理
   /api/menu/list:
     get:
       description: 查询菜单列表
@@ -1126,6 +1166,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 查询菜单列表
+      tags:
+      - system系统管理
   /api/menu/update:
     put:
       description: 修改菜单接口
@@ -1146,6 +1188,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改菜单接口
+      tags:
+      - system系统管理
   /api/menu/vo/list:
     get:
       description: 查询新增选项列表接口
@@ -1159,6 +1203,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 查询新增选项列表接口
+      tags:
+      - system系统管理
   /api/post/add:
     post:
       description: 新增岗位接口
@@ -1179,6 +1225,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增岗位接口
+      tags:
+      - system系统管理
   /api/post/batch/delete:
     delete:
       description: 批量删除岗位接口
@@ -1199,6 +1247,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 批量删除岗位接口
+      tags:
+      - system系统管理
   /api/post/delete:
     delete:
       description: 根据id删除岗位接口
@@ -1219,6 +1269,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除岗位接口
+      tags:
+      - system系统管理
   /api/post/info:
     get:
       description: 根据id查询岗位
@@ -1238,6 +1290,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询岗位
+      tags:
+      - system系统管理
   /api/post/list:
     get:
       description: 分页查询岗位列表
@@ -1276,6 +1330,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页查询岗位列表
+      tags:
+      - system系统管理
   /api/post/update:
     put:
       description: 修改岗位接口
@@ -1296,6 +1352,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改岗位接口
+      tags:
+      - system系统管理
   /api/post/updateStatus:
     put:
       description: 岗位状态修改接口
@@ -1316,6 +1374,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 岗位状态修改接口
+      tags:
+      - system系统管理
   /api/post/vo/list:
     get:
       description: 岗位下拉列表
@@ -1329,6 +1389,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 岗位下拉列表
+      tags:
+      - system系统管理
   /api/role/add:
     post:
       description: 新增角色接口
@@ -1349,6 +1411,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增角色接口
+      tags:
+      - system系统管理
   /api/role/assignPermissions:
     put:
       description: 分配权限接口
@@ -1369,6 +1433,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分配权限接口
+      tags:
+      - system系统管理
   /api/role/delete:
     delete:
       description: 根据id删除角色接口
@@ -1389,6 +1455,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除角色接口
+      tags:
+      - system系统管理
   /api/role/info:
     get:
       description: 根据id查询角色接口
@@ -1408,6 +1476,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询角色接口
+      tags:
+      - system系统管理
   /api/role/list:
     get:
       description: 分页查询角色列表接口
@@ -1446,6 +1516,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页查询角色列表接口
+      tags:
+      - system系统管理
   /api/role/update:
     put:
       description: 修改角色
@@ -1466,6 +1538,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改角色
+      tags:
+      - system系统管理
   /api/role/updateStatus:
     put:
       description: 角色状态启用/停用接口
@@ -1486,6 +1560,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 角色状态启用/停用接口
+      tags:
+      - system系统管理
   /api/role/vo/idList:
     get:
       description: 根据角色id查询菜单数据接口
@@ -1505,6 +1581,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据角色id查询菜单数据接口
+      tags:
+      - system系统管理
   /api/role/vo/list:
     get:
       description: 角色下拉列表
@@ -1518,6 +1596,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 角色下拉列表
+      tags:
+      - system系统管理
   /api/sysLoginInfo/batch/delete:
     delete:
       description: 批量删除登录日志接口
@@ -1538,6 +1618,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 批量删除登录日志接口
+      tags:
+      - system系统管理
   /api/sysLoginInfo/clean:
     delete:
       description: 清空登录日志接口
@@ -1551,6 +1633,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 清空登录日志接口
+      tags:
+      - system系统管理
   /api/sysLoginInfo/delete:
     delete:
       description: 根据ID删除登录日志接口
@@ -1571,6 +1655,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据ID删除登录日志接口
+      tags:
+      - system系统管理
   /api/sysLoginInfo/list:
     get:
       description: 分页获取登录日志列表接口
@@ -1609,6 +1695,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取登录日志列表接口
+      tags:
+      - system系统管理
   /api/sysOperationLog/batch/delete:
     delete:
       description: 批量删除操作日志接口
@@ -1629,6 +1717,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 批量删除操作日志接口
+      tags:
+      - system系统管理
   /api/sysOperationLog/clean:
     delete:
       description: 清空操作日志接口
@@ -1642,6 +1732,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 清空操作日志接口
+      tags:
+      - system系统管理
   /api/sysOperationLog/delete:
     delete:
       description: 根据id删除操作日志
@@ -1662,6 +1754,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除操作日志
+      tags:
+      - system系统管理
   /api/sysOperationLog/list:
     get:
       description: 分页获取操作日志列表接口
@@ -1696,6 +1790,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取操作日志列表接口
+      tags:
+      - system系统管理
   /api/upload:
     post:
       consumes:
@@ -1717,6 +1813,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 单图片上传接口
+      tags:
+      - system系统管理
 securityDefinitions:
   ApiKeyAuth:
     in: header
