@@ -382,6 +382,40 @@
                 }
             }
         },
+        "/api/cmdb/groupbyname": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据名称查询资产分组",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "根据名称查询资产分组",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "分组名称",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
         "/api/cmdb/groupdelete": {
             "delete": {
                 "security": [

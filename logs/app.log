@@ -799,3 +799,103 @@ time="2025/07/15 - 15:10:45" level=info msg="Request started" ip=127.0.0.1 metho
 time="2025/07/15 - 15:10:45" level=info msg="Request completed" ip=127.0.0.1 latency="998.323µs" method=GET path=/api/config/ecsauthinfo status=200
 time="2025/07/15 - 15:10:57" level=info msg="Shutdown Server ..."
 time="2025/07/15 - 15:10:57" level=info msg="Server exiting"
+time="2025/07/16 - 12:58:37" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 12:58:38" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 12:58:38" level=info
+time="2025/07/16 - 12:58:38" level=info msg="  App running at:"
+time="2025/07/16 - 12:58:38" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 12:58:38" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 12:58:38" level=info
+time="2025/07/16 - 12:58:38" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 12:58:38" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 12:58:38" level=info
+time="2025/07/16 - 12:58:38" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 12:58:38" level=info msg="listen: %s \nlisten tcp 127.0.0.1:8000: bind: address already in use"
+time="2025/07/16 - 13:17:26" level=info msg="Shutdown Server ..."
+time="2025/07/16 - 13:17:26" level=info msg="Server exiting"
+time="2025/07/16 - 13:17:38" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 13:17:38" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 13:17:38" level=info
+time="2025/07/16 - 13:17:38" level=info msg="  App running at:"
+time="2025/07/16 - 13:17:38" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 13:17:38" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 13:17:38" level=info
+time="2025/07/16 - 13:17:38" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 13:17:38" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 13:17:38" level=info
+time="2025/07/16 - 13:17:38" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 13:17:38" level=info msg="listen: %s \nlisten tcp 127.0.0.1:8000: bind: address already in use"
+time="2025/07/16 - 14:26:44" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 14:26:44" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 14:26:44" level=info
+time="2025/07/16 - 14:26:44" level=info msg="  App running at:"
+time="2025/07/16 - 14:26:44" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 14:26:44" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 14:26:44" level=info
+time="2025/07/16 - 14:26:44" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 14:26:44" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 14:26:44" level=info
+time="2025/07/16 - 14:26:44" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 14:34:16" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 14:34:16" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 14:34:16" level=info
+time="2025/07/16 - 14:34:16" level=info msg="  App running at:"
+time="2025/07/16 - 14:34:16" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 14:34:16" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 14:34:16" level=info
+time="2025/07/16 - 14:34:16" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 14:34:16" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 14:34:16" level=info
+time="2025/07/16 - 14:34:16" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/16 - 14:36:11" level=info msg="Shutdown Server ..."
+time="2025/07/16 - 14:36:11" level=info msg="Server exiting"
+time="2025/07/16 - 14:36:19" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/16 - 14:36:20" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/16 - 14:36:20" level=info
+time="2025/07/16 - 14:36:20" level=info msg="  App running at:"
+time="2025/07/16 - 14:36:20" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/16 - 14:36:20" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/16 - 14:36:20" level=info
+time="2025/07/16 - 14:36:20" level=info msg="  Note that the development build is not optimized."
+time="2025/07/16 - 14:36:20" level=info msg="  To create a production build, run npm run build."
+time="2025/07/16 - 14:36:20" level=info
+time="2025/07/16 - 14:36:20" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/17 - 10:15:59" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/17 - 10:15:59" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/17 - 10:15:59" level=info
+time="2025/07/17 - 10:15:59" level=info msg="  App running at:"
+time="2025/07/17 - 10:15:59" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/17 - 10:15:59" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/17 - 10:15:59" level=info
+time="2025/07/17 - 10:15:59" level=info msg="  Note that the development build is not optimized."
+time="2025/07/17 - 10:15:59" level=info msg="  To create a production build, run npm run build."
+time="2025/07/17 - 10:15:59" level=info
+time="2025/07/17 - 10:15:59" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/17 - 11:32:06" level=info msg="Shutdown Server ..."
+time="2025/07/17 - 11:32:06" level=info msg="Server exiting"
+time="2025/07/17 - 11:32:53" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/17 - 11:32:53" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/17 - 11:32:53" level=info
+time="2025/07/17 - 11:32:53" level=info msg="  App running at:"
+time="2025/07/17 - 11:32:53" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/17 - 11:32:53" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/17 - 11:32:53" level=info
+time="2025/07/17 - 11:32:53" level=info msg="  Note that the development build is not optimized."
+time="2025/07/17 - 11:32:53" level=info msg="  To create a production build, run npm run build."
+time="2025/07/17 - 11:32:53" level=info
+time="2025/07/17 - 11:32:53" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/17 - 15:14:14" level=info msg="Shutdown Server ..."
+time="2025/07/17 - 15:14:14" level=info msg="Server exiting"
+time="2025/07/17 - 15:14:24" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/17 - 15:14:24" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/17 - 15:14:24" level=info
+time="2025/07/17 - 15:14:24" level=info msg="  App running at:"
+time="2025/07/17 - 15:14:24" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/17 - 15:14:24" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/17 - 15:14:24" level=info
+time="2025/07/17 - 15:14:24" level=info msg="  Note that the development build is not optimized."
+time="2025/07/17 - 15:14:24" level=info msg="  To create a production build, run npm run build."
+time="2025/07/17 - 15:14:24" level=info
+time="2025/07/17 - 15:14:24" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/17 - 15:25:26" level=info msg="Shutdown Server ..."
+time="2025/07/17 - 15:25:26" level=info msg="Server exiting"

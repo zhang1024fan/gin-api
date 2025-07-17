@@ -23,6 +23,7 @@ func CreateCmdbGroup(c *gin.Context) {
 	_ = c.BindJSON(&sysDept)
 	service.GetCmdbGroupService().CreateCmdbGroup(c, sysDept)
 }
+
 // @Summary 查询所有资产分组（树形结构）
 // @Produce json
 // @Tags CMDB资产管理
@@ -33,6 +34,7 @@ func CreateCmdbGroup(c *gin.Context) {
 func GetAllCmdbGroups(c *gin.Context) {
 	service.GetCmdbGroupService().GetAllCmdbGroups(c)
 }
+
 // @Summary 更新资产分组接口
 // @Produce json
 // @Tags CMDB资产管理
@@ -46,6 +48,7 @@ func UpdateCmdbGroup(c *gin.Context) {
 	_ = c.BindJSON(&group)
 	service.GetCmdbGroupService().UpdateCmdbGroup(c, group)
 }
+
 // @Summary 删除资产分组接口
 // @Produce json
 // @Tags CMDB资产管理
@@ -61,4 +64,21 @@ func DeleteCmdbGroup(c *gin.Context) {
 		return
 	}
 	service.GetCmdbGroupService().DeleteCmdbGroup(c, dto.Id)
+}
+
+// @Summary 根据名称查询资产分组
+// @Produce json
+// @Tags CMDB资产管理
+// @Description 根据名称查询资产分组
+// @Param name query string true "分组名称"
+// @Success 200 {object} result.Result
+// @router /api/cmdb/groupbyname [get]
+// @Security ApiKeyAuth
+func GetCmdbGroupByName(c *gin.Context) {
+	name := c.Query("name")
+	if name == "" {
+		result.Failed(c, constant.GROUP_EXIST, "分组名称不能为空")
+		return
+	}
+	service.GetCmdbGroupService().GetCmdbGroupByName(c, name)
 }

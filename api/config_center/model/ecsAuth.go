@@ -24,11 +24,12 @@ func (EcsAuth) TableName() string {
 
 // 创建ECS密码认证DTO
 type CreateEcsPasswordAuthDto struct {
-	Name     string `validate:"required"` // 凭证名称
-	Type     int    `validate:"required"` // 认证类型:1->密码
-	Username string `validate:"required"` // 用户名
-	Password string `validate:"required"` // 密码
-	Remark   string // 备注
+	Name      string `validate:"required"` // 凭证名称
+	Type      int    `validate:"required"` // 认证类型:1->密码
+	Username  string `validate:"required"` // 用户名
+	Password  string `validate:"required"` // 密码
+	PublicKey string // 公钥
+	Remark    string // 备注
 }
 
 // 创建ECS密钥认证DTO

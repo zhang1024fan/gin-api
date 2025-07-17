@@ -14,7 +14,7 @@ func RegisterConfigCenterRoutes(router *gin.RouterGroup) {
 
 	// ECS认证凭据管理
 	router.GET("/config/ecsauthlist", ecsAuthCtrl.GetEcsAuthList)     // 获取所有凭据
-	router.GET("/config/ecsauthinfo", ecsAuthCtrl.GetEcsAuthByName)   // 根据名称获取凭据
+	router.GET("/config/ecsauthinfo", ecsAuthCtrl.GetEcsAuthByName)   // 根据名称查找凭据
 	router.POST("/config/ecsauthadd", ecsAuthCtrl.CreateEcsAuth)      // 创建凭据
 	router.PUT("/config/ecsauthupdate", ecsAuthCtrl.UpdateEcsAuth)    // 更新凭据
 	router.DELETE("/config/ecsauthdelete", ecsAuthCtrl.DeleteEcsAuth) // 删除凭据
