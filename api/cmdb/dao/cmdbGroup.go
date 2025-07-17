@@ -20,6 +20,16 @@ func GetCmdbGroupByNameAndParent(name string, parentId uint) (model.CmdbGroup, e
 	return group, nil
 }
 
+// GetCmdbGroupByName 根据名称查询分组
+func GetCmdbGroupByName(name string) ([]model.CmdbGroup, error) {
+	var groups []model.CmdbGroup
+	err := db.Db.Where("name = ?", name).Find(&groups).Error
+	if err != nil {
+		return nil, err
+	}
+	return groups, nil
+}
+
 // CreateCmdbGroup 创建资产分组（支持根分组和子分组）
 func CreateCmdbGroup(group model.CmdbGroup) (bool, error) {
 	// 检查是否已有同名 + 同父级的分组

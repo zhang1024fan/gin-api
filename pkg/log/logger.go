@@ -100,13 +100,6 @@ func CustomGinLogger() gin.HandlerFunc {
 		method := c.Request.Method
 		ip := c.ClientIP()
 
-		// 打印请求开始日志
-		logger.WithFields(logrus.Fields{
-			"method": method,
-			"path":   path,
-			"ip":     ip,
-		}).Info("Request started")
-
 		c.Next()
 
 		latency := time.Since(start)
@@ -115,16 +108,6 @@ func CustomGinLogger() gin.HandlerFunc {
 		statusBgColor := getBackgroundColorForStatusCode(statusCode)
 		methodBgColor := getBackgroundColorForMethod(method)
 
-		// 打印请求完成日志
-		logger.WithFields(logrus.Fields{
-			"status":  statusCode,
-			"latency": latency,
-			"method":  method,
-			"path":    path,
-			"ip":      ip,
-		}).Info("Request completed")
-
-		// 保留原有的控制台输出
 		fmt.Printf("[GIN] %s | %s%3d%s | %13v | %15s | %s%-6s%s %q\n",
 			time.Now().Format("2006/01/02 - 15:04:05"),
 			statusBgColor, statusCode, colorReset,

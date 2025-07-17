@@ -754,6 +754,27 @@ paths:
       summary: 新增资产分组接口
       tags:
       - CMDB资产管理
+  /api/cmdb/groupbyname:
+    get:
+      description: 根据名称查询资产分组
+      parameters:
+      - description: 分组名称
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据名称查询资产分组
+      tags:
+      - CMDB资产管理
   /api/cmdb/groupdelete:
     delete:
       description: 删除资产分组接口

@@ -15,4 +15,5 @@ func RegisterCmdbRoutes(router *gin.RouterGroup) {
 	router.GET("/cmdb/grouplist", controller.GetAllCmdbGroups)     // 获取所有资产分组
 	router.PUT("/cmdb/groupupdate", controller.UpdateCmdbGroup)    // 更新资产分组
 	router.DELETE("/cmdb/groupdelete", controller.DeleteCmdbGroup) // 删除资产分组
+	router.GET("/cmdb/groupbyname", controller.GetCmdbGroupByName) // 根据名称查询分组
 }

@@ -15,6 +15,7 @@ type CmdbGroupServiceInterface interface {
 	GetAllCmdbGroups(c *gin.Context)                       // 获取所有分组
 	UpdateCmdbGroup(c *gin.Context, group model.CmdbGroup) // 更新分组
 	DeleteCmdbGroup(c *gin.Context, id uint)               // 删除分组
+	GetCmdbGroupByName(c *gin.Context, name string)        // 根据名称查询分组
 }
 
 type CmdbGroupServiceImpl struct{}
@@ -57,6 +58,16 @@ func (s CmdbGroupServiceImpl) DeleteCmdbGroup(c *gin.Context, id uint) {
 		return
 	}
 	result.Success(c, true)
+}
+
+// 根据名称查询分组
+func (s CmdbGroupServiceImpl) GetCmdbGroupByName(c *gin.Context, name string) {
+	groups, err := dao.GetCmdbGroupByName(name)
+	if err != nil {
+		result.Failed(c, constant.GROUP_EXIST, "查询分组失败")
+		return
+	}
+	result.Success(c, groups)
 }
 
 // 全局服务调用方法
