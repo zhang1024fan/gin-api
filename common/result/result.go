@@ -35,3 +35,8 @@ func Failed(c *gin.Context, code int, message string) {
 	res.Data = gin.H{}
 	c.JSON(http.StatusOK, res)
 }
+
+// 新增方法：支持直接传入 code 和 message
+func FailedWithCode(c *gin.Context, code int, message string) {
+	Failed(c, code, message)
+}

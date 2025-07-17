@@ -5,9 +5,11 @@ package controller
 
 import (
 	"gin-api/api/system/service"
+
 	"github.com/gin-gonic/gin"
 )
 
+// @Tags system系统管理
 // 单图片上传
 // @Summary 单图片上传接口
 // @Description 单图片上传接口

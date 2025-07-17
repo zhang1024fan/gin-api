@@ -1,4 +1,21 @@
 definitions:
+  model.AddKubeClusterDto:
+    properties:
+      isDefault:
+        description: 是否默认展示
+        type: boolean
+      kubeconfig:
+        type: string
+      name:
+        description: 集群名
+        type: string
+      prometheus_url:
+        type: string
+    required:
+    - kubeconfig
+    - name
+    - prometheus_url
+    type: object
   model.AddSysAdminDto:
     properties:
       deptId:
@@ -65,6 +82,56 @@ definitions:
           type: integer
         type: array
     type: object
+  model.CmdbGroup:
+    properties:
+      children:
+        description: 子分组（虚拟字段，用于树形展示）
+        items:
+          $ref: '#/definitions/model.CmdbGroup'
+        type: array
+      createTime:
+        allOf:
+        - $ref: '#/definitions/util.HTime'
+        description: 创建时间
+      id:
+        description: 主键ID
+        type: integer
+      name:
+        description: 分组名称
+        type: string
+      parentId:
+        description: 父级分组ID（0 表示根分组）
+        type: integer
+    type: object
+  model.CmdbGroupIdDto:
+    properties:
+      id:
+        description: ID
+        type: integer
+    type: object
+  model.CreateEcsPasswordAuthDto:
+    properties:
+      name:
+        description: 凭证名称
+        type: string
+      password:
+        description: 密码
+        type: string
+      remark:
+        description: 备注
+        type: string
+      type:
+        description: 认证类型:1->密码
+        type: integer
+      username:
+        description: 用户名
+        type: string
+    required:
+    - name
+    - password
+    - type
+    - username
+    type: object
   model.DelSysLoginInfoDto:
     properties:
       ids:
@@ -80,6 +147,31 @@ definitions:
         items:
           type: integer
         type: array
+    type: object
+  model.EcsAuthIdDto:
+    properties:
+      id:
+        description: ID
+        type: integer
+    type: object
+  model.EcsAuthVo:
+    properties:
+      createTime:
+        $ref: '#/definitions/util.HTime'
+      id:
+        type: integer
+      name:
+        type: string
+      password:
+        type: string
+      publicKey:
+        type: string
+      remark:
+        type: string
+      type:
+        type: integer
+      username:
+        type: string
     type: object
   model.LoginDto:
     properties:
@@ -256,6 +348,48 @@ definitions:
         description: ID
         type: integer
     type: object
+  model.UpdateEcsAuthDto:
+    properties:
+      id:
+        description: ID
+        type: integer
+      name:
+        description: 凭证名称
+        type: string
+      password:
+        description: 密码
+        type: string
+      remark:
+        description: 备注
+        type: string
+      type:
+        description: 认证类型:1->密码
+        type: integer
+      username:
+        description: 用户名
+        type: string
+    required:
+    - name
+    - password
+    - type
+    - username
+    type: object
+  model.UpdateKubeClusterDto:
+    properties:
+      id:
+        description: 集群名
+        type: integer
+      isDefault:
+        description: 是否默认展示
+        type: boolean
+      kubeconfig:
+        type: string
+      prometheus_url:
+        type: string
+    required:
+    - id
+    - kubeconfig
+    type: object
   model.UpdatePersonalDto:
     properties:
       email:
@@ -425,6 +559,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增用户接口
+      tags:
+      - system系统管理
   /api/admin/delete:
     delete:
       description: 根据id删除接口
@@ -445,6 +581,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除用户接口
+      tags:
+      - system系统管理
   /api/admin/info:
     get:
       description: 根据id查询用户接口
@@ -464,6 +602,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询用户接口
+      tags:
+      - system系统管理
   /api/admin/list:
     get:
       description: 分页获取用户列表接口
@@ -502,6 +642,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取用户列表接口
+      tags:
+      - system系统管理
   /api/admin/update:
     put:
       description: 修改用户接口
@@ -522,6 +664,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改用户接口
+      tags:
+      - system系统管理
   /api/admin/updatePassword:
     put:
       description: 重置密码接口
@@ -542,6 +686,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 重置密码接口
+      tags:
+      - system系统管理
   /api/admin/updatePersonal:
     put:
       description: 修改个人信息接口
@@ -562,6 +708,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改个人信息接口
+      tags:
+      - system系统管理
   /api/admin/updatePersonalPassword:
     put:
       description: 修改用户密码接口
@@ -582,6 +730,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改用户密码接口
+      tags:
+      - system系统管理
   /api/admin/updateStatus:
     put:
       description: 用户状态启用/停用接口
@@ -602,6 +752,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 用户状态启用/停用接口
+      tags:
+      - system系统管理
   /api/captcha:
     get:
       description: 验证码接口
@@ -613,6 +765,186 @@ paths:
           schema:
             $ref: '#/definitions/result.Result'
       summary: 验证码接口
+  /api/cmdb/groupadd:
+    post:
+      description: 新增资产分组接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 新增资产分组接口
+      tags:
+      - CMDB资产管理
+  /api/cmdb/groupdelete:
+    delete:
+      description: 删除资产分组接口
+      parameters:
+      - description: 分组ID
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroupIdDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除资产分组接口
+      tags:
+      - CMDB资产管理
+  /api/cmdb/grouplist:
+    get:
+      description: 查询所有资产分组，并以树形结构返回
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 查询所有资产分组（树形结构）
+      tags:
+      - CMDB资产管理
+  /api/cmdb/groupupdate:
+    put:
+      description: 更新资产分组接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新资产分组接口
+      tags:
+      - CMDB资产管理
+  /api/config/ecsauthadd:
+    post:
+      parameters:
+      - description: 凭据信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateEcsPasswordAuthDto'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 创建凭据
+      tags:
+      - 配置中心
+  /api/config/ecsauthdelete:
+    delete:
+      parameters:
+      - description: 凭据ID
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.EcsAuthIdDto'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除凭据
+      tags:
+      - 配置中心
+  /api/config/ecsauthinfo:
+    get:
+      parameters:
+      - description: 凭据名称
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/result.Result'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.EcsAuthVo'
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 根据名称获取凭据
+      tags:
+      - 配置中心
+  /api/config/ecsauthlist:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/result.Result'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.EcsAuthVo'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 获取所有凭据
+      tags:
+      - 配置中心
+  /api/config/ecsauthupdate:
+    put:
+      parameters:
+      - description: 凭据信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateEcsAuthDto'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新凭据
+      tags:
+      - 配置中心
   /api/dept/add:
     post:
       description: 新增部门接口
@@ -633,6 +965,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增部门接口
+      tags:
+      - system系统管理
   /api/dept/delete:
     delete:
       description: 根据id删除部门接口
@@ -653,6 +987,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除部门接口
+      tags:
+      - system系统管理
   /api/dept/info:
     get:
       description: 根据id查询部门接口
@@ -672,6 +1008,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询部门接口
+      tags:
+      - system系统管理
   /api/dept/list:
     get:
       description: 查询部门列表接口
@@ -694,6 +1032,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 查询部门列表接口
+      tags:
+      - system系统管理
   /api/dept/update:
     put:
       description: 修改部门接口
@@ -714,6 +1054,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改部门接口
+      tags:
+      - system系统管理
   /api/dept/users:
     get:
       description: 获取某部门下的所有用户
@@ -733,6 +1075,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 获取某部门下的所有用户接口
+      tags:
+      - system系统管理
   /api/dept/vo/list:
     get:
       description: 部门下拉列表接口
@@ -746,6 +1090,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 部门下拉列表接口
+      tags:
+      - system系统管理
   /api/login:
     post:
       description: 用户登录接口
@@ -764,6 +1110,8 @@ paths:
           schema:
             $ref: '#/definitions/result.Result'
       summary: 用户登录接口
+      tags:
+      - system系统管理
   /api/menu/add:
     post:
       description: 新增菜单接口
@@ -784,6 +1132,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增菜单接口
+      tags:
+      - system系统管理
   /api/menu/delete:
     delete:
       description: 根据id删除菜单接口
@@ -804,6 +1154,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除菜单接口
+      tags:
+      - system系统管理
   /api/menu/info:
     get:
       description: 根据id查询菜单
@@ -823,6 +1175,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询菜单
+      tags:
+      - system系统管理
   /api/menu/list:
     get:
       description: 查询菜单列表
@@ -845,6 +1199,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 查询菜单列表
+      tags:
+      - system系统管理
   /api/menu/update:
     put:
       description: 修改菜单接口
@@ -865,6 +1221,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改菜单接口
+      tags:
+      - system系统管理
   /api/menu/vo/list:
     get:
       description: 查询新增选项列表接口
@@ -878,6 +1236,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 查询新增选项列表接口
+      tags:
+      - system系统管理
   /api/post/add:
     post:
       description: 新增岗位接口
@@ -898,6 +1258,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增岗位接口
+      tags:
+      - system系统管理
   /api/post/batch/delete:
     delete:
       description: 批量删除岗位接口
@@ -918,6 +1280,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 批量删除岗位接口
+      tags:
+      - system系统管理
   /api/post/delete:
     delete:
       description: 根据id删除岗位接口
@@ -938,6 +1302,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除岗位接口
+      tags:
+      - system系统管理
   /api/post/info:
     get:
       description: 根据id查询岗位
@@ -957,6 +1323,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询岗位
+      tags:
+      - system系统管理
   /api/post/list:
     get:
       description: 分页查询岗位列表
@@ -995,6 +1363,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页查询岗位列表
+      tags:
+      - system系统管理
   /api/post/update:
     put:
       description: 修改岗位接口
@@ -1015,6 +1385,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改岗位接口
+      tags:
+      - system系统管理
   /api/post/updateStatus:
     put:
       description: 岗位状态修改接口
@@ -1035,6 +1407,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 岗位状态修改接口
+      tags:
+      - system系统管理
   /api/post/vo/list:
     get:
       description: 岗位下拉列表
@@ -1048,6 +1422,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 岗位下拉列表
+      tags:
+      - system系统管理
   /api/role/add:
     post:
       description: 新增角色接口
@@ -1068,6 +1444,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 新增角色接口
+      tags:
+      - system系统管理
   /api/role/assignPermissions:
     put:
       description: 分配权限接口
@@ -1088,6 +1466,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分配权限接口
+      tags:
+      - system系统管理
   /api/role/delete:
     delete:
       description: 根据id删除角色接口
@@ -1108,6 +1488,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除角色接口
+      tags:
+      - system系统管理
   /api/role/info:
     get:
       description: 根据id查询角色接口
@@ -1127,6 +1509,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id查询角色接口
+      tags:
+      - system系统管理
   /api/role/list:
     get:
       description: 分页查询角色列表接口
@@ -1165,6 +1549,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页查询角色列表接口
+      tags:
+      - system系统管理
   /api/role/update:
     put:
       description: 修改角色
@@ -1185,6 +1571,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 修改角色
+      tags:
+      - system系统管理
   /api/role/updateStatus:
     put:
       description: 角色状态启用/停用接口
@@ -1205,6 +1593,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 角色状态启用/停用接口
+      tags:
+      - system系统管理
   /api/role/vo/idList:
     get:
       description: 根据角色id查询菜单数据接口
@@ -1224,6 +1614,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据角色id查询菜单数据接口
+      tags:
+      - system系统管理
   /api/role/vo/list:
     get:
       description: 角色下拉列表
@@ -1237,6 +1629,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 角色下拉列表
+      tags:
+      - system系统管理
   /api/sysLoginInfo/batch/delete:
     delete:
       description: 批量删除登录日志接口
@@ -1257,6 +1651,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 批量删除登录日志接口
+      tags:
+      - system系统管理
   /api/sysLoginInfo/clean:
     delete:
       description: 清空登录日志接口
@@ -1270,6 +1666,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 清空登录日志接口
+      tags:
+      - system系统管理
   /api/sysLoginInfo/delete:
     delete:
       description: 根据ID删除登录日志接口
@@ -1290,6 +1688,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据ID删除登录日志接口
+      tags:
+      - system系统管理
   /api/sysLoginInfo/list:
     get:
       description: 分页获取登录日志列表接口
@@ -1328,6 +1728,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取登录日志列表接口
+      tags:
+      - system系统管理
   /api/sysOperationLog/batch/delete:
     delete:
       description: 批量删除操作日志接口
@@ -1348,6 +1750,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 批量删除操作日志接口
+      tags:
+      - system系统管理
   /api/sysOperationLog/clean:
     delete:
       description: 清空操作日志接口
@@ -1361,6 +1765,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 清空操作日志接口
+      tags:
+      - system系统管理
   /api/sysOperationLog/delete:
     delete:
       description: 根据id删除操作日志
@@ -1381,6 +1787,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 根据id删除操作日志
+      tags:
+      - system系统管理
   /api/sysOperationLog/list:
     get:
       description: 分页获取操作日志列表接口
@@ -1415,6 +1823,8 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取操作日志列表接口
+      tags:
+      - system系统管理
   /api/upload:
     post:
       consumes:
@@ -1436,6 +1846,65 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 单图片上传接口
+      tags:
+      - system系统管理
+  /api/v1/clusters:
+    get:
+      description: k8s集群列表接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: k8s集群列表接口
+  /api/v1/clusters/add:
+    post:
+      consumes:
+      - application/json
+      description: 根据提供的配置信息创建一个新的Kubernetes集群
+      parameters:
+      - description: 集群配置信息
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/model.AddKubeClusterDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 操作成功返回结果
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 创建Kubernetes集群
+  /api/v1/clusters/update:
+    post:
+      consumes:
+      - application/json
+      description: 根据提供的更新数据修改已有Kubernetes集群的配置
+      parameters:
+      - description: 更新后的集群配置信息
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateKubeClusterDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 操作成功返回结果
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新Kubernetes集群信息
 securityDefinitions:
   ApiKeyAuth:
     in: header

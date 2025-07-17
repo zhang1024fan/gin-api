@@ -6,10 +6,12 @@ package controller
 import (
 	"gin-api/api/system/model"
 	"gin-api/api/system/service"
-	"github.com/gin-gonic/gin"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
+// @Tags system系统管理
 // 分页获取操作日志列表
 // @Summary 分页获取操作日志列表接口
 // @Produce json
@@ -31,6 +33,7 @@ func GetSysOperationLogList(c *gin.Context) {
 	service.SysOperationLogService().GetSysOperationLogList(c, Username, BeginTime, EndTime, PageSize, PageNum)
 }
 
+// @Tags system系统管理
 // 根据id删除操作日志
 // @Summary 根据id删除操作日志
 // @Produce json
@@ -45,6 +48,7 @@ func DeleteSysOperationLogById(c *gin.Context) {
 	service.SysOperationLogService().DeleteSysOperationLogById(c, dto)
 }
 
+// @Tags system系统管理
 // 批量删除操作日志
 // @Summary 批量删除操作日志接口
 // @Produce json
@@ -59,6 +63,7 @@ func BatchDeleteSysOperationLog(c *gin.Context) {
 	service.SysOperationLogService().BatchDeleteSysOperationLog(c, dto)
 }
 
+// @Tags system系统管理
 // 清空操作日志
 // @Summary 清空操作日志接口
 // @Produce json

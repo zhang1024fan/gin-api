@@ -5,22 +5,25 @@ package main
 
 import (
 	"context"
+	"fmt"
+	"gin-api/common"
 	"gin-api/common/config"
 	_ "gin-api/docs"
 	"gin-api/pkg/db"
 	"gin-api/pkg/log"
 	"gin-api/pkg/redis"
 	"gin-api/router"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
-// @title 通用后台管理系统
+// @title devops运维管理系统
 // @version 1.0
-// @description 后台管理系统API接口文档
+// @description devops运维管理系统API接口文档
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
@@ -34,10 +37,19 @@ func main() {
 	}
 	// 启动服务
 	go func() {
+		log.Info("Conflicting values for 'process.env.NODE_ENV'")
+		log.Info("")
+		log.Info(fmt.Sprintf("  App running at:"))
+		log.Info(fmt.Sprintf("  - Local:   http://%s", config.Config.Server.Address))
+		log.Info(fmt.Sprintf("  - Network: http://%s", config.Config.Server.Address))
+		log.Info("")
+		log.Info("  请注意，开发版本尚未优化")
+		log.Info("  要创建生产环境构建，请运行 go run main.go")
+		log.Info("")
+		log.Info(fmt.Sprintf("API文档地址: http://%s/swagger/index.html", config.Config.Server.Address))
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Info("listen: %s \n", err)
 		}
-		log.Info("listen: %s \n", config.Config.Server.Address)
 	}()
 	quit := make(chan os.Signal)
 	//监听消息
@@ -54,8 +66,11 @@ func main() {
 
 // 初始化连接
 func init() {
-	// mysql
-	db.SetupDBLink()
+	// 执行数据库迁移
+	if err := db.AutoMigrate(common.GetDB()); err != nil {
+		log.Log().Error("数据库迁移失败: %v", err)
+		panic(err)
+	}
 	// redis
 	redis.SetupRedisDb()
 }

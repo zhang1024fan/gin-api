@@ -1,9 +1,6 @@
-// 状态码
-// author xiaoRui
-
 package result
 
-// Codes 定义状态
+// Codes 定义状态码和消息
 type Codes struct {
 	SUCCESS                                 uint
 	FAILED                                  uint
@@ -28,6 +25,9 @@ type Codes struct {
 	MissingModificationOfPersonalParameters uint
 	MissingChangePasswordParameter          uint
 	RESETPASSWORD                           uint
+	KUBEClUSTEREXIST                        uint
+	KUBEClUSTERNOTEXIST                     uint
+	ValidationParameterError                uint
 }
 
 // ApiCode 状态码
@@ -54,6 +54,9 @@ var ApiCode = &Codes{
 	MissingModificationOfPersonalParameters: 421,
 	MissingChangePasswordParameter:          422,
 	RESETPASSWORD:                           423,
+	KUBEClUSTEREXIST:                        424,
+	ValidationParameterError:                425,
+	KUBEClUSTERNOTEXIST:                     426,
 }
 
 // 状态信息
@@ -81,6 +84,9 @@ func init() {
 		ApiCode.MissingModificationOfPersonalParameters: "缺少修改个人信息参数",
 		ApiCode.MissingChangePasswordParameter:          "修改密码参数不能为空",
 		ApiCode.RESETPASSWORD:                           "两次输入的密码不一致，请重新输入",
+		ApiCode.KUBEClUSTEREXIST:                        "集群名称已存在，请重新输入",
+		ApiCode.ValidationParameterError:                "参数验证错误",
+		ApiCode.KUBEClUSTERNOTEXIST:                     "集群ID不存在",
 	}
 }
 
