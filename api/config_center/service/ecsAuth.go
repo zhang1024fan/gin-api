@@ -22,7 +22,7 @@ type EcsAuthServiceInterface interface {
 type EcsAuthServiceImpl struct {
 	dao dao.EcsAuthDao
 }
-
+// 获取所有认证信息
 func (s *EcsAuthServiceImpl) GetEcsAuthList(c *gin.Context) {
 	list := s.dao.GetEcsAuthList()
 	var vos []model.EcsAuthVo
@@ -40,7 +40,7 @@ func (s *EcsAuthServiceImpl) GetEcsAuthList(c *gin.Context) {
 	}
 	result.Success(c, vos)
 }
-
+// 创建认证信息
 func (s *EcsAuthServiceImpl) CreateEcsAuth(c *gin.Context, dto *model.CreateEcsPasswordAuthDto) {
 	// 检查名称是否已存在
 	if s.dao.CheckNameExists(dto.Name) {
@@ -50,11 +50,12 @@ func (s *EcsAuthServiceImpl) CreateEcsAuth(c *gin.Context, dto *model.CreateEcsP
 
 	auth := model.EcsAuth{
 		Name:       dto.Name,
-		Type:       1, // 密码认证
 		Username:   dto.Username,
 		Password:   dto.Password,
 		CreateTime: util.HTime{Time: time.Now()},
 		Remark:     dto.Remark,
+		Type:       dto.Type,
+		PublicKey:  dto.PublicKey,
 	}
 	err := s.dao.CreateEcsAuth(&auth)
 	if err != nil {
@@ -63,13 +64,16 @@ func (s *EcsAuthServiceImpl) CreateEcsAuth(c *gin.Context, dto *model.CreateEcsP
 	}
 	result.Success(c, true)
 }
-
+// 修改认证信息
 func (s *EcsAuthServiceImpl) UpdateEcsAuth(c *gin.Context, id uint, dto *model.CreateEcsPasswordAuthDto) {
 	auth := model.EcsAuth{
 		Name:     dto.Name,
 		Username: dto.Username,
 		Password: dto.Password,
 		Remark:   dto.Remark,
+		Type:     dto.Type,
+		PublicKey: dto.PublicKey,
+
 	}
 	err := s.dao.UpdateEcsAuth(id, &auth)
 	if err != nil {
@@ -87,7 +91,7 @@ func (s *EcsAuthServiceImpl) DeleteEcsAuth(c *gin.Context, id uint) {
 	}
 	result.Success(c, true)
 }
-
+// 根据名称获取认证信息
 func (s *EcsAuthServiceImpl) GetEcsAuthByName(c *gin.Context, name string) {
 	auth, err := s.dao.GetEcsAuthByName(name)
 	if err != nil {

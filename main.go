@@ -66,6 +66,11 @@ func main() {
 
 // 初始化连接
 func init() {
+	// 初始化数据库连接
+	if err := db.SetupDBLink(); err != nil {
+		log.Log().Error("Failed to connect to database: %v", err)
+		panic(err)
+	}
 	// 执行数据库迁移
 	if err := db.AutoMigrate(common.GetDB()); err != nil {
 		log.Log().Error("数据库迁移失败: %v", err)
