@@ -13,7 +13,7 @@ import (
 // @Produce json
 // @Description 验证码接口
 // @Success 200 {object} result.Result
-// @router /api/captcha [get]
+// @router /api/v1/captcha [get]
 func Captcha(c *gin.Context) {
 	id, base64Image := service.CaptMake()
 	result.Success(c, map[string]interface{}{"idKey": id, "image": base64Image})

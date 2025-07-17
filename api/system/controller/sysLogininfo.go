@@ -23,7 +23,7 @@ import (
 // @Param beginTime query string false "开始时间"
 // @Param endTime query string false "结束时间"
 // @Success 200 {object} result.Result
-// @router /api/sysLoginInfo/list [get]
+// @router /api/v1/sysLoginInfo/list [get]
 // @Security ApiKeyAuth
 func GetSysLoginInfoList(c *gin.Context) {
 	PageSize, _ := strconv.Atoi(c.Query("pageSize"))
@@ -42,7 +42,7 @@ func GetSysLoginInfoList(c *gin.Context) {
 // @Description 批量删除登录日志接口
 // @Param data body model.DelSysLoginInfoDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/sysLoginInfo/batch/delete [delete]
+// @router /api/v1/sysLoginInfo/batch/delete [delete]
 // @Security ApiKeyAuth
 func BatchDeleteSysLoginInfo(c *gin.Context) {
 	var dto model.DelSysLoginInfoDto
@@ -57,7 +57,7 @@ func BatchDeleteSysLoginInfo(c *gin.Context) {
 // @Description 根据ID删除登录日志接口
 // @Param data body model.SysLoginInfoIdDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/sysLoginInfo/delete [delete]
+// @router /api/v1/sysLoginInfo/delete [delete]
 // @Security ApiKeyAuth
 func DeleteSysLoginInfoById(c *gin.Context) {
 	var dto model.SysLoginInfoIdDto
@@ -71,7 +71,7 @@ func DeleteSysLoginInfoById(c *gin.Context) {
 // @Produce json
 // @Description 清空登录日志接口
 // @Success 200 {object} result.Result
-// @router /api/sysLoginInfo/clean [delete]
+// @router /api/v1/sysLoginInfo/clean [delete]
 // @Security ApiKeyAuth
 func CleanSysLoginInfo(c *gin.Context) {
 	service.SysLoginInfoService().CleanSysLoginInfo(c)

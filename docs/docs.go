@@ -15,372 +15,6 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/admin/add": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "新增用户接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "新增用户接口",
-                "parameters": [
-                    {
-                        "description": "data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.AddSysAdminDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/delete": {
-            "delete": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "根据id删除接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "根据id删除用户接口",
-                "parameters": [
-                    {
-                        "description": "data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.SysAdminIdDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/info": {
-            "get": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "根据id查询用户接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "根据id查询用户接口",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "Id",
-                        "name": "id",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/list": {
-            "get": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "分页获取用户列表接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "分页获取用户列表接口",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "分页数",
-                        "name": "pageNum",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "description": "每页数",
-                        "name": "pageSize",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "用户名",
-                        "name": "username",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "帐号启用状态：1-\u003e启用,2-\u003e禁用",
-                        "name": "status",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "开始时间",
-                        "name": "beginTime",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "结束时间",
-                        "name": "endTime",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/update": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "修改用户接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "修改用户接口",
-                "parameters": [
-                    {
-                        "description": "data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.UpdateSysAdminDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/updatePassword": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "重置密码接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "重置密码接口",
-                "parameters": [
-                    {
-                        "description": "data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.ResetSysAdminPasswordDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/updatePersonal": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "修改个人信息接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "修改个人信息接口",
-                "parameters": [
-                    {
-                        "description": "data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.UpdatePersonalDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/updatePersonalPassword": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "修改用户密码接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "修改用户密码接口",
-                "parameters": [
-                    {
-                        "description": "data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.UpdatePersonalPasswordDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/admin/updateStatus": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "用户状态启用/停用接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "system系统管理"
-                ],
-                "summary": "用户状态启用/停用接口",
-                "parameters": [
-                    {
-                        "description": "data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.UpdateSysAdminStatusDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/captcha": {
-            "get": {
-                "description": "验证码接口",
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "验证码接口",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
         "/api/cmdb/groupadd": {
             "post": {
                 "security": [
@@ -722,21 +356,21 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/cmdb/groupadd": {
+        "/api/v1/admin/add": {
             "post": {
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
-                "description": "新增资产分组接口",
+                "description": "新增用户接口",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "CMDB资产管理"
+                    "system系统管理"
                 ],
-                "summary": "新增资产分组接口",
+                "summary": "新增用户接口",
                 "parameters": [
                     {
                         "description": "data",
@@ -744,7 +378,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.CmdbGroup"
+                            "$ref": "#/definitions/model.AddSysAdminDto"
                         }
                     }
                 ],
@@ -758,82 +392,21 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/cmdb/groupdelete": {
+        "/api/v1/admin/delete": {
             "delete": {
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
-                "description": "删除资产分组接口",
+                "description": "根据id删除接口",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "CMDB资产管理"
+                    "system系统管理"
                 ],
-                "summary": "删除资产分组接口",
-                "parameters": [
-                    {
-                        "description": "分组ID",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.CmdbGroupIdDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/cmdb/grouplist": {
-            "get": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "查询所有资产分组，并以树形结构返回",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "CMDB资产管理"
-                ],
-                "summary": "查询所有资产分组（树形结构）",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/cmdb/groupupdate": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "更新资产分组接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "CMDB资产管理"
-                ],
-                "summary": "更新资产分组接口",
+                "summary": "根据id删除用户接口",
                 "parameters": [
                     {
                         "description": "data",
@@ -841,7 +414,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.CmdbGroup"
+                            "$ref": "#/definitions/model.SysAdminIdDto"
                         }
                     }
                 ],
@@ -855,86 +428,26 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/config/ecsauthadd": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "tags": [
-                    "配置中心"
-                ],
-                "summary": "创建凭据",
-                "parameters": [
-                    {
-                        "description": "凭据信息",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.CreateEcsPasswordAuthDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/config/ecsauthdelete": {
-            "delete": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "tags": [
-                    "配置中心"
-                ],
-                "summary": "删除凭据",
-                "parameters": [
-                    {
-                        "description": "凭据ID",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.EcsAuthIdDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/config/ecsauthinfo": {
+        "/api/v1/admin/info": {
             "get": {
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
-                "tags": [
-                    "配置中心"
+                "description": "根据id查询用户接口",
+                "produces": [
+                    "application/json"
                 ],
-                "summary": "根据名称获取凭据",
+                "tags": [
+                    "system系统管理"
+                ],
+                "summary": "根据id查询用户接口",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "凭据名称",
-                        "name": "name",
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
                         "in": "query",
                         "required": true
                     }
@@ -943,79 +456,98 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/result.Result"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/model.EcsAuthVo"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/result.Result"
                         }
                     }
                 }
             }
         },
-        "/api/config/ecsauthlist": {
+        "/api/v1/admin/list": {
             "get": {
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
-                "tags": [
-                    "配置中心"
+                "description": "分页获取用户列表接口",
+                "produces": [
+                    "application/json"
                 ],
-                "summary": "获取所有凭据",
+                "tags": [
+                    "system系统管理"
+                ],
+                "summary": "分页获取用户列表接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "分页数",
+                        "name": "pageNum",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户名",
+                        "name": "username",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "帐号启用状态：1-\u003e启用,2-\u003e禁用",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "开始时间",
+                        "name": "beginTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "结束时间",
+                        "name": "endTime",
+                        "in": "query"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/result.Result"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/model.EcsAuthVo"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/result.Result"
                         }
                     }
                 }
             }
         },
-        "/api/config/ecsauthupdate": {
+        "/api/v1/admin/update": {
             "put": {
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
-                "tags": [
-                    "配置中心"
+                "description": "修改用户接口",
+                "produces": [
+                    "application/json"
                 ],
-                "summary": "更新凭据",
+                "tags": [
+                    "system系统管理"
+                ],
+                "summary": "修改用户接口",
                 "parameters": [
                     {
-                        "description": "凭据信息",
+                        "description": "data",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.UpdateEcsAuthDto"
+                            "$ref": "#/definitions/model.UpdateSysAdminDto"
                         }
                     }
                 ],
@@ -1029,7 +561,271 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/dept/add": {
+        "/api/v1/admin/updatePassword": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "重置密码接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
+                ],
+                "summary": "重置密码接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.ResetSysAdminPasswordDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/updatePersonal": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "修改个人信息接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
+                ],
+                "summary": "修改个人信息接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdatePersonalDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/updatePersonalPassword": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "修改用户密码接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
+                ],
+                "summary": "修改用户密码接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdatePersonalPasswordDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/updateStatus": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "用户状态启用/停用接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "system系统管理"
+                ],
+                "summary": "用户状态启用/停用接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdateSysAdminStatusDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/captcha": {
+            "get": {
+                "description": "验证码接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "验证码接口",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/clusters": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "k8s集群列表接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "k8s集群列表"
+                ],
+                "summary": "k8s集群列表接口",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/clusters/add": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据提供的配置信息创建一个新的Kubernetes集群",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "k8s集群列表"
+                ],
+                "summary": "创建Kubernetes集群",
+                "parameters": [
+                    {
+                        "description": "集群配置信息",
+                        "name": "cluster",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.AddKubeClusterDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "操作成功返回结果",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/clusters/update": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据提供的更新数据修改已有Kubernetes集群的配置",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "k8s集群列表"
+                ],
+                "summary": "更新Kubernetes集群信息",
+                "parameters": [
+                    {
+                        "description": "更新后的集群配置信息",
+                        "name": "cluster",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdateKubeClusterDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "操作成功返回结果",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/dept/add": {
             "post": {
                 "security": [
                     {
@@ -1065,7 +861,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/dept/delete": {
+        "/api/v1/dept/delete": {
             "delete": {
                 "security": [
                     {
@@ -1101,7 +897,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/dept/info": {
+        "/api/v1/dept/info": {
             "get": {
                 "security": [
                     {
@@ -1135,7 +931,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/dept/list": {
+        "/api/v1/dept/list": {
             "get": {
                 "security": [
                     {
@@ -1174,7 +970,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/dept/update": {
+        "/api/v1/dept/update": {
             "put": {
                 "security": [
                     {
@@ -1210,7 +1006,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/dept/users": {
+        "/api/v1/dept/users": {
             "get": {
                 "security": [
                     {
@@ -1244,7 +1040,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/dept/vo/list": {
+        "/api/v1/dept/vo/list": {
             "get": {
                 "security": [
                     {
@@ -1269,7 +1065,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/login": {
+        "/api/v1/login": {
             "post": {
                 "description": "用户登录接口",
                 "produces": [
@@ -1300,7 +1096,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/menu/add": {
+        "/api/v1/menu/add": {
             "post": {
                 "security": [
                     {
@@ -1336,7 +1132,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/menu/delete": {
+        "/api/v1/menu/delete": {
             "delete": {
                 "security": [
                     {
@@ -1372,7 +1168,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/menu/info": {
+        "/api/v1/menu/info": {
             "get": {
                 "security": [
                     {
@@ -1406,7 +1202,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/menu/list": {
+        "/api/v1/menu/list": {
             "get": {
                 "security": [
                     {
@@ -1445,7 +1241,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/menu/update": {
+        "/api/v1/menu/update": {
             "put": {
                 "security": [
                     {
@@ -1481,7 +1277,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/menu/vo/list": {
+        "/api/v1/menu/vo/list": {
             "get": {
                 "security": [
                     {
@@ -1506,7 +1302,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/add": {
+        "/api/v1/post/add": {
             "post": {
                 "security": [
                     {
@@ -1542,7 +1338,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/batch/delete": {
+        "/api/v1/post/batch/delete": {
             "delete": {
                 "security": [
                     {
@@ -1578,7 +1374,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/delete": {
+        "/api/v1/post/delete": {
             "delete": {
                 "security": [
                     {
@@ -1614,7 +1410,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/info": {
+        "/api/v1/post/info": {
             "get": {
                 "security": [
                     {
@@ -1648,7 +1444,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/list": {
+        "/api/v1/post/list": {
             "get": {
                 "security": [
                     {
@@ -1711,7 +1507,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/update": {
+        "/api/v1/post/update": {
             "put": {
                 "security": [
                     {
@@ -1747,7 +1543,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/updateStatus": {
+        "/api/v1/post/updateStatus": {
             "put": {
                 "security": [
                     {
@@ -1783,7 +1579,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/post/vo/list": {
+        "/api/v1/post/vo/list": {
             "get": {
                 "security": [
                     {
@@ -1808,7 +1604,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/add": {
+        "/api/v1/role/add": {
             "post": {
                 "security": [
                     {
@@ -1844,7 +1640,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/assignPermissions": {
+        "/api/v1/role/assignPermissions": {
             "put": {
                 "security": [
                     {
@@ -1880,7 +1676,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/delete": {
+        "/api/v1/role/delete": {
             "delete": {
                 "security": [
                     {
@@ -1916,7 +1712,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/info": {
+        "/api/v1/role/info": {
             "get": {
                 "security": [
                     {
@@ -1950,7 +1746,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/list": {
+        "/api/v1/role/list": {
             "get": {
                 "security": [
                     {
@@ -2013,7 +1809,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/update": {
+        "/api/v1/role/update": {
             "put": {
                 "security": [
                     {
@@ -2049,7 +1845,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/updateStatus": {
+        "/api/v1/role/updateStatus": {
             "put": {
                 "security": [
                     {
@@ -2085,7 +1881,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/vo/idList": {
+        "/api/v1/role/vo/idList": {
             "get": {
                 "security": [
                     {
@@ -2119,7 +1915,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/role/vo/list": {
+        "/api/v1/role/vo/list": {
             "get": {
                 "security": [
                     {
@@ -2144,7 +1940,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysLoginInfo/batch/delete": {
+        "/api/v1/sysLoginInfo/batch/delete": {
             "delete": {
                 "security": [
                     {
@@ -2180,7 +1976,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysLoginInfo/clean": {
+        "/api/v1/sysLoginInfo/clean": {
             "delete": {
                 "security": [
                     {
@@ -2205,7 +2001,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysLoginInfo/delete": {
+        "/api/v1/sysLoginInfo/delete": {
             "delete": {
                 "security": [
                     {
@@ -2241,7 +2037,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysLoginInfo/list": {
+        "/api/v1/sysLoginInfo/list": {
             "get": {
                 "security": [
                     {
@@ -2304,7 +2100,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysOperationLog/batch/delete": {
+        "/api/v1/sysOperationLog/batch/delete": {
             "delete": {
                 "security": [
                     {
@@ -2340,7 +2136,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysOperationLog/clean": {
+        "/api/v1/sysOperationLog/clean": {
             "delete": {
                 "security": [
                     {
@@ -2365,7 +2161,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysOperationLog/delete": {
+        "/api/v1/sysOperationLog/delete": {
             "delete": {
                 "security": [
                     {
@@ -2401,7 +2197,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/sysOperationLog/list": {
+        "/api/v1/sysOperationLog/list": {
             "get": {
                 "security": [
                     {
@@ -2458,7 +2254,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/upload": {
+        "/api/v1/upload": {
             "post": {
                 "security": [
                     {
@@ -2488,100 +2284,6 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/clusters": {
-            "get": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "k8s集群列表接口",
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "k8s集群列表接口",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/clusters/add": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "根据提供的配置信息创建一个新的Kubernetes集群",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "创建Kubernetes集群",
-                "parameters": [
-                    {
-                        "description": "集群配置信息",
-                        "name": "cluster",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.AddKubeClusterDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "操作成功返回结果",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/clusters/update": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "根据提供的更新数据修改已有Kubernetes集群的配置",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "更新Kubernetes集群信息",
-                "parameters": [
-                    {
-                        "description": "更新后的集群配置信息",
-                        "name": "cluster",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.UpdateKubeClusterDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "操作成功返回结果",
                         "schema": {
                             "$ref": "#/definitions/result.Result"
                         }
@@ -2762,99 +2464,8 @@ const docTemplate = `{
                     "description": "密码",
                     "type": "string"
                 },
-                "remark": {
-                    "description": "备注",
-                    "type": "string"
-                },
-                "type": {
-                    "description": "认证类型:1-\u003e密码",
-                    "type": "integer"
-                },
-                "username": {
-                    "description": "用户名",
-                    "type": "string"
-                }
-            }
-        },
-        "model.CmdbGroup": {
-            "type": "object",
-            "properties": {
-                "children": {
-                    "description": "子分组（虚拟字段，用于树形展示）",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/model.CmdbGroup"
-                    }
-                },
-                "createTime": {
-                    "description": "创建时间",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/util.HTime"
-                        }
-                    ]
-                },
-                "id": {
-                    "description": "主键ID",
-                    "type": "integer"
-                },
-                "name": {
-                    "description": "分组名称",
-                    "type": "string"
-                },
-                "parentId": {
-                    "description": "父级分组ID（0 表示根分组）",
-                    "type": "integer"
-                }
-            }
-        },
-        "model.CmdbGroupIdDto": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "ID",
-                    "type": "integer"
-                }
-            }
-        },
-        "model.UpdateKubeClusterDto": {
-            "type": "object",
-            "required": [
-                "id",
-                "kubeconfig"
-            ],
-            "properties": {
-                "id": {
-                    "description": "集群名",
-                    "type": "integer"
-                },
-                "isDefault": {
-                    "description": "是否默认展示",
-                    "type": "boolean"
-                },
-                "kubeconfig": {
-                    "type": "string"
-                },
-                "prometheus_url": {
-                    "type": "string"
-                }
-            }
-        },
-        "model.CreateEcsPasswordAuthDto": {
-            "type": "object",
-            "required": [
-                "name",
-                "password",
-                "type",
-                "username"
-            ],
-            "properties": {
-                "name": {
-                    "description": "凭证名称",
-                    "type": "string"
-                },
-                "password": {
-                    "description": "密码",
+                "publicKey": {
+                    "description": "公钥",
                     "type": "string"
                 },
                 "remark": {
@@ -2892,44 +2503,6 @@ const docTemplate = `{
                     "items": {
                         "type": "integer"
                     }
-                }
-            }
-        },
-        "model.EcsAuthIdDto": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "ID",
-                    "type": "integer"
-                }
-            }
-        },
-        "model.EcsAuthVo": {
-            "type": "object",
-            "properties": {
-                "createTime": {
-                    "$ref": "#/definitions/util.HTime"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "publicKey": {
-                    "type": "string"
-                },
-                "remark": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "integer"
-                },
-                "username": {
-                    "type": "string"
                 }
             }
         },
@@ -3246,6 +2819,10 @@ const docTemplate = `{
                     "description": "密码",
                     "type": "string"
                 },
+                "publicKey": {
+                    "description": "公钥",
+                    "type": "string"
+                },
                 "remark": {
                     "description": "备注",
                     "type": "string"
@@ -3256,6 +2833,29 @@ const docTemplate = `{
                 },
                 "username": {
                     "description": "用户名",
+                    "type": "string"
+                }
+            }
+        },
+        "model.UpdateKubeClusterDto": {
+            "type": "object",
+            "required": [
+                "id",
+                "kubeconfig"
+            ],
+            "properties": {
+                "id": {
+                    "description": "集群名",
+                    "type": "integer"
+                },
+                "isDefault": {
+                    "description": "是否默认展示",
+                    "type": "boolean"
+                },
+                "kubeconfig": {
+                    "type": "string"
+                },
+                "prometheus_url": {
                     "type": "string"
                 }
             }

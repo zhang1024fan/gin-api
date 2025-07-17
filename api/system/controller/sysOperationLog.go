@@ -22,7 +22,7 @@ import (
 // @Param beginTime query string false "开始时间"
 // @Param endTime query string false "结束时间"
 // @Success 200 {object} result.Result
-// @router /api/sysOperationLog/list [get]
+// @router /api/v1/sysOperationLog/list [get]
 // @Security ApiKeyAuth
 func GetSysOperationLogList(c *gin.Context) {
 	Username := c.Query("username")
@@ -40,7 +40,7 @@ func GetSysOperationLogList(c *gin.Context) {
 // @Description 根据id删除操作日志
 // @Param data body model.SysOperationLogIdDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/sysOperationLog/delete [delete]
+// @router /api/v1/sysOperationLog/delete [delete]
 // @Security ApiKeyAuth
 func DeleteSysOperationLogById(c *gin.Context) {
 	var dto model.SysOperationLogIdDto
@@ -55,7 +55,7 @@ func DeleteSysOperationLogById(c *gin.Context) {
 // @Description 批量删除操作日志接口
 // @Param data body model.BatchDeleteSysOperationLogDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/sysOperationLog/batch/delete [delete]
+// @router /api/v1/sysOperationLog/batch/delete [delete]
 // @Security ApiKeyAuth
 func BatchDeleteSysOperationLog(c *gin.Context) {
 	var dto model.BatchDeleteSysOperationLogDto
@@ -69,7 +69,7 @@ func BatchDeleteSysOperationLog(c *gin.Context) {
 // @Produce json
 // @Description 清空操作日志接口
 // @Success 200 {object} result.Result
-// @router /api/sysOperationLog/clean [delete]
+// @router /api/v1/sysOperationLog/clean [delete]
 // @Security ApiKeyAuth
 func CleanSysOperationLog(c *gin.Context) {
 	service.SysOperationLogService().CleanSysOperationLog(c)

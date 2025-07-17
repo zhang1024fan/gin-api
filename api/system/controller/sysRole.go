@@ -18,7 +18,7 @@ import (
 // @Description 新增角色接口
 // @Param data body model.AddSysRoleDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/role/add [post]
+// @router /api/v1/role/add [post]
 // @Security ApiKeyAuth
 func CreateSysRole(c *gin.Context) {
 	var dto model.AddSysRoleDto
@@ -33,7 +33,7 @@ func CreateSysRole(c *gin.Context) {
 // @Description 根据id查询角色接口
 // @Param id query int true "Id"
 // @Success 200 {object} result.Result
-// @router /api/role/info [get]
+// @router /api/v1/role/info [get]
 // @Security ApiKeyAuth
 func GetSysRoleById(c *gin.Context) {
 	Id, _ := strconv.Atoi(c.Query("id"))
@@ -47,7 +47,7 @@ func GetSysRoleById(c *gin.Context) {
 // @Description 修改角色
 // @Param data body model.UpdateSysRoleDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/role/update [put]
+// @router /api/v1/role/update [put]
 // @Security ApiKeyAuth
 func UpdateSysRole(c *gin.Context) {
 	var dto model.UpdateSysRoleDto
@@ -62,7 +62,7 @@ func UpdateSysRole(c *gin.Context) {
 // @Description 根据id删除角色接口
 // @Param data body model.SysRoleIdDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/role/delete [delete]
+// @router /api/v1/role/delete [delete]
 // @Security ApiKeyAuth
 func DeleteSysRoleById(c *gin.Context) {
 	var dto model.SysRoleIdDto
@@ -77,7 +77,7 @@ func DeleteSysRoleById(c *gin.Context) {
 // @Description 角色状态启用/停用接口
 // @Param data body model.UpdateSysRoleStatusDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/role/updateStatus [put]
+// @router /api/v1/role/updateStatus [put]
 // @Security ApiKeyAuth
 func UpdateSysRoleStatus(c *gin.Context) {
 	var dto model.UpdateSysRoleStatusDto
@@ -97,7 +97,7 @@ func UpdateSysRoleStatus(c *gin.Context) {
 // @Param beginTime query string false "开始时间"
 // @Param endTime query string false "结束时间"
 // @Success 200 {object} result.Result
-// @router /api/role/list [get]
+// @router /api/v1/role/list [get]
 // @Security ApiKeyAuth
 func GetSysRoleList(c *gin.Context) {
 	PageNum, _ := strconv.Atoi(c.Query("pageNum"))
@@ -115,7 +115,7 @@ func GetSysRoleList(c *gin.Context) {
 // @Produce json
 // @Description 角色下拉列表
 // @Success 200 {object} result.Result
-// @router /api/role/vo/list [get]
+// @router /api/v1/role/vo/list [get]
 // @Security ApiKeyAuth
 func QuerySysRoleVoList(c *gin.Context) {
 	service.SysRoleService().QuerySysRoleVoList(c)
@@ -128,7 +128,7 @@ func QuerySysRoleVoList(c *gin.Context) {
 // @Description 根据角色id查询菜单数据接口
 // @Param id query int true "Id"
 // @Success 200 {object} result.Result
-// @router /api/role/vo/idList [get]
+// @router /api/v1/role/vo/idList [get]
 // @Security ApiKeyAuth
 func QueryRoleMenuIdList(c *gin.Context) {
 	Id, _ := strconv.Atoi(c.Query("id"))
@@ -142,7 +142,7 @@ func QueryRoleMenuIdList(c *gin.Context) {
 // @Description 分配权限接口
 // @Param data body model.RoleMenu true "data"
 // @Success 200 {object} result.Result
-// @router /api/role/assignPermissions [put]
+// @router /api/v1/role/assignPermissions [put]
 // @Security ApiKeyAuth
 func AssignPermissions(c *gin.Context) {
 	var RoleMenu model.RoleMenu

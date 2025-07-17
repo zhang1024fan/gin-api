@@ -17,7 +17,7 @@ import (
 // @Description 用户登录接口
 // @Param data body model.LoginDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/login [post]
+// @router /api/v1/login [post]
 func Login(c *gin.Context) {
 	var dto model.LoginDto
 	_ = c.BindJSON(&dto)
@@ -31,7 +31,7 @@ func Login(c *gin.Context) {
 // @Description 新增用户接口
 // @Param data body model.AddSysAdminDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/admin/add [post]
+// @router /api/v1/admin/add [post]
 // @Security ApiKeyAuth
 func CreateSysAdmin(c *gin.Context) {
 	var dto model.AddSysAdminDto
@@ -46,7 +46,7 @@ func CreateSysAdmin(c *gin.Context) {
 // @Description 根据id查询用户接口
 // @Param id query int true "Id"
 // @Success 200 {object} result.Result
-// @router /api/admin/info [get]
+// @router /api/v1/admin/info [get]
 // @Security ApiKeyAuth
 func GetSysAdminInfo(c *gin.Context) {
 	Id, _ := strconv.Atoi(c.Query("id"))
@@ -60,7 +60,7 @@ func GetSysAdminInfo(c *gin.Context) {
 // @Description 修改用户接口
 // @Param data body model.UpdateSysAdminDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/admin/update [put]
+// @router /api/v1/admin/update [put]
 // @Security ApiKeyAuth
 func UpdateSysAdmin(c *gin.Context) {
 	var dto model.UpdateSysAdminDto
@@ -75,7 +75,7 @@ func UpdateSysAdmin(c *gin.Context) {
 // @Description 根据id删除接口
 // @Param data body model.SysAdminIdDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/admin/delete [delete]
+// @router /api/v1/admin/delete [delete]
 // @Security ApiKeyAuth
 func DeleteSysAdminById(c *gin.Context) {
 	var dto model.SysAdminIdDto
@@ -92,7 +92,7 @@ func DeleteSysAdminById(c *gin.Context) {
 // @Description 用户状态启用/停用接口
 // @Param data body model.UpdateSysAdminStatusDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/admin/updateStatus [put]
+// @router /api/v1/admin/updateStatus [put]
 // @Security ApiKeyAuth
 func UpdateSysAdminStatus(c *gin.Context) {
 	var dto model.UpdateSysAdminStatusDto
@@ -107,7 +107,7 @@ func UpdateSysAdminStatus(c *gin.Context) {
 // @Description 重置密码接口
 // @Param data body model.ResetSysAdminPasswordDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/admin/updatePassword [put]
+// @router /api/v1/admin/updatePassword [put]
 // @Security ApiKeyAuth
 func ResetSysAdminPassword(c *gin.Context) {
 	var dto model.ResetSysAdminPasswordDto
@@ -127,7 +127,7 @@ func ResetSysAdminPassword(c *gin.Context) {
 // @Param beginTime query string false "开始时间"
 // @Param endTime query string false "结束时间"
 // @Success 200 {object} result.Result
-// @router /api/admin/list [get]
+// @router /api/v1/admin/list [get]
 // @Security ApiKeyAuth
 func GetSysAdminList(c *gin.Context) {
 	PageNum, _ := strconv.Atoi(c.Query("pageNum"))
@@ -146,7 +146,7 @@ func GetSysAdminList(c *gin.Context) {
 // @Description 修改个人信息接口
 // @Param data body model.UpdatePersonalDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/admin/updatePersonal [put]
+// @router /api/v1/admin/updatePersonal [put]
 // @Security ApiKeyAuth
 func UpdatePersonal(c *gin.Context) {
 	var dto model.UpdatePersonalDto
@@ -161,7 +161,7 @@ func UpdatePersonal(c *gin.Context) {
 // @Description 修改用户密码接口
 // @Param data body model.UpdatePersonalPasswordDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/admin/updatePersonalPassword [put]
+// @router /api/v1/admin/updatePersonalPassword [put]
 // @Security ApiKeyAuth
 func UpdatePersonalPassword(c *gin.Context) {
 	var dto model.UpdatePersonalPasswordDto

@@ -16,7 +16,7 @@ var sysPost model.SysPost
 // @Description 新增岗位接口
 // @Param data body model.SysPost true "data"
 // @Success 200 {object} result.Result
-// @router /api/post/add [post]
+// @router /api/v1/post/add [post]
 // @Security ApiKeyAuth
 func CreateSysPost(c *gin.Context) {
 	_ = c.BindJSON(&sysPost)
@@ -35,7 +35,7 @@ func CreateSysPost(c *gin.Context) {
 // @Param beginTime query string false "开始时间"
 // @Param endTime query string false "结束时间"
 // @Success 200 {object} result.Result
-// @router /api/post/list [get]
+// @router /api/v1/post/list [get]
 // @Security ApiKeyAuth
 func GetSysPostList(c *gin.Context) {
 	PageNum, _ := strconv.Atoi(c.Query("pageNum"))
@@ -54,7 +54,7 @@ func GetSysPostList(c *gin.Context) {
 // @Description 根据id查询岗位
 // @Param id query int true "ID"
 // @Success 200 {object} result.Result
-// @router /api/post/info [get]
+// @router /api/v1/post/info [get]
 // @Security ApiKeyAuth
 func GetSysPostById(c *gin.Context) {
 	Id, _ := strconv.Atoi(c.Query("id"))
@@ -68,7 +68,7 @@ func GetSysPostById(c *gin.Context) {
 // @Description 修改岗位接口
 // @Param data body model.SysPost true "data"
 // @Success 200 {object} result.Result
-// @router /api/post/update [put]
+// @router /api/v1/post/update [put]
 // @Security ApiKeyAuth
 func UpdateSysPost(c *gin.Context) {
 	_ = c.BindJSON(&sysPost)
@@ -82,7 +82,7 @@ func UpdateSysPost(c *gin.Context) {
 // @Description 根据id删除岗位接口
 // @Param data body model.SysPostIdDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/post/delete [delete]
+// @router /api/v1/post/delete [delete]
 // @Security ApiKeyAuth
 func DeleteSysPostById(c *gin.Context) {
 	var dto model.SysPostIdDto
@@ -97,7 +97,7 @@ func DeleteSysPostById(c *gin.Context) {
 // @Description 批量删除岗位接口
 // @Param data body model.DelSysPostDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/post/batch/delete [delete]
+// @router /api/v1/post/batch/delete [delete]
 // @Security ApiKeyAuth
 func BatchDeleteSysPost(c *gin.Context) {
 	var dto model.DelSysPostDto
@@ -112,7 +112,7 @@ func BatchDeleteSysPost(c *gin.Context) {
 // @Description 岗位状态修改接口
 // @Param data body model.UpdateSysPostStatusDto true "data"
 // @Success 200 {object} result.Result
-// @router /api/post/updateStatus [put]
+// @router /api/v1/post/updateStatus [put]
 // @Security ApiKeyAuth
 func UpdateSysPostStatus(c *gin.Context) {
 	var dto model.UpdateSysPostStatusDto
@@ -126,7 +126,7 @@ func UpdateSysPostStatus(c *gin.Context) {
 // @Produce json
 // @Description 岗位下拉列表
 // @Success 200 {object} result.Result
-// @router /api/post/vo/list [get]
+// @router /api/v1/post/vo/list [get]
 // @Security ApiKeyAuth
 func QuerySysPostVoList(c *gin.Context) {
 	service.SysPostService().QuerySysPostVoList(c)

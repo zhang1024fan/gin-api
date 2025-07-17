@@ -117,6 +117,9 @@ definitions:
       password:
         description: 密码
         type: string
+      publicKey:
+        description: 公钥
+        type: string
       remark:
         description: 备注
         type: string
@@ -359,6 +362,9 @@ definitions:
       password:
         description: 密码
         type: string
+      publicKey:
+        description: 公钥
+        type: string
       remark:
         description: 备注
         type: string
@@ -539,232 +545,6 @@ info:
   title: devops运维管理系统
   version: "1.0"
 paths:
-  /api/admin/add:
-    post:
-      description: 新增用户接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.AddSysAdminDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 新增用户接口
-      tags:
-      - system系统管理
-  /api/admin/delete:
-    delete:
-      description: 根据id删除接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.SysAdminIdDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 根据id删除用户接口
-      tags:
-      - system系统管理
-  /api/admin/info:
-    get:
-      description: 根据id查询用户接口
-      parameters:
-      - description: Id
-        in: query
-        name: id
-        required: true
-        type: integer
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 根据id查询用户接口
-      tags:
-      - system系统管理
-  /api/admin/list:
-    get:
-      description: 分页获取用户列表接口
-      parameters:
-      - description: 分页数
-        in: query
-        name: pageNum
-        type: integer
-      - description: 每页数
-        in: query
-        name: pageSize
-        type: integer
-      - description: 用户名
-        in: query
-        name: username
-        type: string
-      - description: 帐号启用状态：1->启用,2->禁用
-        in: query
-        name: status
-        type: string
-      - description: 开始时间
-        in: query
-        name: beginTime
-        type: string
-      - description: 结束时间
-        in: query
-        name: endTime
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 分页获取用户列表接口
-      tags:
-      - system系统管理
-  /api/admin/update:
-    put:
-      description: 修改用户接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.UpdateSysAdminDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 修改用户接口
-      tags:
-      - system系统管理
-  /api/admin/updatePassword:
-    put:
-      description: 重置密码接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.ResetSysAdminPasswordDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 重置密码接口
-      tags:
-      - system系统管理
-  /api/admin/updatePersonal:
-    put:
-      description: 修改个人信息接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.UpdatePersonalDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 修改个人信息接口
-      tags:
-      - system系统管理
-  /api/admin/updatePersonalPassword:
-    put:
-      description: 修改用户密码接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.UpdatePersonalPasswordDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 修改用户密码接口
-      tags:
-      - system系统管理
-  /api/admin/updateStatus:
-    put:
-      description: 用户状态启用/停用接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.UpdateSysAdminStatusDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 用户状态启用/停用接口
-      tags:
-      - system系统管理
-  /api/captcha:
-    get:
-      description: 验证码接口
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      summary: 验证码接口
   /api/cmdb/groupadd:
     post:
       description: 新增资产分组接口
@@ -966,7 +746,296 @@ paths:
       summary: 更新凭据
       tags:
       - 配置中心
-  /api/dept/add:
+  /api/v1/admin/add:
+    post:
+      description: 新增用户接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.AddSysAdminDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 新增用户接口
+      tags:
+      - system系统管理
+  /api/v1/admin/delete:
+    delete:
+      description: 根据id删除接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.SysAdminIdDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据id删除用户接口
+      tags:
+      - system系统管理
+  /api/v1/admin/info:
+    get:
+      description: 根据id查询用户接口
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据id查询用户接口
+      tags:
+      - system系统管理
+  /api/v1/admin/list:
+    get:
+      description: 分页获取用户列表接口
+      parameters:
+      - description: 分页数
+        in: query
+        name: pageNum
+        type: integer
+      - description: 每页数
+        in: query
+        name: pageSize
+        type: integer
+      - description: 用户名
+        in: query
+        name: username
+        type: string
+      - description: 帐号启用状态：1->启用,2->禁用
+        in: query
+        name: status
+        type: string
+      - description: 开始时间
+        in: query
+        name: beginTime
+        type: string
+      - description: 结束时间
+        in: query
+        name: endTime
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取用户列表接口
+      tags:
+      - system系统管理
+  /api/v1/admin/update:
+    put:
+      description: 修改用户接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateSysAdminDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 修改用户接口
+      tags:
+      - system系统管理
+  /api/v1/admin/updatePassword:
+    put:
+      description: 重置密码接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.ResetSysAdminPasswordDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 重置密码接口
+      tags:
+      - system系统管理
+  /api/v1/admin/updatePersonal:
+    put:
+      description: 修改个人信息接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdatePersonalDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 修改个人信息接口
+      tags:
+      - system系统管理
+  /api/v1/admin/updatePersonalPassword:
+    put:
+      description: 修改用户密码接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdatePersonalPasswordDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 修改用户密码接口
+      tags:
+      - system系统管理
+  /api/v1/admin/updateStatus:
+    put:
+      description: 用户状态启用/停用接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateSysAdminStatusDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户状态启用/停用接口
+      tags:
+      - system系统管理
+  /api/v1/captcha:
+    get:
+      description: 验证码接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      summary: 验证码接口
+  /api/v1/clusters:
+    get:
+      description: k8s集群列表接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: k8s集群列表接口
+      tags:
+      - k8s集群列表
+  /api/v1/clusters/add:
+    post:
+      consumes:
+      - application/json
+      description: 根据提供的配置信息创建一个新的Kubernetes集群
+      parameters:
+      - description: 集群配置信息
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/model.AddKubeClusterDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 操作成功返回结果
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 创建Kubernetes集群
+      tags:
+      - k8s集群列表
+  /api/v1/clusters/update:
+    post:
+      consumes:
+      - application/json
+      description: 根据提供的更新数据修改已有Kubernetes集群的配置
+      parameters:
+      - description: 更新后的集群配置信息
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateKubeClusterDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 操作成功返回结果
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新Kubernetes集群信息
+      tags:
+      - k8s集群列表
+  /api/v1/dept/add:
     post:
       description: 新增部门接口
       parameters:
@@ -988,7 +1057,7 @@ paths:
       summary: 新增部门接口
       tags:
       - system系统管理
-  /api/dept/delete:
+  /api/v1/dept/delete:
     delete:
       description: 根据id删除部门接口
       parameters:
@@ -1010,7 +1079,7 @@ paths:
       summary: 根据id删除部门接口
       tags:
       - system系统管理
-  /api/dept/info:
+  /api/v1/dept/info:
     get:
       description: 根据id查询部门接口
       parameters:
@@ -1031,7 +1100,7 @@ paths:
       summary: 根据id查询部门接口
       tags:
       - system系统管理
-  /api/dept/list:
+  /api/v1/dept/list:
     get:
       description: 查询部门列表接口
       parameters:
@@ -1055,7 +1124,7 @@ paths:
       summary: 查询部门列表接口
       tags:
       - system系统管理
-  /api/dept/update:
+  /api/v1/dept/update:
     put:
       description: 修改部门接口
       parameters:
@@ -1077,7 +1146,7 @@ paths:
       summary: 修改部门接口
       tags:
       - system系统管理
-  /api/dept/users:
+  /api/v1/dept/users:
     get:
       description: 获取某部门下的所有用户
       parameters:
@@ -1098,7 +1167,7 @@ paths:
       summary: 获取某部门下的所有用户接口
       tags:
       - system系统管理
-  /api/dept/vo/list:
+  /api/v1/dept/vo/list:
     get:
       description: 部门下拉列表接口
       produces:
@@ -1113,7 +1182,7 @@ paths:
       summary: 部门下拉列表接口
       tags:
       - system系统管理
-  /api/login:
+  /api/v1/login:
     post:
       description: 用户登录接口
       parameters:
@@ -1133,7 +1202,7 @@ paths:
       summary: 用户登录接口
       tags:
       - system系统管理
-  /api/menu/add:
+  /api/v1/menu/add:
     post:
       description: 新增菜单接口
       parameters:
@@ -1155,7 +1224,7 @@ paths:
       summary: 新增菜单接口
       tags:
       - system系统管理
-  /api/menu/delete:
+  /api/v1/menu/delete:
     delete:
       description: 根据id删除菜单接口
       parameters:
@@ -1177,7 +1246,7 @@ paths:
       summary: 根据id删除菜单接口
       tags:
       - system系统管理
-  /api/menu/info:
+  /api/v1/menu/info:
     get:
       description: 根据id查询菜单
       parameters:
@@ -1198,7 +1267,7 @@ paths:
       summary: 根据id查询菜单
       tags:
       - system系统管理
-  /api/menu/list:
+  /api/v1/menu/list:
     get:
       description: 查询菜单列表
       parameters:
@@ -1222,7 +1291,7 @@ paths:
       summary: 查询菜单列表
       tags:
       - system系统管理
-  /api/menu/update:
+  /api/v1/menu/update:
     put:
       description: 修改菜单接口
       parameters:
@@ -1244,7 +1313,7 @@ paths:
       summary: 修改菜单接口
       tags:
       - system系统管理
-  /api/menu/vo/list:
+  /api/v1/menu/vo/list:
     get:
       description: 查询新增选项列表接口
       produces:
@@ -1259,7 +1328,7 @@ paths:
       summary: 查询新增选项列表接口
       tags:
       - system系统管理
-  /api/post/add:
+  /api/v1/post/add:
     post:
       description: 新增岗位接口
       parameters:
@@ -1281,7 +1350,7 @@ paths:
       summary: 新增岗位接口
       tags:
       - system系统管理
-  /api/post/batch/delete:
+  /api/v1/post/batch/delete:
     delete:
       description: 批量删除岗位接口
       parameters:
@@ -1303,7 +1372,7 @@ paths:
       summary: 批量删除岗位接口
       tags:
       - system系统管理
-  /api/post/delete:
+  /api/v1/post/delete:
     delete:
       description: 根据id删除岗位接口
       parameters:
@@ -1325,7 +1394,7 @@ paths:
       summary: 根据id删除岗位接口
       tags:
       - system系统管理
-  /api/post/info:
+  /api/v1/post/info:
     get:
       description: 根据id查询岗位
       parameters:
@@ -1346,7 +1415,7 @@ paths:
       summary: 根据id查询岗位
       tags:
       - system系统管理
-  /api/post/list:
+  /api/v1/post/list:
     get:
       description: 分页查询岗位列表
       parameters:
@@ -1386,7 +1455,7 @@ paths:
       summary: 分页查询岗位列表
       tags:
       - system系统管理
-  /api/post/update:
+  /api/v1/post/update:
     put:
       description: 修改岗位接口
       parameters:
@@ -1408,7 +1477,7 @@ paths:
       summary: 修改岗位接口
       tags:
       - system系统管理
-  /api/post/updateStatus:
+  /api/v1/post/updateStatus:
     put:
       description: 岗位状态修改接口
       parameters:
@@ -1430,7 +1499,7 @@ paths:
       summary: 岗位状态修改接口
       tags:
       - system系统管理
-  /api/post/vo/list:
+  /api/v1/post/vo/list:
     get:
       description: 岗位下拉列表
       produces:
@@ -1445,7 +1514,7 @@ paths:
       summary: 岗位下拉列表
       tags:
       - system系统管理
-  /api/role/add:
+  /api/v1/role/add:
     post:
       description: 新增角色接口
       parameters:
@@ -1467,7 +1536,7 @@ paths:
       summary: 新增角色接口
       tags:
       - system系统管理
-  /api/role/assignPermissions:
+  /api/v1/role/assignPermissions:
     put:
       description: 分配权限接口
       parameters:
@@ -1489,7 +1558,7 @@ paths:
       summary: 分配权限接口
       tags:
       - system系统管理
-  /api/role/delete:
+  /api/v1/role/delete:
     delete:
       description: 根据id删除角色接口
       parameters:
@@ -1511,7 +1580,7 @@ paths:
       summary: 根据id删除角色接口
       tags:
       - system系统管理
-  /api/role/info:
+  /api/v1/role/info:
     get:
       description: 根据id查询角色接口
       parameters:
@@ -1532,7 +1601,7 @@ paths:
       summary: 根据id查询角色接口
       tags:
       - system系统管理
-  /api/role/list:
+  /api/v1/role/list:
     get:
       description: 分页查询角色列表接口
       parameters:
@@ -1572,7 +1641,7 @@ paths:
       summary: 分页查询角色列表接口
       tags:
       - system系统管理
-  /api/role/update:
+  /api/v1/role/update:
     put:
       description: 修改角色
       parameters:
@@ -1594,7 +1663,7 @@ paths:
       summary: 修改角色
       tags:
       - system系统管理
-  /api/role/updateStatus:
+  /api/v1/role/updateStatus:
     put:
       description: 角色状态启用/停用接口
       parameters:
@@ -1616,7 +1685,7 @@ paths:
       summary: 角色状态启用/停用接口
       tags:
       - system系统管理
-  /api/role/vo/idList:
+  /api/v1/role/vo/idList:
     get:
       description: 根据角色id查询菜单数据接口
       parameters:
@@ -1637,7 +1706,7 @@ paths:
       summary: 根据角色id查询菜单数据接口
       tags:
       - system系统管理
-  /api/role/vo/list:
+  /api/v1/role/vo/list:
     get:
       description: 角色下拉列表
       produces:
@@ -1652,7 +1721,7 @@ paths:
       summary: 角色下拉列表
       tags:
       - system系统管理
-  /api/sysLoginInfo/batch/delete:
+  /api/v1/sysLoginInfo/batch/delete:
     delete:
       description: 批量删除登录日志接口
       parameters:
@@ -1674,7 +1743,7 @@ paths:
       summary: 批量删除登录日志接口
       tags:
       - system系统管理
-  /api/sysLoginInfo/clean:
+  /api/v1/sysLoginInfo/clean:
     delete:
       description: 清空登录日志接口
       produces:
@@ -1689,7 +1758,7 @@ paths:
       summary: 清空登录日志接口
       tags:
       - system系统管理
-  /api/sysLoginInfo/delete:
+  /api/v1/sysLoginInfo/delete:
     delete:
       description: 根据ID删除登录日志接口
       parameters:
@@ -1711,7 +1780,7 @@ paths:
       summary: 根据ID删除登录日志接口
       tags:
       - system系统管理
-  /api/sysLoginInfo/list:
+  /api/v1/sysLoginInfo/list:
     get:
       description: 分页获取登录日志列表接口
       parameters:
@@ -1751,7 +1820,7 @@ paths:
       summary: 分页获取登录日志列表接口
       tags:
       - system系统管理
-  /api/sysOperationLog/batch/delete:
+  /api/v1/sysOperationLog/batch/delete:
     delete:
       description: 批量删除操作日志接口
       parameters:
@@ -1773,7 +1842,7 @@ paths:
       summary: 批量删除操作日志接口
       tags:
       - system系统管理
-  /api/sysOperationLog/clean:
+  /api/v1/sysOperationLog/clean:
     delete:
       description: 清空操作日志接口
       produces:
@@ -1788,7 +1857,7 @@ paths:
       summary: 清空操作日志接口
       tags:
       - system系统管理
-  /api/sysOperationLog/delete:
+  /api/v1/sysOperationLog/delete:
     delete:
       description: 根据id删除操作日志
       parameters:
@@ -1810,7 +1879,7 @@ paths:
       summary: 根据id删除操作日志
       tags:
       - system系统管理
-  /api/sysOperationLog/list:
+  /api/v1/sysOperationLog/list:
     get:
       description: 分页获取操作日志列表接口
       parameters:
@@ -1846,7 +1915,7 @@ paths:
       summary: 分页获取操作日志列表接口
       tags:
       - system系统管理
-  /api/upload:
+  /api/v1/upload:
     post:
       consumes:
       - multipart/form-data
@@ -1869,63 +1938,6 @@ paths:
       summary: 单图片上传接口
       tags:
       - system系统管理
-  /api/v1/clusters:
-    get:
-      description: k8s集群列表接口
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: k8s集群列表接口
-  /api/v1/clusters/add:
-    post:
-      consumes:
-      - application/json
-      description: 根据提供的配置信息创建一个新的Kubernetes集群
-      parameters:
-      - description: 集群配置信息
-        in: body
-        name: cluster
-        required: true
-        schema:
-          $ref: '#/definitions/model.AddKubeClusterDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: 操作成功返回结果
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 创建Kubernetes集群
-  /api/v1/clusters/update:
-    post:
-      consumes:
-      - application/json
-      description: 根据提供的更新数据修改已有Kubernetes集群的配置
-      parameters:
-      - description: 更新后的集群配置信息
-        in: body
-        name: cluster
-        required: true
-        schema:
-          $ref: '#/definitions/model.UpdateKubeClusterDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: 操作成功返回结果
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 更新Kubernetes集群信息
 securityDefinitions:
   ApiKeyAuth:
     in: header
