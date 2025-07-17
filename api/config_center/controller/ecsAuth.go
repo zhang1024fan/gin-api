@@ -22,7 +22,7 @@ func NewEcsAuthController() *EcsAuthController {
 // @Summary 获取所有凭据
 // @Tags 配置中心
 // @Success 200 {object} result.Result{data=[]model.EcsAuthVo}
-// @Router /api/config/ecsauthlist [get]
+// @Router /api/v1/config/ecsauthlist [get]
 // @Security ApiKeyAuth
 func (c *EcsAuthController) GetEcsAuthList(ctx *gin.Context) {
 	c.service.GetEcsAuthList(ctx)
@@ -33,7 +33,7 @@ func (c *EcsAuthController) GetEcsAuthList(ctx *gin.Context) {
 // @Tags 配置中心
 // @Param data body model.CreateEcsPasswordAuthDto true "凭据信息"
 // @Success 200 {object} result.Result
-// @Router /api/config/ecsauthadd [post]
+// @Router /api/v1/config/ecsauthadd [post]
 // @Security ApiKeyAuth
 func (c *EcsAuthController) CreateEcsAuth(ctx *gin.Context) {
 	var dto model.CreateEcsPasswordAuthDto
@@ -49,7 +49,7 @@ func (c *EcsAuthController) CreateEcsAuth(ctx *gin.Context) {
 // @Tags 配置中心
 // @Param name query string true "凭据名称"
 // @Success 200 {object} result.Result{data=model.EcsAuthVo}
-// @Router /api/config/ecsauthinfo [get]
+// @Router /api/v1/config/ecsauthinfo [get]
 // @Security ApiKeyAuth
 func (c *EcsAuthController) GetEcsAuthByName(ctx *gin.Context) {
 	name := ctx.Query("name")
@@ -65,7 +65,7 @@ func (c *EcsAuthController) GetEcsAuthByName(ctx *gin.Context) {
 // @Tags 配置中心
 // @Param data body model.UpdateEcsAuthDto true "凭据信息"
 // @Success 200 {object} result.Result
-// @Router /api/config/ecsauthupdate [put]
+// @Router /api/v1/config/ecsauthupdate [put]
 // @Security ApiKeyAuth
 func (c *EcsAuthController) UpdateEcsAuth(ctx *gin.Context) {
 	var dto model.UpdateEcsAuthDto
@@ -81,7 +81,7 @@ func (c *EcsAuthController) UpdateEcsAuth(ctx *gin.Context) {
 // @Tags 配置中心
 // @Param data body model.EcsAuthIdDto true "凭据ID"
 // @Success 200 {object} result.Result
-// @Router /api/config/ecsauthdelete [delete]
+// @Router /api/v1/config/ecsauthdelete [delete]
 // @Security ApiKeyAuth
 func (c *EcsAuthController) DeleteEcsAuth(ctx *gin.Context) {
 	var idDto model.EcsAuthIdDto

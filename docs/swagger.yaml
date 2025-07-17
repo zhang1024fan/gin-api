@@ -545,207 +545,6 @@ info:
   title: devops运维管理系统
   version: "1.0"
 paths:
-  /api/cmdb/groupadd:
-    post:
-      description: 新增资产分组接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.CmdbGroup'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 新增资产分组接口
-      tags:
-      - CMDB资产管理
-  /api/cmdb/groupbyname:
-    get:
-      description: 根据名称查询资产分组
-      parameters:
-      - description: 分组名称
-        in: query
-        name: name
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 根据名称查询资产分组
-      tags:
-      - CMDB资产管理
-  /api/cmdb/groupdelete:
-    delete:
-      description: 删除资产分组接口
-      parameters:
-      - description: 分组ID
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.CmdbGroupIdDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 删除资产分组接口
-      tags:
-      - CMDB资产管理
-  /api/cmdb/grouplist:
-    get:
-      description: 查询所有资产分组，并以树形结构返回
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 查询所有资产分组（树形结构）
-      tags:
-      - CMDB资产管理
-  /api/cmdb/groupupdate:
-    put:
-      description: 更新资产分组接口
-      parameters:
-      - description: data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.CmdbGroup'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 更新资产分组接口
-      tags:
-      - CMDB资产管理
-  /api/config/ecsauthadd:
-    post:
-      parameters:
-      - description: 凭据信息
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.CreateEcsPasswordAuthDto'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 创建凭据
-      tags:
-      - 配置中心
-  /api/config/ecsauthdelete:
-    delete:
-      parameters:
-      - description: 凭据ID
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.EcsAuthIdDto'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 删除凭据
-      tags:
-      - 配置中心
-  /api/config/ecsauthinfo:
-    get:
-      parameters:
-      - description: 凭据名称
-        in: query
-        name: name
-        required: true
-        type: string
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/result.Result'
-            - properties:
-                data:
-                  $ref: '#/definitions/model.EcsAuthVo'
-              type: object
-      security:
-      - ApiKeyAuth: []
-      summary: 根据名称获取凭据
-      tags:
-      - 配置中心
-  /api/config/ecsauthlist:
-    get:
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/result.Result'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/model.EcsAuthVo'
-                  type: array
-              type: object
-      security:
-      - ApiKeyAuth: []
-      summary: 获取所有凭据
-      tags:
-      - 配置中心
-  /api/config/ecsauthupdate:
-    put:
-      parameters:
-      - description: 凭据信息
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.UpdateEcsAuthDto'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 更新凭据
-      tags:
-      - 配置中心
   /api/v1/admin/add:
     post:
       description: 新增用户接口
@@ -1012,7 +811,7 @@ paths:
       tags:
       - k8s集群列表
   /api/v1/clusters/update:
-    post:
+    put:
       consumes:
       - application/json
       description: 根据提供的更新数据修改已有Kubernetes集群的配置
@@ -1035,6 +834,207 @@ paths:
       summary: 更新Kubernetes集群信息
       tags:
       - k8s集群列表
+  /api/v1/cmdb/groupadd:
+    post:
+      description: 新增资产分组接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 新增资产分组接口
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/groupbyname:
+    get:
+      description: 根据名称查询资产分组
+      parameters:
+      - description: 分组名称
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据名称查询资产分组
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/groupdelete:
+    delete:
+      description: 删除资产分组接口
+      parameters:
+      - description: 分组ID
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroupIdDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除资产分组接口
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/grouplist:
+    get:
+      description: 查询所有资产分组，并以树形结构返回
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 查询所有资产分组（树形结构）
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/groupupdate:
+    put:
+      description: 更新资产分组接口
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新资产分组接口
+      tags:
+      - CMDB资产管理
+  /api/v1/config/ecsauthadd:
+    post:
+      parameters:
+      - description: 凭据信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateEcsPasswordAuthDto'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 创建凭据
+      tags:
+      - 配置中心
+  /api/v1/config/ecsauthdelete:
+    delete:
+      parameters:
+      - description: 凭据ID
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.EcsAuthIdDto'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除凭据
+      tags:
+      - 配置中心
+  /api/v1/config/ecsauthinfo:
+    get:
+      parameters:
+      - description: 凭据名称
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/result.Result'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.EcsAuthVo'
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 根据名称获取凭据
+      tags:
+      - 配置中心
+  /api/v1/config/ecsauthlist:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/result.Result'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.EcsAuthVo'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 获取所有凭据
+      tags:
+      - 配置中心
+  /api/v1/config/ecsauthupdate:
+    put:
+      parameters:
+      - description: 凭据信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateEcsAuthDto'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新凭据
+      tags:
+      - 配置中心
   /api/v1/dept/add:
     post:
       description: 新增部门接口

@@ -8,5 +8,5 @@ import (
 func RegisterK8sRoutes(router *gin.RouterGroup) {
 	router.GET("/clusters", controller.QueryCluster)
 	router.POST("/clusters/add", controller.CreateCluster)
-	router.POST("/clusters/update", controller.UpdateCluster)
+	router.PUT("/clusters/update", controller.UpdateCluster)
 }

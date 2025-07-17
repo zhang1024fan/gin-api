@@ -51,7 +51,7 @@ func CreateCluster(c *gin.Context) {
 // @Produce json
 // @Param cluster body model.UpdateKubeClusterDto true "更新后的集群配置信息"
 // @Success 200 {object} result.Result "操作成功返回结果"
-// @Router /api/v1/clusters/update [post]
+// @Router /api/v1/clusters/update [put]
 // @Security ApiKeyAuth
 func UpdateCluster(c *gin.Context) {
 	var dto model.UpdateKubeClusterDto

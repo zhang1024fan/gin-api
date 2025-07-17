@@ -17,7 +17,7 @@ var sysDept model.CmdbGroup
 // @Description 新增资产分组接口
 // @Param data body model.CmdbGroup true "data"
 // @Success 200 {object} result.Result
-// @router /api/cmdb/groupadd [post]
+// @router /api/v1/cmdb/groupadd [post]
 // @Security ApiKeyAuth
 func CreateCmdbGroup(c *gin.Context) {
 	_ = c.BindJSON(&sysDept)
@@ -29,7 +29,7 @@ func CreateCmdbGroup(c *gin.Context) {
 // @Tags CMDB资产管理
 // @Description 查询所有资产分组，并以树形结构返回
 // @Success 200 {object} result.Result
-// @router /api/cmdb/grouplist [get]
+// @router /api/v1/cmdb/grouplist [get]
 // @Security ApiKeyAuth
 func GetAllCmdbGroups(c *gin.Context) {
 	service.GetCmdbGroupService().GetAllCmdbGroups(c)
@@ -41,7 +41,7 @@ func GetAllCmdbGroups(c *gin.Context) {
 // @Description 更新资产分组接口
 // @Param data body model.CmdbGroup true "data"
 // @Success 200 {object} result.Result
-// @router /api/cmdb/groupupdate [put]
+// @router /api/v1/cmdb/groupupdate [put]
 // @Security ApiKeyAuth
 func UpdateCmdbGroup(c *gin.Context) {
 	var group model.CmdbGroup
@@ -55,7 +55,7 @@ func UpdateCmdbGroup(c *gin.Context) {
 // @Description 删除资产分组接口
 // @Param data body model.CmdbGroupIdDto true "分组ID"
 // @Success 200 {object} result.Result
-// @router /api/cmdb/groupdelete [delete]
+// @router /api/v1/cmdb/groupdelete [delete]
 // @Security ApiKeyAuth
 func DeleteCmdbGroup(c *gin.Context) {
 	var dto model.CmdbGroupIdDto
@@ -72,7 +72,7 @@ func DeleteCmdbGroup(c *gin.Context) {
 // @Description 根据名称查询资产分组
 // @Param name query string true "分组名称"
 // @Success 200 {object} result.Result
-// @router /api/cmdb/groupbyname [get]
+// @router /api/v1/cmdb/groupbyname [get]
 // @Security ApiKeyAuth
 func GetCmdbGroupByName(c *gin.Context) {
 	name := c.Query("name")
