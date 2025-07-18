@@ -10,7 +10,7 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-// @Tags k8s集群列表
+// @Tags K8s集群列表
 // @Summary k8s集群列表接口
 // @Produce json
 // @Description k8s集群列表接口
@@ -21,7 +21,7 @@ func QueryCluster(c *gin.Context) {
 	service.KubeClusterService().QueryClusterList(c)
 }
 
-// @Tags k8s集群列表
+// @Tags K8s集群列表
 // @Summary 创建Kubernetes集群
 // @Description 根据提供的配置信息创建一个新的Kubernetes集群
 // @Accept json
@@ -44,7 +44,7 @@ func CreateCluster(c *gin.Context) {
 	service.KubeClusterService().CreateCluster(c, dto)
 }
 
-// @Tags k8s集群列表
+// @Tags K8s集群列表
 // @Summary 更新Kubernetes集群信息
 // @Description 根据提供的更新数据修改已有Kubernetes集群的配置
 // @Accept json

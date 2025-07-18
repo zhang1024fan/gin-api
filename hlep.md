@@ -14,3 +14,4 @@ go get -u github.com/wenlng/go-user-agent
 go get github.com/gogf/gf
 go get github.com/swaggo/files
 go get github.com/swaggo/gin-swagger
+/Users/apple/go/bin/swag  init

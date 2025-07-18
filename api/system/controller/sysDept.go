@@ -10,7 +10,7 @@ import (
 
 var sysDept model.SysDept
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 查询部门列表
 // @Summary 查询部门列表接口
 // @Produce json
@@ -26,7 +26,7 @@ func GetSysDeptList(c *gin.Context) {
 	service.SysDeptService().GetSysDeptList(c, DeptName, DeptStatus)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 新增部门
 // @Summary 新增部门接口
 // @Produce json
@@ -40,7 +40,7 @@ func CreateSysDept(c *gin.Context) {
 	service.SysDeptService().CreateSysDept(c, sysDept)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 根据id查询部门
 // @Summary 根据id查询部门接口
 // @Produce json
@@ -54,7 +54,7 @@ func GetSysDeptById(c *gin.Context) {
 	service.SysDeptService().GetSysDeptById(c, Id)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 修改部门
 // @Summary 修改部门接口
 // @Produce json
@@ -68,7 +68,7 @@ func UpdateSysDept(c *gin.Context) {
 	service.SysDeptService().UpdateSysDept(c, sysDept)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 根据id删除部门
 // @Summary 根据id删除部门接口
 // @Produce json
@@ -83,7 +83,7 @@ func DeleteSysDeptById(c *gin.Context) {
 	service.SysDeptService().DeleteSysDeptById(c, dto)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 部门下拉列表
 // @Summary 部门下拉列表接口
 // @Produce json
@@ -95,7 +95,7 @@ func QuerySysDeptVoList(c *gin.Context) {
 	service.SysDeptService().QuerySysDeptVoList(c)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 获取某部门下的所有用户
 // @Summary 获取某部门下的所有用户接口
 // @Produce json

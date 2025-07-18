@@ -13,7 +13,7 @@ import (
 
 var sysMenu model.SysMenu
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 新增菜单
 // @Summary 新增菜单接口
 // @Produce json
@@ -27,7 +27,7 @@ func CreateSysMenu(c *gin.Context) {
 	service.SysMenuService().CreateSysMenu(c, sysMenu)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 查询新增选项列表
 // @Summary 查询新增选项列表接口
 // @Produce json
@@ -39,7 +39,7 @@ func QuerySysMenuVoList(c *gin.Context) {
 	service.SysMenuService().QuerySysMenuVoList(c)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 根据id查询菜单
 // @Summary 根据id查询菜单
 // @Produce json
@@ -53,7 +53,7 @@ func GetSysMenu(c *gin.Context) {
 	service.SysMenuService().GetSysMenu(c, Id)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 修改菜单
 // @Summary 修改菜单接口
 // @Produce json
@@ -67,7 +67,7 @@ func UpdateSysMenu(c *gin.Context) {
 	service.SysMenuService().UpdateSysMenu(c, sysMenu)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 根据id删除菜单
 // @Summary 根据id删除菜单接口
 // @Produce json
@@ -82,7 +82,7 @@ func DeleteSysMenu(c *gin.Context) {
 	service.SysMenuService().DeleteSysMenu(c, dto)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 查询菜单列表
 // @Summary 查询菜单列表
 // @Produce json

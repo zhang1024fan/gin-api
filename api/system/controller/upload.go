@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 单图片上传
 // @Summary 单图片上传接口
 // @Description 单图片上传接口

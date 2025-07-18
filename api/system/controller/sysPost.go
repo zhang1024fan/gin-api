@@ -10,7 +10,7 @@ import (
 
 var sysPost model.SysPost
 
-// @Tags system系统管理
+// @Tags System系统管理
 // @Summary 新增岗位接口
 // @Produce json
 // @Description 新增岗位接口
@@ -23,7 +23,7 @@ func CreateSysPost(c *gin.Context) {
 	service.SysPostService().CreateSysPost(c, sysPost)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 分页查询岗位列表
 // @Summary 分页查询岗位列表
 // @Produce json
@@ -47,7 +47,7 @@ func GetSysPostList(c *gin.Context) {
 	service.SysPostService().GetSysPostList(c, PageNum, PageSize, PostName, PostStatus, BeginTime, EndTime)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 根据id查询岗位
 // @Summary 根据id查询岗位
 // @Produce json
@@ -61,7 +61,7 @@ func GetSysPostById(c *gin.Context) {
 	service.SysPostService().GetSysPostById(c, Id)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 修改岗位
 // @Summary 修改岗位接口
 // @Produce json
@@ -75,7 +75,7 @@ func UpdateSysPost(c *gin.Context) {
 	service.SysPostService().UpdateSysPost(c, sysPost)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 根据id删除岗位
 // @Summary 根据id删除岗位接口
 // @Produce json
@@ -90,7 +90,7 @@ func DeleteSysPostById(c *gin.Context) {
 	service.SysPostService().DeleteSysPostById(c, dto)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 批量删除岗位
 // @Summary 批量删除岗位接口
 // @Produce json
@@ -105,7 +105,7 @@ func BatchDeleteSysPost(c *gin.Context) {
 	service.SysPostService().BatchDeleteSysPost(c, dto)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 岗位状态修改
 // @Summary 岗位状态修改接口
 // @Produce json
@@ -120,7 +120,7 @@ func UpdateSysPostStatus(c *gin.Context) {
 	service.SysPostService().UpdateSysPostStatus(c, dto)
 }
 
-// @Tags system系统管理
+// @Tags System系统管理
 // 岗位下拉列表
 // @Summary 岗位下拉列表
 // @Produce json
