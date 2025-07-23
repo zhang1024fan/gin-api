@@ -21,4 +21,8 @@ const (
 	CMDB_HOST_NAME_EXISTS   = 424
 	CMDB_HOST_NOT_FOUND     = 425
 	CMDB_HOST_AUTH_NOT_FOUND = 426
+	
+	// Kubernetes集群相关常量
+	KUBE_CLUSTER_CODE         = "kube_cluster:"
+	KUBE_CLUSTER_CACHE_CODE   = "kube_cluster_cache:"
 )
