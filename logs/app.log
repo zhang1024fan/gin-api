@@ -146,3 +146,341 @@ time="2025/07/18 - 15:04:29" level=info
 time="2025/07/18 - 15:04:29" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
 time="2025/07/18 - 19:35:30" level=info msg="Shutdown Server ..."
 time="2025/07/18 - 19:35:30" level=info msg="Server exiting"
+time="2025/07/22 - 10:17:48" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 10:17:49" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 10:17:49" level=info
+time="2025/07/22 - 10:17:49" level=info msg="  App running at:"
+time="2025/07/22 - 10:17:49" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 10:17:49" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 10:17:49" level=info
+time="2025/07/22 - 10:17:49" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 10:17:49" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 10:17:49" level=info
+time="2025/07/22 - 10:17:49" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 11:17:57" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 11:17:57" level=info msg="Server exiting"
+time="2025/07/22 - 11:18:13" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 11:18:13" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 11:18:13" level=info
+time="2025/07/22 - 11:18:13" level=info msg="  App running at:"
+time="2025/07/22 - 11:18:13" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 11:18:13" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 11:18:13" level=info
+time="2025/07/22 - 11:18:13" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 11:18:13" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 11:18:13" level=info
+time="2025/07/22 - 11:18:13" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 12:17:57" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 12:17:58" level=info msg="Server exiting"
+time="2025/07/22 - 12:20:31" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 12:20:31" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 12:20:31" level=info
+time="2025/07/22 - 12:20:31" level=info msg="  App running at:"
+time="2025/07/22 - 12:20:31" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 12:20:31" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 12:20:31" level=info
+time="2025/07/22 - 12:20:31" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 12:20:31" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 12:20:31" level=info
+time="2025/07/22 - 12:20:31" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 12:38:24" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 12:38:24" level=info msg="Server exiting"
+time="2025/07/22 - 12:38:35" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 12:38:35" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 12:38:35" level=info
+time="2025/07/22 - 12:38:35" level=info msg="  App running at:"
+time="2025/07/22 - 12:38:35" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 12:38:35" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 12:38:35" level=info
+time="2025/07/22 - 12:38:35" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 12:38:35" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 12:38:35" level=info
+time="2025/07/22 - 12:38:35" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 12:46:40" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 12:46:40" level=info msg="Server exiting"
+time="2025/07/22 - 12:46:48" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 12:46:49" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 12:46:49" level=info
+time="2025/07/22 - 12:46:49" level=info msg="  App running at:"
+time="2025/07/22 - 12:46:49" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 12:46:49" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 12:46:49" level=info
+time="2025/07/22 - 12:46:49" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 12:46:49" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 12:46:49" level=info
+time="2025/07/22 - 12:46:49" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 12:48:33" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 12:48:33" level=info msg="Server exiting"
+time="2025/07/22 - 12:48:39" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 12:48:39" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 12:48:39" level=info
+time="2025/07/22 - 12:48:39" level=info msg="  App running at:"
+time="2025/07/22 - 12:48:39" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 12:48:39" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 12:48:39" level=info
+time="2025/07/22 - 12:48:39" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 12:48:39" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 12:48:39" level=info
+time="2025/07/22 - 12:48:39" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 13:01:03" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 13:01:03" level=info msg="Server exiting"
+time="2025/07/22 - 13:01:10" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 13:01:10" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 13:01:10" level=info
+time="2025/07/22 - 13:01:10" level=info msg="  App running at:"
+time="2025/07/22 - 13:01:10" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 13:01:10" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 13:01:10" level=info
+time="2025/07/22 - 13:01:10" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 13:01:10" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 13:01:10" level=info
+time="2025/07/22 - 13:01:10" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 13:08:26" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 13:08:26" level=info msg="Server exiting"
+time="2025/07/22 - 13:08:32" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 13:08:32" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 13:08:32" level=info
+time="2025/07/22 - 13:08:32" level=info msg="  App running at:"
+time="2025/07/22 - 13:08:32" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 13:08:32" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 13:08:32" level=info
+time="2025/07/22 - 13:08:32" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 13:08:32" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 13:08:32" level=info
+time="2025/07/22 - 13:08:32" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 13:22:06" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 13:22:06" level=info msg="Server exiting"
+time="2025/07/22 - 13:22:10" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 13:22:10" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 13:22:10" level=info
+time="2025/07/22 - 13:22:10" level=info msg="  App running at:"
+time="2025/07/22 - 13:22:10" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 13:22:10" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 13:22:10" level=info
+time="2025/07/22 - 13:22:10" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 13:22:10" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 13:22:10" level=info
+time="2025/07/22 - 13:22:10" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 13:40:33" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 13:40:33" level=info msg="Server exiting"
+time="2025/07/22 - 13:40:49" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 13:40:49" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 13:40:49" level=info
+time="2025/07/22 - 13:40:49" level=info msg="  App running at:"
+time="2025/07/22 - 13:40:49" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 13:40:49" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 13:40:49" level=info
+time="2025/07/22 - 13:40:49" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 13:40:49" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 13:40:49" level=info
+time="2025/07/22 - 13:40:49" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 14:05:38" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 14:05:38" level=info msg="Server exiting"
+time="2025/07/22 - 14:05:46" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 14:05:46" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 14:05:46" level=info
+time="2025/07/22 - 14:05:46" level=info msg="  App running at:"
+time="2025/07/22 - 14:05:46" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 14:05:46" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 14:05:46" level=info
+time="2025/07/22 - 14:05:46" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 14:05:46" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 14:05:46" level=info
+time="2025/07/22 - 14:05:46" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 14:06:34" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 14:06:34" level=info msg="Server exiting"
+time="2025/07/22 - 14:06:45" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 14:06:46" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 14:06:46" level=info
+time="2025/07/22 - 14:06:46" level=info msg="  App running at:"
+time="2025/07/22 - 14:06:46" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 14:06:46" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 14:06:46" level=info
+time="2025/07/22 - 14:06:46" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 14:06:46" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 14:06:46" level=info
+time="2025/07/22 - 14:06:46" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 14:11:47" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 14:11:47" level=info msg="Server exiting"
+time="2025/07/22 - 14:11:54" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 14:11:55" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 14:11:55" level=info
+time="2025/07/22 - 14:11:55" level=info msg="  App running at:"
+time="2025/07/22 - 14:11:55" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 14:11:55" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 14:11:55" level=info
+time="2025/07/22 - 14:11:55" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 14:11:55" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 14:11:55" level=info
+time="2025/07/22 - 14:11:55" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 14:12:14" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 14:12:14" level=info msg="Server exiting"
+time="2025/07/22 - 14:12:20" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 14:12:20" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 14:12:20" level=info
+time="2025/07/22 - 14:12:20" level=info msg="  App running at:"
+time="2025/07/22 - 14:12:20" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 14:12:20" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 14:12:20" level=info
+time="2025/07/22 - 14:12:20" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 14:12:20" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 14:12:20" level=info
+time="2025/07/22 - 14:12:20" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 14:21:11" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 14:21:11" level=info msg="Server exiting"
+time="2025/07/22 - 14:21:19" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 14:21:19" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 14:21:19" level=info
+time="2025/07/22 - 14:21:19" level=info msg="  App running at:"
+time="2025/07/22 - 14:21:19" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 14:21:19" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 14:21:19" level=info
+time="2025/07/22 - 14:21:19" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 14:21:19" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 14:21:19" level=info
+time="2025/07/22 - 14:21:19" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 14:33:11" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 14:33:11" level=info msg="Server exiting"
+time="2025/07/22 - 14:33:21" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 14:33:21" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 14:33:21" level=info
+time="2025/07/22 - 14:33:21" level=info msg="  App running at:"
+time="2025/07/22 - 14:33:21" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 14:33:21" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 14:33:21" level=info
+time="2025/07/22 - 14:33:21" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 14:33:21" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 14:33:21" level=info
+time="2025/07/22 - 14:33:21" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 14:33:33" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 14:33:33" level=info msg="Server exiting"
+time="2025/07/22 - 14:34:00" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 14:34:00" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 14:34:00" level=info
+time="2025/07/22 - 14:34:00" level=info msg="  App running at:"
+time="2025/07/22 - 14:34:00" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 14:34:00" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 14:34:00" level=info
+time="2025/07/22 - 14:34:00" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 14:34:00" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 14:34:00" level=info
+time="2025/07/22 - 14:34:00" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 16:57:52" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 16:57:52" level=info msg="Server exiting"
+time="2025/07/22 - 16:57:57" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 16:58:03" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 16:58:03" level=info
+time="2025/07/22 - 16:58:03" level=info msg="  App running at:"
+time="2025/07/22 - 16:58:03" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 16:58:03" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 16:58:03" level=info
+time="2025/07/22 - 16:58:03" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 16:58:03" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 16:58:03" level=info
+time="2025/07/22 - 16:58:03" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 19:44:47" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 19:44:47" level=info msg="Server exiting"
+time="2025/07/22 - 19:44:55" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 19:45:01" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 19:45:01" level=info
+time="2025/07/22 - 19:45:01" level=info msg="  App running at:"
+time="2025/07/22 - 19:45:01" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 19:45:01" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 19:45:01" level=info
+time="2025/07/22 - 19:45:01" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 19:45:01" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 19:45:01" level=info
+time="2025/07/22 - 19:45:01" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 19:53:03" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 19:53:03" level=info msg="Server exiting"
+time="2025/07/22 - 19:53:16" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 19:53:22" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 19:53:22" level=info
+time="2025/07/22 - 19:53:22" level=info msg="  App running at:"
+time="2025/07/22 - 19:53:22" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 19:53:22" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 19:53:22" level=info
+time="2025/07/22 - 19:53:22" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 19:53:22" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 19:53:22" level=info
+time="2025/07/22 - 19:53:22" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 19:54:07" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 19:54:07" level=info msg="Server exiting"
+time="2025/07/22 - 19:56:50" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 19:56:56" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 19:56:56" level=info
+time="2025/07/22 - 19:56:56" level=info msg="  App running at:"
+time="2025/07/22 - 19:56:56" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 19:56:56" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 19:56:56" level=info
+time="2025/07/22 - 19:56:56" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 19:56:56" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 19:56:56" level=info
+time="2025/07/22 - 19:56:56" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 20:05:47" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 20:05:47" level=info msg="Server exiting"
+time="2025/07/22 - 20:05:59" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 20:06:05" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 20:06:05" level=info
+time="2025/07/22 - 20:06:05" level=info msg="  App running at:"
+time="2025/07/22 - 20:06:05" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 20:06:05" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 20:06:05" level=info
+time="2025/07/22 - 20:06:05" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 20:06:05" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 20:06:05" level=info
+time="2025/07/22 - 20:06:05" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 20:18:39" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 20:18:39" level=info msg="Server exiting"
+time="2025/07/22 - 20:18:50" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 20:18:55" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 20:18:55" level=info
+time="2025/07/22 - 20:18:55" level=info msg="  App running at:"
+time="2025/07/22 - 20:18:55" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 20:18:55" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 20:18:55" level=info
+time="2025/07/22 - 20:18:55" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 20:18:55" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 20:18:55" level=info
+time="2025/07/22 - 20:18:55" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 20:20:06" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 20:20:06" level=info msg="Server exiting"
+time="2025/07/22 - 20:20:14" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/22 - 20:20:20" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/22 - 20:20:20" level=info
+time="2025/07/22 - 20:20:20" level=info msg="  App running at:"
+time="2025/07/22 - 20:20:20" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/22 - 20:20:20" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/22 - 20:20:20" level=info
+time="2025/07/22 - 20:20:20" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/22 - 20:20:20" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/22 - 20:20:20" level=info
+time="2025/07/22 - 20:20:20" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/22 - 21:21:09" level=info msg="Shutdown Server ..."
+time="2025/07/22 - 21:21:09" level=info msg="Server exiting"
+time="2025/07/23 - 10:13:47" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/23 - 10:13:53" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/23 - 10:13:53" level=info
+time="2025/07/23 - 10:13:53" level=info msg="  App running at:"
+time="2025/07/23 - 10:13:53" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/23 - 10:13:53" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/23 - 10:13:53" level=info
+time="2025/07/23 - 10:13:53" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/23 - 10:13:53" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/23 - 10:13:53" level=info
+time="2025/07/23 - 10:13:53" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/23 - 10:39:09" level=info msg="Shutdown Server ..."
+time="2025/07/23 - 10:39:09" level=info msg="Server exiting"
+time="2025/07/23 - 10:39:16" level=debug msg="Logger initialized with TextFormatter."
+time="2025/07/23 - 10:39:22" level=info msg="Conflicting values for 'process.env.NODE_ENV'"
+time="2025/07/23 - 10:39:22" level=info
+time="2025/07/23 - 10:39:22" level=info msg="  App running at:"
+time="2025/07/23 - 10:39:22" level=info msg="  - Local:   http://127.0.0.1:8000"
+time="2025/07/23 - 10:39:22" level=info msg="  - Network: http://127.0.0.1:8000"
+time="2025/07/23 - 10:39:22" level=info
+time="2025/07/23 - 10:39:22" level=info msg="  请注意，开发版本尚未优化"
+time="2025/07/23 - 10:39:22" level=info msg="  要创建生产环境构建，请运行 go run main.go"
+time="2025/07/23 - 10:39:22" level=info
+time="2025/07/23 - 10:39:22" level=info msg="API文档地址: http://127.0.0.1:8000/swagger/index.html"
+time="2025/07/23 - 17:02:06" level=info msg="Shutdown Server ..."
+time="2025/07/23 - 17:02:06" level=info msg="Server exiting"

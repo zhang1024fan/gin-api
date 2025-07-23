@@ -654,6 +654,225 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v1/cmdb/hostcreate": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "创建主机",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "创建主机",
+                "parameters": [
+                    {
+                        "description": "主机信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CreateCmdbHostDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cmdb/hostdelete": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "删除主机",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "删除主机",
+                "parameters": [
+                    {
+                        "description": "主机ID",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.CmdbHostIdDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cmdb/hostgroup": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据分组ID获取主机列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "根据分组ID获取主机列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "分组ID",
+                        "name": "groupId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cmdb/hostinfo": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据ID获取主机",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "根据ID获取主机",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "主机ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cmdb/hostlist": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取主机列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "获取主机列表",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cmdb/hostupdate": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "更新主机",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "更新主机",
+                "parameters": [
+                    {
+                        "description": "主机信息(包含ID)",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdateCmdbHostDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/config/ecsauthadd": {
             "post": {
                 "security": [
@@ -2450,11 +2669,60 @@ const docTemplate = `{
                 }
             }
         },
+        "model.CmdbHostIdDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.CreateCmdbHostDto": {
+            "type": "object",
+            "required": [
+                "groupId",
+                "hostName",
+                "sshIp",
+                "sshKeyId",
+                "sshName"
+            ],
+            "properties": {
+                "groupId": {
+                    "description": "主机分组ID",
+                    "type": "integer"
+                },
+                "hostName": {
+                    "description": "主机名称(唯一标识)",
+                    "type": "string"
+                },
+                "remark": {
+                    "description": "备注信息(可选)",
+                    "type": "string"
+                },
+                "sshIp": {
+                    "description": "SSH连接IP(公网或私网IP)",
+                    "type": "string"
+                },
+                "sshKeyId": {
+                    "description": "SSH凭据ID(从ecsAuth表获取)",
+                    "type": "integer"
+                },
+                "sshName": {
+                    "description": "SSH登录用户名",
+                    "type": "string"
+                },
+                "sshPort": {
+                    "description": "SSH端口(默认22)",
+                    "type": "integer"
+                }
+            }
+        },
         "model.CreateEcsPasswordAuthDto": {
             "type": "object",
             "required": [
                 "name",
                 "password",
+                "port",
                 "type",
                 "username"
             ],
@@ -2466,6 +2734,10 @@ const docTemplate = `{
                 "password": {
                     "description": "密码",
                     "type": "string"
+                },
+                "port": {
+                    "description": "端口号",
+                    "type": "integer"
                 },
                 "publicKey": {
                     "description": "公钥",
@@ -2532,6 +2804,9 @@ const docTemplate = `{
                 },
                 "password": {
                     "type": "string"
+                },
+                "port": {
+                    "type": "integer"
                 },
                 "publicKey": {
                     "type": "string"
@@ -2801,11 +3076,56 @@ const docTemplate = `{
                 }
             }
         },
+        "model.UpdateCmdbHostDto": {
+            "type": "object",
+            "required": [
+                "groupId",
+                "hostName",
+                "sshIp",
+                "sshKeyId",
+                "sshName"
+            ],
+            "properties": {
+                "groupId": {
+                    "description": "主机分组ID",
+                    "type": "integer"
+                },
+                "hostName": {
+                    "description": "主机名称(唯一标识)",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "主机ID",
+                    "type": "integer"
+                },
+                "remark": {
+                    "description": "备注信息(可选)",
+                    "type": "string"
+                },
+                "sshIp": {
+                    "description": "SSH连接IP(公网或私网IP)",
+                    "type": "string"
+                },
+                "sshKeyId": {
+                    "description": "SSH凭据ID(从ecsAuth表获取)",
+                    "type": "integer"
+                },
+                "sshName": {
+                    "description": "SSH登录用户名",
+                    "type": "string"
+                },
+                "sshPort": {
+                    "description": "SSH端口(默认22)",
+                    "type": "integer"
+                }
+            }
+        },
         "model.UpdateEcsAuthDto": {
             "type": "object",
             "required": [
                 "name",
                 "password",
+                "port",
                 "type",
                 "username"
             ],
@@ -2821,6 +3141,10 @@ const docTemplate = `{
                 "password": {
                     "description": "密码",
                     "type": "string"
+                },
+                "port": {
+                    "description": "端口号",
+                    "type": "integer"
                 },
                 "publicKey": {
                     "description": "公钥",

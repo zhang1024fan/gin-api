@@ -12,6 +12,7 @@ import (
 var models = []interface{}{
 	&cmdbmodel.CmdbGroup{},
 	&ccmodel.EcsAuth{},
+	&cmdbmodel.CmdbHost{},
 	// 可以继续添加其他模型...
 }
 

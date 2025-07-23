@@ -109,6 +109,41 @@ definitions:
         description: ID
         type: integer
     type: object
+  model.CmdbHostIdDto:
+    properties:
+      id:
+        type: integer
+    type: object
+  model.CreateCmdbHostDto:
+    properties:
+      groupId:
+        description: 主机分组ID
+        type: integer
+      hostName:
+        description: 主机名称(唯一标识)
+        type: string
+      remark:
+        description: 备注信息(可选)
+        type: string
+      sshIp:
+        description: SSH连接IP(公网或私网IP)
+        type: string
+      sshKeyId:
+        description: SSH凭据ID(从ecsAuth表获取)
+        type: integer
+      sshName:
+        description: SSH登录用户名
+        type: string
+      sshPort:
+        description: SSH端口(默认22)
+        type: integer
+    required:
+    - groupId
+    - hostName
+    - sshIp
+    - sshKeyId
+    - sshName
+    type: object
   model.CreateEcsPasswordAuthDto:
     properties:
       name:
@@ -117,6 +152,9 @@ definitions:
       password:
         description: 密码
         type: string
+      port:
+        description: 端口号
+        type: integer
       publicKey:
         description: 公钥
         type: string
@@ -132,6 +170,7 @@ definitions:
     required:
     - name
     - password
+    - port
     - type
     - username
     type: object
@@ -167,6 +206,8 @@ definitions:
         type: string
       password:
         type: string
+      port:
+        type: integer
       publicKey:
         type: string
       remark:
@@ -351,6 +392,39 @@ definitions:
         description: ID
         type: integer
     type: object
+  model.UpdateCmdbHostDto:
+    properties:
+      groupId:
+        description: 主机分组ID
+        type: integer
+      hostName:
+        description: 主机名称(唯一标识)
+        type: string
+      id:
+        description: 主机ID
+        type: integer
+      remark:
+        description: 备注信息(可选)
+        type: string
+      sshIp:
+        description: SSH连接IP(公网或私网IP)
+        type: string
+      sshKeyId:
+        description: SSH凭据ID(从ecsAuth表获取)
+        type: integer
+      sshName:
+        description: SSH登录用户名
+        type: string
+      sshPort:
+        description: SSH端口(默认22)
+        type: integer
+    required:
+    - groupId
+    - hostName
+    - sshIp
+    - sshKeyId
+    - sshName
+    type: object
   model.UpdateEcsAuthDto:
     properties:
       id:
@@ -362,6 +436,9 @@ definitions:
       password:
         description: 密码
         type: string
+      port:
+        description: 端口号
+        type: integer
       publicKey:
         description: 公钥
         type: string
@@ -377,6 +454,7 @@ definitions:
     required:
     - name
     - password
+    - port
     - type
     - username
     type: object
@@ -936,6 +1014,141 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 更新资产分组接口
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostcreate:
+    post:
+      consumes:
+      - application/json
+      description: 创建主机
+      parameters:
+      - description: 主机信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CreateCmdbHostDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 创建主机
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostdelete:
+    delete:
+      consumes:
+      - application/json
+      description: 删除主机
+      parameters:
+      - description: 主机ID
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.CmdbHostIdDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除主机
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostgroup:
+    get:
+      consumes:
+      - application/json
+      description: 根据分组ID获取主机列表
+      parameters:
+      - description: 分组ID
+        in: query
+        name: groupId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据分组ID获取主机列表
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostinfo:
+    get:
+      consumes:
+      - application/json
+      description: 根据ID获取主机
+      parameters:
+      - description: 主机ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据ID获取主机
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostlist:
+    get:
+      consumes:
+      - application/json
+      description: 获取主机列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 获取主机列表
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostupdate:
+    put:
+      consumes:
+      - application/json
+      description: 更新主机
+      parameters:
+      - description: 主机信息(包含ID)
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateCmdbHostDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新主机
       tags:
       - CMDB资产管理
   /api/v1/config/ecsauthadd:

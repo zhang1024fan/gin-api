@@ -5,6 +5,8 @@ import (
 	"gin-api/api/cmdb/model"
 	"gin-api/common/constant"
 	"gin-api/common/result"
+	"gin-api/common/util"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -22,9 +24,15 @@ type CmdbGroupServiceImpl struct{}
 
 // 新增分组
 func (s CmdbGroupServiceImpl) CreateCmdbGroup(c *gin.Context, group model.CmdbGroup) {
-	isSuccess, _ := dao.CreateCmdbGroup(group)
-	if !isSuccess {
+	dao := dao.NewCmdbGroupDao()
+	if dao.CheckNameExists(group.Name) {
 		result.FailedWithCode(c, constant.GROUP_EXIST, "分组已存在无法创建")
+		return
+	}
+	group.CreateTime = util.HTime{Time: time.Now()}
+	err := dao.CreateCmdbGroup(&group)
+	if err != nil {
+		result.Failed(c, constant.GROUP_EXIST, "创建分组失败")
 		return
 	}
 	result.Success(c, true)
@@ -32,18 +40,16 @@ func (s CmdbGroupServiceImpl) CreateCmdbGroup(c *gin.Context, group model.CmdbGr
 
 // 查询所有分组并返回树形结构
 func (s CmdbGroupServiceImpl) GetAllCmdbGroups(c *gin.Context) {
-	groups, err := dao.GetAllGroups()
-	if err != nil {
-		result.Failed(c, constant.GROUP_EXIST, "查询分组失败")
-		return
-	}
+	dao := dao.NewCmdbGroupDao()
+	groups := dao.GetCmdbGroupList()
 	result.Success(c, model.BuildCmdbGroupTree(groups))
 }
 
 // 更新分组
 func (s CmdbGroupServiceImpl) UpdateCmdbGroup(c *gin.Context, group model.CmdbGroup) {
-	isSuccess, err := dao.UpdateCmdbGroup(group)
-	if !isSuccess {
+	dao := dao.NewCmdbGroupDao()
+	err := dao.UpdateCmdbGroup(group.ID, &group)
+	if err != nil {
 		result.FailedWithCode(c, constant.GROUP_EXIST, err.Error())
 		return
 	}
@@ -52,8 +58,9 @@ func (s CmdbGroupServiceImpl) UpdateCmdbGroup(c *gin.Context, group model.CmdbGr
 
 // 删除分组
 func (s CmdbGroupServiceImpl) DeleteCmdbGroup(c *gin.Context, id uint) {
-	isSuccess, err := dao.DeleteCmdbGroup(id)
-	if !isSuccess {
+	dao := dao.NewCmdbGroupDao()
+	err := dao.DeleteCmdbGroup(id)
+	if err != nil {
 		result.FailedWithCode(c, constant.GROUP_EXIST, err.Error())
 		return
 	}
@@ -62,12 +69,13 @@ func (s CmdbGroupServiceImpl) DeleteCmdbGroup(c *gin.Context, id uint) {
 
 // 根据名称查询分组
 func (s CmdbGroupServiceImpl) GetCmdbGroupByName(c *gin.Context, name string) {
-	groups, err := dao.GetCmdbGroupByName(name)
+	dao := dao.NewCmdbGroupDao()
+	group, err := dao.GetCmdbGroupByName(name)
 	if err != nil {
 		result.Failed(c, constant.GROUP_EXIST, "查询分组失败")
 		return
 	}
-	result.Success(c, groups)
+	result.Success(c, group)
 }
 
 // 全局服务调用方法

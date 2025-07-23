@@ -9,11 +9,11 @@ server:
 # 数据库配置
 db:
   dialects: mysql
-  host: 127.0.0.1
+  host: 8.130.14.34
   port: 3306
   db: gin-api
   username: root
-  password: 123456
+  password: devops@2025
   charset: utf8
   # 最大空闲数
   maxIdle: 50

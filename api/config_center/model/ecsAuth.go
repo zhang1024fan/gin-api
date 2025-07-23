@@ -14,6 +14,7 @@ type EcsAuth struct {
 	Username   string     `gorm:"column:username;varchar(64);comment:'用户名(type=1时使用)'" json:"username"`
 	Password   string     `gorm:"column:password;varchar(256);comment:'密码(type=1时使用)'" json:"password"`
 	PublicKey  string     `gorm:"column:public_key;type:text;comment:'公钥(type=2时使用)'" json:"publicKey"`
+	Port       int        `gorm:"column:port;comment:'端口号';default:22" json:"port"`
 	CreateTime util.HTime `gorm:"column:create_time;comment:'创建时间';NOT NULL" json:"createTime"`
 	Remark     string     `gorm:"column:remark;varchar(500);comment:'备注'" json:"remark"`
 }
@@ -29,6 +30,7 @@ type CreateEcsPasswordAuthDto struct {
 	Username  string `validate:"required"` // 用户名
 	Password  string `validate:"required"` // 密码
 	PublicKey string // 公钥
+	Port      int    `validate:"required"` // 端口号
 	Remark    string // 备注
 }
 
@@ -38,6 +40,7 @@ type CreateEcsKeyAuthDto struct {
 	Type      int    `validate:"required"` // 认证类型:2->密钥
 	PublicKey string `validate:"required"` // 公钥
 	Username  string `validate:"required"` // 用户名
+	Port      int    `validate:"required"` // 端口号
 	Remark    string // 备注
 }
 
@@ -60,6 +63,7 @@ type EcsAuthVo struct {
 	Username   string     `json:"username"`
 	Password   string     `json:"password"`
 	PublicKey  string     `json:"publicKey"`
+	Port       int        `json:"port"`
 	CreateTime util.HTime `json:"createTime"`
 	Remark     string     `json:"remark"`
 }

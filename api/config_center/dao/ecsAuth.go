@@ -46,3 +46,9 @@ func (d *EcsAuthDao) UpdateEcsAuth(id uint, auth *model.EcsAuth) error {
 func (d *EcsAuthDao) DeleteEcsAuth(id uint) error {
 	return d.db.Delete(&model.EcsAuth{}, id).Error
 }
+
+func (d *EcsAuthDao) GetById(id uint) (model.EcsAuth, error) {
+	var auth model.EcsAuth
+	err := d.db.Where("id = ?", id).First(&auth).Error
+	return auth, err
+}

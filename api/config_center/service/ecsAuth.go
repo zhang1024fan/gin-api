@@ -34,6 +34,7 @@ func (s *EcsAuthServiceImpl) GetEcsAuthList(c *gin.Context) {
 			Username:   auth.Username,
 			Password:   auth.Password,
 			PublicKey:  auth.PublicKey,
+			Port:       auth.Port,
 			CreateTime: auth.CreateTime,
 			Remark:     auth.Remark,
 		})
@@ -52,6 +53,7 @@ func (s *EcsAuthServiceImpl) CreateEcsAuth(c *gin.Context, dto *model.CreateEcsP
 		Name:       dto.Name,
 		Username:   dto.Username,
 		Password:   dto.Password,
+		Port:       dto.Port,
 		CreateTime: util.HTime{Time: time.Now()},
 		Remark:     dto.Remark,
 		Type:       dto.Type,
@@ -70,10 +72,10 @@ func (s *EcsAuthServiceImpl) UpdateEcsAuth(c *gin.Context, id uint, dto *model.C
 		Name:     dto.Name,
 		Username: dto.Username,
 		Password: dto.Password,
+		Port:     dto.Port,
 		Remark:   dto.Remark,
 		Type:     dto.Type,
 		PublicKey: dto.PublicKey,
-
 	}
 	err := s.dao.UpdateEcsAuth(id, &auth)
 	if err != nil {
@@ -106,6 +108,7 @@ func (s *EcsAuthServiceImpl) GetEcsAuthByName(c *gin.Context, name string) {
 		Username:   auth.Username,
 		Password:   auth.Password,
 		PublicKey:  auth.PublicKey,
+		Port:       auth.Port,
 		CreateTime: auth.CreateTime,
 		Remark:     auth.Remark,
 	}
