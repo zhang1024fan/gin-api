@@ -612,6 +612,27 @@ definitions:
         description: 提示信息
         type: string
     type: object
+  unstructured.Unstructured:
+    properties:
+      object:
+        additionalProperties: true
+        description: |-
+          Object is a JSON compatible map with string, float, int, bool, []interface{}, or
+          map[string]interface{}
+          children.
+        type: object
+    type: object
+  unstructured.UnstructuredList:
+    properties:
+      items:
+        description: Items is a list of unstructured objects.
+        items:
+          $ref: '#/definitions/unstructured.Unstructured'
+        type: array
+      object:
+        additionalProperties: true
+        type: object
+    type: object
   util.HTime:
     properties:
       time.Time:
@@ -851,69 +872,6 @@ paths:
       summary: 验证码接口
       tags:
       - System系统管理
-  /api/v1/clusters:
-    get:
-      description: k8s集群列表接口
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: k8s集群列表接口
-      tags:
-      - K8s集群列表
-  /api/v1/clusters/add:
-    post:
-      consumes:
-      - application/json
-      description: 根据提供的配置信息创建一个新的Kubernetes集群
-      parameters:
-      - description: 集群配置信息
-        in: body
-        name: cluster
-        required: true
-        schema:
-          $ref: '#/definitions/model.AddKubeClusterDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: 操作成功返回结果
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 创建Kubernetes集群
-      tags:
-      - K8s集群列表
-  /api/v1/clusters/update:
-    put:
-      consumes:
-      - application/json
-      description: 根据提供的更新数据修改已有Kubernetes集群的配置
-      parameters:
-      - description: 更新后的集群配置信息
-        in: body
-        name: cluster
-        required: true
-        schema:
-          $ref: '#/definitions/model.UpdateKubeClusterDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: 操作成功返回结果
-          schema:
-            $ref: '#/definitions/result.Result'
-      security:
-      - ApiKeyAuth: []
-      summary: 更新Kubernetes集群信息
-      tags:
-      - K8s集群列表
   /api/v1/cmdb/groupadd:
     post:
       description: 新增资产分组接口
@@ -1397,6 +1355,115 @@ paths:
       summary: 部门下拉列表接口
       tags:
       - System系统管理
+  /api/v1/k8s/clusters:
+    get:
+      description: k8s集群列表接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: k8s集群列表接口
+      tags:
+      - K8s集群
+  /api/v1/k8s/clusters/add:
+    post:
+      consumes:
+      - application/json
+      description: 根据提供的配置信息创建一个新的Kubernetes集群
+      parameters:
+      - description: 集群配置信息
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/model.AddKubeClusterDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 操作成功返回结果
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 创建Kubernetes集群
+      tags:
+      - K8s集群
+  /api/v1/k8s/clusters/update:
+    put:
+      consumes:
+      - application/json
+      description: 根据提供的更新数据修改已有Kubernetes集群的配置
+      parameters:
+      - description: 更新后的集群配置信息
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateKubeClusterDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 操作成功返回结果
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新Kubernetes集群信息
+      tags:
+      - K8s集群
+  /api/v1/k8s/resource/deployments/{namespace}:
+    get:
+      consumes:
+      - application/json
+      description: 获取k8s集群中某个资源的列表，本注释以deployments为例,其他资源对象（如pod,configmap等）请自行修改，
+      parameters:
+      - description: 集群名字信息
+        in: header
+        name: x-cluster-name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/unstructured.UnstructuredList'
+      security:
+      - ApiKeyAuth: []
+      summary: 获取k8s集群某个资源列表
+      tags:
+      - K8s集群
+  /api/v1/k8s/resource/deployments/{namespace}/{name}:
+    get:
+      consumes:
+      - application/json
+      description: 获取k8s集群中某个资源的对象，本注释以deployments为例
+      parameters:
+      - description: 集群名字信息
+        in: header
+        name: x-cluster-name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/unstructured.Unstructured'
+      security:
+      - ApiKeyAuth: []
+      summary: 获取k8s集群某个资源对象,以deployments为例，其他资源对象（如pod,configmap等）请自行修改，集群级别资源url为/v1/k8s/resource/{resource}/_all/{name}
+      tags:
+      - K8s集群
   /api/v1/login:
     post:
       description: 用户登录接口

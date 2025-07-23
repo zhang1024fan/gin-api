@@ -28,6 +28,7 @@ type Codes struct {
 	KUBEClUSTEREXIST                        uint
 	KUBEClUSTERNOTEXIST                     uint
 	ValidationParameterError                uint
+	KUBEClUSTERNAMENOTEXIST                 uint
 }
 
 // ApiCode 状态码
@@ -57,6 +58,7 @@ var ApiCode = &Codes{
 	KUBEClUSTEREXIST:                        424,
 	ValidationParameterError:                425,
 	KUBEClUSTERNOTEXIST:                     426,
+	KUBEClUSTERNAMENOTEXIST:                 427,
 }
 
 // 状态信息
@@ -87,6 +89,7 @@ func init() {
 		ApiCode.KUBEClUSTEREXIST:                        "集群名称已存在，请重新输入",
 		ApiCode.ValidationParameterError:                "参数验证错误",
 		ApiCode.KUBEClUSTERNOTEXIST:                     "集群ID不存在",
+		ApiCode.KUBEClUSTERNAMENOTEXIST:                 "集群名称不存在",
 	}
 }
 

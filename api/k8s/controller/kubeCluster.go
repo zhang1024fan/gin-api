@@ -10,25 +10,25 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-// @Tags K8s集群列表
+// @Tags K8s集群
 // @Summary k8s集群列表接口
 // @Produce json
 // @Description k8s集群列表接口
 // @Success 200 {object} result.Result
-// @router /api/v1/clusters [get]
+// @router /api/v1/k8s/clusters [get]
 // @Security ApiKeyAuth
 func QueryCluster(c *gin.Context) {
 	service.KubeClusterService().QueryClusterList(c)
 }
 
-// @Tags K8s集群列表
+// @Tags K8s集群
 // @Summary 创建Kubernetes集群
 // @Description 根据提供的配置信息创建一个新的Kubernetes集群
 // @Accept json
 // @Produce json
 // @Param cluster body model.AddKubeClusterDto true "集群配置信息"
 // @Success 200 {object} result.Result "操作成功返回结果"
-// @Router /api/v1/clusters/add [post]
+// @Router /api/v1/k8s/clusters/add [post]
 // @Security ApiKeyAuth
 func CreateCluster(c *gin.Context) {
 	var dto model.AddKubeClusterDto
@@ -44,14 +44,14 @@ func CreateCluster(c *gin.Context) {
 	service.KubeClusterService().CreateCluster(c, dto)
 }
 
-// @Tags K8s集群列表
+// @Tags K8s集群
 // @Summary 更新Kubernetes集群信息
 // @Description 根据提供的更新数据修改已有Kubernetes集群的配置
 // @Accept json
 // @Produce json
 // @Param cluster body model.UpdateKubeClusterDto true "更新后的集群配置信息"
 // @Success 200 {object} result.Result "操作成功返回结果"
-// @Router /api/v1/clusters/update [put]
+// @Router /api/v1/k8s/clusters/update [put]
 // @Security ApiKeyAuth
 func UpdateCluster(c *gin.Context) {
 	var dto model.UpdateKubeClusterDto
