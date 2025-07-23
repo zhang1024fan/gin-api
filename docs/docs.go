@@ -384,109 +384,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/clusters": {
-            "get": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "k8s集群列表接口",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "K8s集群列表"
-                ],
-                "summary": "k8s集群列表接口",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/clusters/add": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "根据提供的配置信息创建一个新的Kubernetes集群",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "K8s集群列表"
-                ],
-                "summary": "创建Kubernetes集群",
-                "parameters": [
-                    {
-                        "description": "集群配置信息",
-                        "name": "cluster",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.AddKubeClusterDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "操作成功返回结果",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/clusters/update": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "description": "根据提供的更新数据修改已有Kubernetes集群的配置",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "K8s集群列表"
-                ],
-                "summary": "更新Kubernetes集群信息",
-                "parameters": [
-                    {
-                        "description": "更新后的集群配置信息",
-                        "name": "cluster",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.UpdateKubeClusterDto"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "操作成功返回结果",
-                        "schema": {
-                            "$ref": "#/definitions/result.Result"
-                        }
-                    }
-                }
-            }
-        },
         "/api/v1/cmdb/groupadd": {
             "post": {
                 "security": [
@@ -1063,6 +960,183 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/k8s/clusters": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "k8s集群列表接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8s集群"
+                ],
+                "summary": "k8s集群列表接口",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/k8s/clusters/add": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据提供的配置信息创建一个新的Kubernetes集群",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8s集群"
+                ],
+                "summary": "创建Kubernetes集群",
+                "parameters": [
+                    {
+                        "description": "集群配置信息",
+                        "name": "cluster",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.AddKubeClusterDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "操作成功返回结果",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/k8s/clusters/update": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据提供的更新数据修改已有Kubernetes集群的配置",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8s集群"
+                ],
+                "summary": "更新Kubernetes集群信息",
+                "parameters": [
+                    {
+                        "description": "更新后的集群配置信息",
+                        "name": "cluster",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdateKubeClusterDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "操作成功返回结果",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/k8s/resource/deployments/{namespace}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取k8s集群中某个资源的列表，本注释以deployments为例,其他资源对象（如pod,configmap等）请自行修改，",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8s集群"
+                ],
+                "summary": "获取k8s集群某个资源列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "集群名字信息",
+                        "name": "x-cluster-name",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/unstructured.UnstructuredList"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/k8s/resource/deployments/{namespace}/{name}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取k8s集群中某个资源的对象，本注释以deployments为例",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8s集群"
+                ],
+                "summary": "获取k8s集群某个资源对象,以deployments为例，其他资源对象（如pod,configmap等）请自行修改，集群级别资源url为/v1/k8s/resource/{resource}/_all/{name}",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "集群名字信息",
+                        "name": "x-cluster-name",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/unstructured.Unstructured"
                         }
                     }
                 }
@@ -3051,6 +3125,32 @@ const docTemplate = `{
                 "message": {
                     "description": "提示信息",
                     "type": "string"
+                }
+            }
+        },
+        "unstructured.Unstructured": {
+            "type": "object",
+            "properties": {
+                "object": {
+                    "description": "Object is a JSON compatible map with string, float, int, bool, []interface{}, or\nmap[string]interface{}\nchildren.",
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            }
+        },
+        "unstructured.UnstructuredList": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items is a list of unstructured objects.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/unstructured.Unstructured"
+                    }
+                },
+                "object": {
+                    "type": "object",
+                    "additionalProperties": true
                 }
             }
         },
