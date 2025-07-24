@@ -20,18 +20,32 @@ func NewCmdbHostController() *CmdbHostController {
 	}
 }
 
-// 获取主机列表
-// @Summary 获取主机列表
-// @Description 获取主机列表
+// 分页参数
+type PageParams struct {
+	Page     int `form:"page" binding:"required,min=1"`
+	PageSize int `form:"pageSize" binding:"required,min=1,max=100"`
+}
+
+// 获取主机列表(分页)
+// @Summary 获取主机列表(分页)
+// @Description 获取主机列表(分页)
 // @Tags CMDB资产管理
 // @Accept json
 // @Produce json
+// @Param page query int true "页码"
+// @Param pageSize query int true "每页数量"
 // @Success 200 {object} result.Result
 // @Router /api/v1/cmdb/hostlist [get]
 // @Security ApiKeyAuth
-func (c *CmdbHostController) GetCmdbHostList(ctx *gin.Context) {
-	c.service.GetCmdbHostList(ctx)
+func (c *CmdbHostController) GetCmdbHostListWithPage(ctx *gin.Context) {
+	var params PageParams
+	if err := ctx.ShouldBindQuery(&params); err != nil {
+		result.Failed(ctx, constant.INVALID_PARAMS, "分页参数错误")
+		return
+	}
+	c.service.GetCmdbHostListWithPage(ctx, params.Page, params.PageSize)
 }
+
 
 // 创建主机
 // @Summary 创建主机
@@ -118,4 +132,49 @@ func (c *CmdbHostController) GetCmdbHostById(ctx *gin.Context) {
 func (c *CmdbHostController) GetCmdbHostsByGroupId(ctx *gin.Context) {
 	groupId := util.StringToUint(ctx.Query("groupId"))
 	c.service.GetCmdbHostsByGroupId(ctx, groupId)
+}
+
+// 根据主机名称模糊查询
+// @Summary 根据主机名称模糊查询
+// @Description 根据主机名称模糊查询
+// @Tags CMDB资产管理
+// @Accept json
+// @Produce json
+// @Param name query string true "主机名称(模糊匹配)"
+// @Success 200 {object} result.Result
+// @Router /api/v1/cmdb/hostbyname [get]
+// @Security ApiKeyAuth
+func (c *CmdbHostController) GetCmdbHostsByHostNameLike(ctx *gin.Context) {
+	name := ctx.Query("name")
+	c.service.GetCmdbHostsByHostNameLike(ctx, name)
+}
+
+// 根据IP查询主机
+// @Summary 根据IP查询主机
+// @Description 根据IP查询主机(匹配内网IP、公网IP或SSH IP)
+// @Tags CMDB资产管理
+// @Accept json
+// @Produce json
+// @Param ip query string true "IP地址"
+// @Success 200 {object} result.Result
+// @Router /api/v1/cmdb/hostbyip [get]
+// @Security ApiKeyAuth
+func (c *CmdbHostController) GetCmdbHostsByIP(ctx *gin.Context) {
+	ip := ctx.Query("ip")
+	c.service.GetCmdbHostsByIP(ctx, ip)
+}
+
+// 根据状态查询主机
+// @Summary 根据状态查询主机
+// @Description 根据状态查询主机(1->认证成功,2->未认证,3->认证失败)
+// @Tags CMDB资产管理
+// @Accept json
+// @Produce json
+// @Param status query int true "状态(1/2/3)"
+// @Success 200 {object} result.Result
+// @Router /api/v1/cmdb/hostbystatus [get]
+// @Security ApiKeyAuth
+func (c *CmdbHostController) GetCmdbHostsByStatus(ctx *gin.Context) {
+	status := int(util.StringToUint(ctx.Query("status")))
+	c.service.GetCmdbHostsByStatus(ctx, status)
 }

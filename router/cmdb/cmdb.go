@@ -21,7 +21,10 @@ func RegisterCmdbRoutes(router *gin.RouterGroup) {
 	router.POST("/cmdb/hostcreate", controller.NewCmdbHostController().CreateCmdbHost)       // 创建主机
 	router.PUT("/cmdb/hostupdate", controller.NewCmdbHostController().UpdateCmdbHost)    // 更新主机
 	router.DELETE("/cmdb/hostdelete", controller.NewCmdbHostController().DeleteCmdbHost) // 删除主机
-	router.GET("/cmdb/hostlist", controller.NewCmdbHostController().GetCmdbHostList)         // 获取主机列表
+	router.GET("/cmdb/hostlist", controller.NewCmdbHostController().GetCmdbHostListWithPage) // 获取主机列表(分页)
 	router.GET("/cmdb/hostinfo", controller.NewCmdbHostController().GetCmdbHostById)     // 根据ID获取主机
 	router.GET("/cmdb/hostgroup", controller.NewCmdbHostController().GetCmdbHostsByGroupId) // 根据分组ID获取主机列表
+	router.GET("/cmdb/hostbyname", controller.NewCmdbHostController().GetCmdbHostsByHostNameLike) // 根据主机名称模糊查询
+	router.GET("/cmdb/hostbyip", controller.NewCmdbHostController().GetCmdbHostsByIP)     // 根据IP查询主机
+	router.GET("/cmdb/hostbystatus", controller.NewCmdbHostController().GetCmdbHostsByStatus) // 根据状态查询主机
 }

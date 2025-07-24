@@ -15,6 +15,14 @@ type Result struct {
 	Data    interface{} `json:"data"`    // 返回的数据
 }
 
+// 分页返回结构
+type PageResult struct {
+	Total    int64       `json:"total"`    // 总记录数
+	List     interface{} `json:"list"`     // 数据列表
+	Page     int         `json:"page"`     // 当前页码
+	PageSize int         `json:"pageSize"` // 每页数量
+}
+
 // 返回成功
 func Success(c *gin.Context, data interface{}) {
 	if data == nil {
@@ -24,6 +32,21 @@ func Success(c *gin.Context, data interface{}) {
 	res.Code = int(ApiCode.SUCCESS)
 	res.Message = ApiCode.GetMessage(ApiCode.SUCCESS)
 	res.Data = data
+	c.JSON(http.StatusOK, res)
+}
+
+// 返回分页成功
+func SuccessWithPage(c *gin.Context, list interface{}, total int64, page, pageSize int) {
+	res := Result{
+		Code:    int(ApiCode.SUCCESS),
+		Message: ApiCode.GetMessage(ApiCode.SUCCESS),
+		Data: PageResult{
+			Total:    total,
+			List:     list,
+			Page:     page,
+			PageSize: pageSize,
+		},
+	}
 	c.JSON(http.StatusOK, res)
 }
 

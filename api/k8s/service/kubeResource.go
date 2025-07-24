@@ -37,12 +37,12 @@ func NewKubeResourceService(client schema.GroupVersionResource, IsClusterScoped 
 }
 
 // @Tags K8s集群
-// @Summary 获取k8s集群某个资源对象,以deployments为例，其他资源对象（如pod,configmap等）请自行修改，集群级别资源url为/v1/k8s/resource/{resource}/_all/{name}
-// @Description 获取k8s集群中某个资源的对象，本注释以deployments为例
+// @Summary 获取k8s集群某个资源对象
+// @Description 获取k8s集群中某个资源的对象
 // @Accept json
 // @Produce json
 // @Param x-cluster-name header string true "集群名字信息"
-// @Success  200  {object}  unstructured.Unstructured
+// @Success  200  {object}  map[string]interface{}
 // @Router /api/v1/k8s/resource/deployments/{namespace}/{name} [get]
 // @Security ApiKeyAuth
 func (s KubeResourceServiceImpl) Get(c *gin.Context) {
@@ -66,27 +66,17 @@ func (s KubeResourceServiceImpl) Get(c *gin.Context) {
 
 	c.JSON(200, obj)
 }
-func (s KubeResourceServiceImpl) Create(c *gin.Context) {
-
-}
-func (s KubeResourceServiceImpl) Update(c *gin.Context) {
-
-}
-func (s KubeResourceServiceImpl) Delete(c *gin.Context) {
-
-}
 
 // @Tags K8s集群
 // @Summary 获取k8s集群某个资源列表
-// @Description 获取k8s集群中某个资源的列表，本注释以deployments为例,其他资源对象（如pod,configmap等）请自行修改，
+// @Description 获取k8s集群中某个资源的列表
 // @Accept json
 // @Produce json
 // @Param x-cluster-name header string true "集群名字信息"
-// @Success  200  {object}  unstructured.UnstructuredList
+// @Success  200  {object}  map[string]interface{}
 // @Router /api/v1/k8s/resource/deployments/{namespace} [get]
 // @Security ApiKeyAuth
 func (s KubeResourceServiceImpl) List(c *gin.Context) {
-
 	var objList *unstructured.UnstructuredList
 	value, exists := c.Get("cluster")
 	if !exists {
@@ -144,4 +134,16 @@ func (s KubeResourceServiceImpl) List(c *gin.Context) {
 
 func (s KubeResourceServiceImpl) IsClusterScoped() bool {
 	return s.isClusterScoped
+}
+
+func (s KubeResourceServiceImpl) Create(c *gin.Context) {
+	// 实现创建逻辑
+}
+
+func (s KubeResourceServiceImpl) Update(c *gin.Context) {
+	// 实现更新逻辑
+}
+
+func (s KubeResourceServiceImpl) Delete(c *gin.Context) {
+	// 实现删除逻辑
 }

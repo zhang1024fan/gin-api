@@ -25,13 +25,13 @@ func (d *CmdbGroupDao) GetCmdbGroupById(id uint) (model.CmdbGroup, error) {
 
 func (d *CmdbGroupDao) GetCmdbGroupByName(name string) (model.CmdbGroup, error) {
 	var group model.CmdbGroup
-	err := d.db.Where("name = ?", name).First(&group).Error
+	err := d.db.Where("name LIKE ?", "%"+name+"%").First(&group).Error
 	return group, err
 }
 
 func (d *CmdbGroupDao) CheckNameExists(name string) bool {
 	var count int64
-	d.db.Model(&model.CmdbGroup{}).Where("name = ?", name).Count(&count)
+	d.db.Model(&model.CmdbGroup{}).Where("name LIKE ?", "%"+name+"%").Count(&count)
 	return count > 0
 }
 

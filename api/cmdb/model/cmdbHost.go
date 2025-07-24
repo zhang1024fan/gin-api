@@ -7,7 +7,7 @@ import (
 // 主机基本信息
 type CmdbHost struct {
 	ID          uint       `gorm:"column:id;comment:'主键';primaryKey;NOT NULL" json:"id"`
-	HostName    string     `gorm:"column:host_name;varchar(64);comment:'主机名称';NOT NULL" json:"hostName"`
+	HostName    string     `gorm:"column:host_name;varchar(64);comment:'名称';NOT NULL" json:"hostName"`
 	GroupID     uint       `gorm:"column:group_id;comment:'分组ID';NOT NULL" json:"groupId"`
 	PrivateIP   string     `gorm:"column:private_ip;varchar(64);comment:'私网IP'" json:"privateIp"`
 	PublicIP    string     `gorm:"column:public_ip;varchar(64);comment:'公网IP'" json:"publicIp"`
@@ -16,9 +16,10 @@ type CmdbHost struct {
 	SSHKeyID    uint       `gorm:"column:ssh_key_id;comment:'SSH凭据ID'" json:"sshKeyId"`
 	SSHPort     int        `gorm:"column:ssh_port;comment:'SSH端口';default:22" json:"sshPort"`
 	Remark      string     `gorm:"column:remark;varchar(500);comment:'备注'" json:"remark"`
-	Vendor      string     `gorm:"column:vendor;varchar(32);comment:'厂商(自建/阿里云/腾讯云)'" json:"vendor"`
+	Vendor      int        `gorm:"column:vendor;varchar(32);comment:'1->自建,2->阿里云,3->腾讯云'" json:"vendor"`
 	Region      string     `gorm:"column:region;varchar(64);comment:'区域'" json:"region"`
 	InstanceID  string     `gorm:"column:instance_id;varchar(128);comment:'实例ID'" json:"instanceId"`
+	Name        string     `gorm:"column:name;varchar(64);comment:'ecs主机名称';NOT NULL" json:"name"`
 	OS          string     `gorm:"column:os;varchar(128);comment:'操作系统'" json:"os"`
 	Status      int        `gorm:"column:status;comment:'状态:1->认证成功,2->未认证,3->认证失败'" json:"status"`
 	CPU         string     `gorm:"column:cpu;varchar(32);comment:'CPU信息'" json:"cpu"`
@@ -66,6 +67,7 @@ type CmdbHostIdDto struct {
 type CmdbHostVo struct {
 	ID          uint       `json:"id"`
 	HostName    string     `json:"hostName"`
+	Name        string     `json:"name"` // ECS主机名称
 	GroupID     uint       `json:"groupId"`
 	GroupName   string     `json:"groupName"`
 	PrivateIP   string     `json:"privateIp"`

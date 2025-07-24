@@ -551,6 +551,117 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v1/cmdb/hostbyip": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据IP查询主机(匹配内网IP、公网IP或SSH IP)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "根据IP查询主机",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "IP地址",
+                        "name": "ip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cmdb/hostbyname": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据主机名称模糊查询",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "根据主机名称模糊查询",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "主机名称(模糊匹配)",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cmdb/hostbystatus": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据状态查询主机(1-\u003e认证成功,2-\u003e未认证,3-\u003e认证失败)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "CMDB资产管理"
+                ],
+                "summary": "根据状态查询主机",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "状态(1/2/3)",
+                        "name": "status",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/cmdb/hostcreate": {
             "post": {
                 "security": [
@@ -710,7 +821,7 @@ const docTemplate = `{
                         "ApiKeyAuth": []
                     }
                 ],
-                "description": "获取主机列表",
+                "description": "获取主机列表(分页)",
                 "consumes": [
                     "application/json"
                 ],
@@ -720,7 +831,23 @@ const docTemplate = `{
                 "tags": [
                     "CMDB资产管理"
                 ],
-                "summary": "获取主机列表",
+                "summary": "获取主机列表(分页)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1294,7 +1421,7 @@ const docTemplate = `{
                         "ApiKeyAuth": []
                     }
                 ],
-                "description": "获取k8s集群中某个资源的列表，本注释以deployments为例,其他资源对象（如pod,configmap等）请自行修改，",
+                "description": "获取k8s集群中某个资源的列表",
                 "consumes": [
                     "application/json"
                 ],
@@ -1318,7 +1445,8 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/unstructured.UnstructuredList"
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
@@ -1331,7 +1459,7 @@ const docTemplate = `{
                         "ApiKeyAuth": []
                     }
                 ],
-                "description": "获取k8s集群中某个资源的对象，本注释以deployments为例",
+                "description": "获取k8s集群中某个资源的对象",
                 "consumes": [
                     "application/json"
                 ],
@@ -1341,7 +1469,7 @@ const docTemplate = `{
                 "tags": [
                     "K8s集群"
                 ],
-                "summary": "获取k8s集群某个资源对象,以deployments为例，其他资源对象（如pod,configmap等）请自行修改，集群级别资源url为/v1/k8s/resource/{resource}/_all/{name}",
+                "summary": "获取k8s集群某个资源对象",
                 "parameters": [
                     {
                         "type": "string",
@@ -1355,7 +1483,8 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/unstructured.Unstructured"
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
@@ -3449,32 +3578,6 @@ const docTemplate = `{
                 "message": {
                     "description": "提示信息",
                     "type": "string"
-                }
-            }
-        },
-        "unstructured.Unstructured": {
-            "type": "object",
-            "properties": {
-                "object": {
-                    "description": "Object is a JSON compatible map with string, float, int, bool, []interface{}, or\nmap[string]interface{}\nchildren.",
-                    "type": "object",
-                    "additionalProperties": true
-                }
-            }
-        },
-        "unstructured.UnstructuredList": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "description": "Items is a list of unstructured objects.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/unstructured.Unstructured"
-                    }
-                },
-                "object": {
-                    "type": "object",
-                    "additionalProperties": true
                 }
             }
         },

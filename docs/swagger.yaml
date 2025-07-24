@@ -612,27 +612,6 @@ definitions:
         description: 提示信息
         type: string
     type: object
-  unstructured.Unstructured:
-    properties:
-      object:
-        additionalProperties: true
-        description: |-
-          Object is a JSON compatible map with string, float, int, bool, []interface{}, or
-          map[string]interface{}
-          children.
-        type: object
-    type: object
-  unstructured.UnstructuredList:
-    properties:
-      items:
-        description: Items is a list of unstructured objects.
-        items:
-          $ref: '#/definitions/unstructured.Unstructured'
-        type: array
-      object:
-        additionalProperties: true
-        type: object
-    type: object
   util.HTime:
     properties:
       time.Time:
@@ -974,6 +953,75 @@ paths:
       summary: 更新资产分组接口
       tags:
       - CMDB资产管理
+  /api/v1/cmdb/hostbyip:
+    get:
+      consumes:
+      - application/json
+      description: 根据IP查询主机(匹配内网IP、公网IP或SSH IP)
+      parameters:
+      - description: IP地址
+        in: query
+        name: ip
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据IP查询主机
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostbyname:
+    get:
+      consumes:
+      - application/json
+      description: 根据主机名称模糊查询
+      parameters:
+      - description: 主机名称(模糊匹配)
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据主机名称模糊查询
+      tags:
+      - CMDB资产管理
+  /api/v1/cmdb/hostbystatus:
+    get:
+      consumes:
+      - application/json
+      description: 根据状态查询主机(1->认证成功,2->未认证,3->认证失败)
+      parameters:
+      - description: 状态(1/2/3)
+        in: query
+        name: status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 根据状态查询主机
+      tags:
+      - CMDB资产管理
   /api/v1/cmdb/hostcreate:
     post:
       consumes:
@@ -1072,7 +1120,18 @@ paths:
     get:
       consumes:
       - application/json
-      description: 获取主机列表
+      description: 获取主机列表(分页)
+      parameters:
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: 每页数量
+        in: query
+        name: pageSize
+        required: true
+        type: integer
       produces:
       - application/json
       responses:
@@ -1082,7 +1141,7 @@ paths:
             $ref: '#/definitions/result.Result'
       security:
       - ApiKeyAuth: []
-      summary: 获取主机列表
+      summary: 获取主机列表(分页)
       tags:
       - CMDB资产管理
   /api/v1/cmdb/hostupdate:
@@ -1422,7 +1481,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: 获取k8s集群中某个资源的列表，本注释以deployments为例,其他资源对象（如pod,configmap等）请自行修改，
+      description: 获取k8s集群中某个资源的列表
       parameters:
       - description: 集群名字信息
         in: header
@@ -1435,7 +1494,8 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/unstructured.UnstructuredList'
+            additionalProperties: true
+            type: object
       security:
       - ApiKeyAuth: []
       summary: 获取k8s集群某个资源列表
@@ -1445,7 +1505,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: 获取k8s集群中某个资源的对象，本注释以deployments为例
+      description: 获取k8s集群中某个资源的对象
       parameters:
       - description: 集群名字信息
         in: header
@@ -1458,10 +1518,11 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/unstructured.Unstructured'
+            additionalProperties: true
+            type: object
       security:
       - ApiKeyAuth: []
-      summary: 获取k8s集群某个资源对象,以deployments为例，其他资源对象（如pod,configmap等）请自行修改，集群级别资源url为/v1/k8s/resource/{resource}/_all/{name}
+      summary: 获取k8s集群某个资源对象
       tags:
       - K8s集群
   /api/v1/login:

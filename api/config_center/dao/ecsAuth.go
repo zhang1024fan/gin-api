@@ -52,3 +52,8 @@ func (d *EcsAuthDao) GetById(id uint) (model.EcsAuth, error) {
 	err := d.db.Where("id = ?", id).First(&auth).Error
 	return auth, err
 }
+
+// GetEcsAuthById 根据ID获取ECS认证信息
+func (d *EcsAuthDao) GetEcsAuthById(id uint) (model.EcsAuth, error) {
+	return d.GetById(id)
+}
